@@ -55,7 +55,7 @@
 								<li class="m-nav__item">
 									<a href="" class="m-nav__link">
 										<span class="m-nav__link-text">
-											<%= amoeba.idAmoeba %> - <%= amoeba.namaAmoeba %> 
+											<%= amoeba.idAmoeba %> - <%= amoeba.namaAmoeba %>
 										</span>
 									</a>
 								</li>
@@ -357,8 +357,8 @@
 														ID Amoeba
 													</label>
 													<div class="col-7">
-														<input class="form-control m-input" type="text" value="<%= amoeba.idAmoeba %>"
-															readonly>
+														<input class="form-control m-input" type="text"
+															value="<%= amoeba.idAmoeba %>" readonly>
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
@@ -366,8 +366,8 @@
 														Nama Amoeba
 													</label>
 													<div class="col-7">
-														<input class="form-control m-input" type="text" value="<%= amoeba.namaAmoeba %>"
-															readonly>
+														<input class="form-control m-input" type="text"
+															value="<%= amoeba.namaAmoeba %>" readonly>
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
@@ -376,7 +376,8 @@
 													</label>
 													<div class="col-7">
 														<textarea name="deskripsi1" id="deskripsi1" cols="30" rows="5"
-															class="form-control m-input" readonly><%= amoeba.deskripsi1 %></textarea>
+															class="form-control m-input"
+															readonly><%= amoeba.deskripsi1 %></textarea>
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
@@ -385,7 +386,8 @@
 													</label>
 													<div class="col-7">
 														<textarea name="deskripsi2" id="deskripsi2" cols="30" rows="5"
-															class="form-control m-input" readonly><%= amoeba.deskripsi2 %></textarea>
+															class="form-control m-input"
+															readonly><%= amoeba.deskripsi2 %></textarea>
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
@@ -393,8 +395,8 @@
 														Batch
 													</label>
 													<div class="col-7">
-														<input class="form-control m-input" type="text" value="<%= amoeba.batch %>"
-															readonly>
+														<input class="form-control m-input" type="text"
+															value="<%= amoeba.batch %>" readonly>
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
@@ -420,8 +422,8 @@
 														Area Innovasi
 													</label>
 													<div class="col-7">
-														<input class="form-control m-input" type="text" value="<%= amoeba.areaInovasi %>"
-															readonly>
+														<input class="form-control m-input" type="text"
+															value="<%= amoeba.areaInovasi %>" readonly>
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
@@ -430,7 +432,8 @@
 													</label>
 													<div class="col-7">
 														<textarea name="deskripsi2" id="deskripsi2" cols="30" rows="5"
-															class="form-control m-input" readonly><%= amoeba.dtp %></textarea>
+															class="form-control m-input"
+															readonly><%= amoeba.dtp %></textarea>
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
@@ -447,8 +450,8 @@
 														Mapping CFU
 													</label>
 													<div class="col-7">
-														<input class="form-control m-input" type="text" value="<%= amoeba.mappingCFU %>"
-															readonly>
+														<input class="form-control m-input" type="text"
+															value="<%= amoeba.mappingCFU %>" readonly>
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
@@ -456,8 +459,8 @@
 														Core
 													</label>
 													<div class="col-7">
-														<input class="form-control m-input" type="text" value="<%= amoeba.core %>"
-															readonly>
+														<input class="form-control m-input" type="text"
+															value="<%= amoeba.core %>" readonly>
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
@@ -465,8 +468,8 @@
 														Ecosystem
 													</label>
 													<div class="col-7">
-														<input class="form-control m-input" type="text" value="<%= amoeba.ecosystem %>"
-															readonly>
+														<input class="form-control m-input" type="text"
+															value="<%= amoeba.ecosystem %>" readonly>
 													</div>
 												</div>
 											</div>
@@ -615,15 +618,49 @@
 												</div>
 											</div>
 											<% for (let innovator of innovators) { %>
-											<div class="form-group m-form__group row">
-												<label for="example-text-input" class="col-2 col-form-label">
-													Nama Innovator
-												</label>
-												<div class="col-7">
-													<input class="form-control m-input" type="text" value="<%= innovator.namaPeserta %>"
-														readonly>
+											<div class="row">
+												<div class="col-md-3">
+													<div class="m-card-profile">
+														<div class="m-card-profile__pic">
+															<div class="m-card-profile__pic-wrapper">
+																<img src="../assets/app/media/img/users/user4.jpg" alt="" />
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-9">
+													<div class="form-group m-form__group row">
+														<label for="example-text-input" class="col-2 col-form-label">
+															Nama Innovator
+														</label>
+														<div class="col-7">
+															<input class="form-control m-input" type="text"
+																value="<%= innovator.namaPeserta %>" readonly>
+														</div>
+													</div>
+													<div class="form-group m-form__group row">
+														<label for="example-text-input" class="col-2 col-form-label">
+															C-Level
+														</label>
+														<div class="col-7">
+															<input class="form-control m-input" type="text"
+																value="<%= innovator.cLevel %>" readonly>
+														</div>
+													</div>
+													<br>
+													<div class="form-group m-form__group row">
+														<label for="example-text-input" class="col-2 col-form-label">
+															Tim Struktur
+														</label>
+														<div class="col-7">
+															<input class="form-control m-input" type="text"
+																value="<%= innovator.timStruktur %>" readonly>
+														</div>
+													</div>
 												</div>
 											</div>
+											<hr>
+											<br>
 											<% } %>
 										</div>
 									</div>

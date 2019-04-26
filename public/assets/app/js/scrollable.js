@@ -17,11 +17,11 @@ var DatatablesBasicScrollable = {
                     var l = {
                         "Aktif": {
                             title: "Aktif",
-                            class: " m-badge--success"
+                            class: "m-badge--success"
                         },
                         "Tidak Aktif": {
                             title: "Danger",
-                            class: " m-badge--danger"
+                            class: "m-badge--danger"
                         }
                     };
                     return void 0 === l[a] ? a : '<span class="m-badge ' + l[a].class + ' m-badge--wide">' + l[a].title + "</span>"
@@ -32,22 +32,22 @@ var DatatablesBasicScrollable = {
                     var l = {
                         "CV": {
                             title: "CV",
-                            state: "danger"
+                            class: "m-badge--danger"
                         },
                         "PV": {
                             title: "PV",
-                            state: "primary"
+                            class: "m-badge--primary"
                         },
                         "BMV": {
                             title: "BMV",
-                            state: "accent"
+                            class: "m-badge--accent"
                         },
                         "MV": {
                             title: "MV",
-                            state: "success"
+                            class: "m-badge--success"
                         }
                     };
-                    return void 0 === l[a] ? a : '<span class="m-badge m-badge--' + l[a].state + ' m-badge--dot"></span>&nbsp;<span class="m--font-bold m--font-' + l[a].state + '">' + l[a].title + "</span>"
+                    return void 0 === l[a] ? a : '<span class="m-badge ' + l[a].class + ' m-badge--wide">' + l[a].title + "</span>"
                 }
             }]
         })
