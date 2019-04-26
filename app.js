@@ -38,7 +38,7 @@ app.use(userRoutes);
 
 app.use(errorController.get404);
 
-Innovator.belongsTo(Amoeba);
+Innovator.belongsTo(Amoeba, { constraints: true, onDelete: 'SET NULL' });
 Amoeba.hasMany(Innovator);
 
 sequelize
