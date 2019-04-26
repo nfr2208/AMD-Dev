@@ -1,0 +1,314 @@
+<%- include('includes/head.ejs')%>
+<link href="assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+</head>
+<!-- end::Head -->
+<!-- end::Body -->
+
+<body
+	class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-light m-aside-left--fixed m-aside-left--offcanvas m-aside-left--minimize m-brand--minimize m-footer--push m-aside--offcanvas-default">
+	<!-- begin:: Page -->
+	<div class="m-grid m-grid--hor m-grid--root m-page">
+		<!-- BEGIN: Header -->
+		<%- include('includes/header.ejs')%>
+		<!-- END: Header -->
+		<!-- begin::Body -->
+		<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+			<!-- BEGIN: Left Aside -->
+			<%- include('includes/left-aside.ejs')%>
+			<!-- END: Left Aside -->
+			<div class="m-grid__item m-grid__item--fluid m-wrapper">
+				<!-- BEGIN: Subheader -->
+				<div class="m-subheader ">
+					<div class="d-flex align-items-center">
+						<div class="mr-auto">
+							<h3 class="m-subheader__title m-subheader__title--separator">
+								Dashboard
+							</h3>
+							<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+								<li class="m-nav__item m-nav__item--home">
+									<a href="#" class="m-nav__link m-nav__link--icon">
+										<i class="m-nav__link-icon la la-home"></i>
+									</a>
+								</li>
+								<li class="m-nav__separator">
+									>
+								</li>
+								<li class="m-nav__item">
+									<a href="" class="m-nav__link">
+										<span class="m-nav__link-text">
+											Dashboard
+										</span>
+									</a>
+								</li>
+								<li class="m-nav__separator">
+									>
+								</li>
+								<li class="m-nav__item">
+									<a href="" class="m-nav__link">
+										<span class="m-nav__link-text">
+											View Amoeba
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div>
+							<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
+								m-dropdown-toggle="hover" aria-expanded="true">
+								<a href="#"
+									class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+									<i class="la la-plus m--hide"></i>
+									<i class="la la-ellipsis-h"></i>
+								</a>
+								<div class="m-dropdown__wrapper">
+									<span
+										class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+									<div class="m-dropdown__inner">
+										<div class="m-dropdown__body">
+											<div class="m-dropdown__content">
+												<ul class="m-nav">
+													<li class="m-nav__section m-nav__section--first m--hide">
+														<span class="m-nav__section-text">
+															Quick Actions
+														</span>
+													</li>
+													<li class="m-nav__item">
+														<a href="" class="m-nav__link">
+															<i class="m-nav__link-icon flaticon-share"></i>
+															<span class="m-nav__link-text">
+																Activity
+															</span>
+														</a>
+													</li>
+													<li class="m-nav__item">
+														<a href="" class="m-nav__link">
+															<i class="m-nav__link-icon flaticon-chat-1"></i>
+															<span class="m-nav__link-text">
+																Messages
+															</span>
+														</a>
+													</li>
+													<li class="m-nav__item">
+														<a href="" class="m-nav__link">
+															<i class="m-nav__link-icon flaticon-info"></i>
+															<span class="m-nav__link-text">
+																FAQ
+															</span>
+														</a>
+													</li>
+													<li class="m-nav__item">
+														<a href="" class="m-nav__link">
+															<i class="m-nav__link-icon flaticon-lifebuoy"></i>
+															<span class="m-nav__link-text">
+																Support
+															</span>
+														</a>
+													</li>
+													<li class="m-nav__separator m-nav__separator--fit"></li>
+													<li class="m-nav__item">
+														<a href="#"
+															class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+															Submit
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END: Subheader -->
+				<div class="m-content">
+					<div class="m-portlet m-portlet--mobile">
+						<div class="m-portlet__head">
+							<div class="m-portlet__head-caption">
+								<div class="m-portlet__head-title">
+									<h3 class="m-portlet__head-text">
+										List of Amoebas
+									</h3>
+								</div>
+							</div>
+							<div class="m-portlet__head-tools">
+								<ul class="m-portlet__nav">
+									<li class="m-portlet__nav-item">
+										<a href="/register-amoeba"
+											class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air">
+											<span>
+												<i class="la la-users"></i>
+												<span>
+													Add Amoeba
+												</span>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="m-portlet__body">
+							<% if (amoes.length > 0) { %>
+							<table class="table table-striped- table-bordered table-hover table-checkable"
+								id="view_amoeba_table">
+								<thead>
+									<tr>
+										<th>
+											ID Amoeba
+										</th>
+										<th>
+											Nama Amoeba
+										</th>
+										<th>
+											Deskripsi 1
+										</th>
+										<th>
+											Deskripsi 2
+										</th>
+										<th>
+											Batch
+										</th>
+										<th>
+											Status Amoeba
+										</th>
+										<th>
+											Current Phase
+										</th>
+										<th>
+											Incubation / Acceleration
+										</th>
+										<th>
+											Tipe Inovasi
+										</th>
+										<th>
+											Area Inovasi
+										</th>
+										<th>
+											DTP
+										</th>
+										<th>
+											Mapping Pilar DDS
+										</th>
+										<th>
+											Mapping CFU
+										</th>
+										<th>
+											Core
+										</th>
+										<th>
+											Ecosystem
+										</th>
+										<th>
+											Actions
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% for (let amoeba of amoes) { %>
+									<tr>
+										<th scope="row">
+											<%= amoeba.idAmoeba %>
+										</th>
+										<td>
+											<%= amoeba.namaAmoeba %>
+										</td>
+										<td>
+											<%= amoeba.deskripsi1 %>
+										</td>
+										<td>
+											<%= amoeba.deskripsi2 %>
+										</td>
+										<td>
+											<%= amoeba.batch %>
+										</td>
+										<td>
+											<%= amoeba.statusAmoeba %>
+										</td>
+										<td>
+											<%= amoeba.currentPhase %>
+										</td>
+										<td>
+											<%= amoeba.incbAcc %>
+										</td>
+										<td>
+											<%= amoeba.tipeInovasi %>
+										</td>
+										<td>
+											<%= amoeba.areaInovasi %>
+										</td>
+										<td>
+											<%= amoeba.dtp %>
+										</td>
+										<td>
+											<%= amoeba.mappingPilarDDS %>
+										</td>
+										<td>
+											<%= amoeba.mappingCFU %>
+										</td>
+										<td>
+											<%= amoeba.core %>
+										</td>
+										<td>
+											<%= amoeba.ecosystem %>
+										</td>
+										<td nowrap>
+											<a href="/detail-amoeba/<%= amoeba.idAmoeba %>"
+												class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill"
+												title="View">
+												<i class="la la-user"></i>
+											</a>
+											<a href="/edit-amoeba/<%= amoeba.idAmoeba %>?edit=true"
+												class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill"
+												title="Edit">
+												<i class="la la-edit"></i>
+											</a>
+											<form action="/delete-amoeba" method="POST" class="text-center">
+												<input type="hidden" name="idAmoeba" value="<%= amoeba.idAmoeba %>">
+												<button
+													class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill"
+													type="submit" title="Delete">
+													<i class="la la-trash"></i>
+												</button>
+											</form>
+										</td>
+									</tr>
+									<% } %>
+								</tbody>
+							</table>
+							<% } else { %>
+							<h1>No Amoebas Found!</h1>
+							<% } %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end:: Body -->
+		<!-- begin::Footer -->
+		<%- include('includes/footer.ejs')%>
+		<!-- end::Footer -->
+	</div>
+	<!-- end:: Page -->
+	<!-- begin::Quick Sidebar -->
+	<%- include('includes/quick-sidebar.ejs')%>
+	<!-- end::Quick Sidebar -->
+	<!-- begin::Scroll Top -->
+	<div id="m_scroll_top" class="m-scroll-top">
+		<i class="la la-arrow-up"></i>
+	</div>
+	<!-- end::Scroll Top -->
+	<!-- begin::Quick Nav -->
+	<%- include('includes/quick-nav.ejs')%>
+	<!-- begin::Quick Nav -->
+	<!--begin::Base Scripts -->
+	<%- include('includes/base-scripts.ejs')%>
+	<!--end::Base Scripts -->
+	<!--begin::Page Snippets -->
+	<script src="assets/app/js/dashboard.js" type="text/javascript"></script>
+	<!--end::Page Snippets -->
+	<script src="assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
+	<script src="assets/app/js/scrollable.js" type="text/javascript"></script>
+</body>
+<!-- end::Body -->
+
+</html>

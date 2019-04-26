@@ -1,0 +1,663 @@
+<%- include('includes/head.ejs')%>
+</head>
+<!-- end::Head -->
+<!-- end::Body -->
+
+<body
+	class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-light m-aside-left--fixed m-aside-left--offcanvas m-aside-left--minimize m-brand--minimize m-footer--push m-aside--offcanvas-default">
+	<!-- begin:: Page -->
+	<div class="m-grid m-grid--hor m-grid--root m-page">
+		<!-- BEGIN: Header -->
+		<%- include('includes/header.ejs')%>
+		<!-- END: Header -->
+		<!-- begin::Body -->
+		<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+			<!-- BEGIN: Left Aside -->
+			<%- include('includes/left-aside.ejs')%>
+			<!-- END: Left Aside -->
+			<div class="m-grid__item m-grid__item--fluid m-wrapper">
+				<!-- BEGIN: Subheader -->
+				<div class="m-subheader ">
+					<div class="d-flex align-items-center">
+						<div class="mr-auto">
+							<h3 class="m-subheader__title m-subheader__title--separator">
+								Dashboard
+							</h3>
+							<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+								<li class="m-nav__item m-nav__item--home">
+									<a href="/" class="m-nav__link m-nav__link--icon">
+										<i class="m-nav__link-icon la la-home"></i>
+									</a>
+								</li>
+								<li class="m-nav__separator">
+									>
+								</li>
+								<li class="m-nav__item">
+									<a href="/" class="m-nav__link">
+										<span class="m-nav__link-text">
+											Dashboard
+										</span>
+									</a>
+								</li>
+								<li class="m-nav__separator">
+									>
+								</li>
+								<li class="m-nav__item">
+									<a href="/view-amoeba" class="m-nav__link">
+										<span class="m-nav__link-text">
+											View Amoeba
+										</span>
+									</a>
+								</li>
+								<li class="m-nav__separator">
+									>
+								</li>
+								<li class="m-nav__item">
+									<a href="" class="m-nav__link">
+										<span class="m-nav__link-text">
+											<%= amoeba.idAmoeba %> - <%= amoeba.namaAmoeba %> 
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div>
+							<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
+								m-dropdown-toggle="hover" aria-expanded="true">
+								<a href="#"
+									class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+									<i class="la la-plus m--hide"></i>
+									<i class="la la-ellipsis-h"></i>
+								</a>
+								<div class="m-dropdown__wrapper">
+									<span
+										class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+									<div class="m-dropdown__inner">
+										<div class="m-dropdown__body">
+											<div class="m-dropdown__content">
+												<ul class="m-nav">
+													<li class="m-nav__section m-nav__section--first m--hide">
+														<span class="m-nav__section-text">
+															Quick Actions
+														</span>
+													</li>
+													<li class="m-nav__item">
+														<a href="" class="m-nav__link">
+															<i class="m-nav__link-icon flaticon-share"></i>
+															<span class="m-nav__link-text">
+																Activity
+															</span>
+														</a>
+													</li>
+													<li class="m-nav__item">
+														<a href="" class="m-nav__link">
+															<i class="m-nav__link-icon flaticon-chat-1"></i>
+															<span class="m-nav__link-text">
+																Messages
+															</span>
+														</a>
+													</li>
+													<li class="m-nav__item">
+														<a href="" class="m-nav__link">
+															<i class="m-nav__link-icon flaticon-info"></i>
+															<span class="m-nav__link-text">
+																FAQ
+															</span>
+														</a>
+													</li>
+													<li class="m-nav__item">
+														<a href="" class="m-nav__link">
+															<i class="m-nav__link-icon flaticon-lifebuoy"></i>
+															<span class="m-nav__link-text">
+																Support
+															</span>
+														</a>
+													</li>
+													<li class="m-nav__separator m-nav__separator--fit"></li>
+													<li class="m-nav__item">
+														<a href="#"
+															class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+															Submit
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END: Subheader -->
+				<div class="m-content">
+					<div class="row">
+						<div class="col-xl-3 col-lg-4">
+							<div class="m-portlet m-portlet--full-height  ">
+								<div class="m-portlet__body">
+									<div class="m-card-profile">
+										<div class="m-card-profile__title m--hide">
+											Your Profile
+										</div>
+										<div class="m-card-profile__pic">
+											<div class="m-card-profile__pic-wrapper">
+												<img src="../assets/app/media/img/users/user4.jpg" alt="" />
+											</div>
+										</div>
+										<div class="m-card-profile__details">
+											<span class="m-card-profile__name">
+												<%= amoeba.namaAmoeba %>
+											</span>
+											<span class="m-card-profile">
+												Details
+											</span>
+										</div>
+									</div>
+									<ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
+										<li class="m-nav__separator m-nav__separator--fit"></li>
+										<li class="m-nav__item">
+											<a class="m-nav__link">
+												<i class="m-nav__link-icon flaticon-profile"></i>
+												<span class="m-nav__link-title">
+													<span class="m-nav__link-wrap">
+														<span class="m-nav__link-text">
+															Status Amoeba:
+														</span>
+														<span class="m-nav__link-badge">
+															<span
+																class="<%= amoeba.statusAmoeba === 'Aktif' ? 'm-badge m-badge--success m-badge--wide' : 'm-badge m-badge--danger m-badge--wide' %>"><%= amoeba.statusAmoeba %></span>
+														</span>
+													</span>
+												</span>
+											</a>
+										</li>
+										<li class="m-nav__item">
+											<a class="m-nav__link">
+												<i class="m-nav__link-icon flaticon-graph"></i>
+												<span class="m-nav__link-title">
+													<span class="m-nav__link-wrap">
+														<span class="m-nav__link-text">
+															Current Phase:
+														</span>
+														<span class="m-nav__link-badge">
+															<span
+																class="m-badge m-badge--primary m-badge--wide">MV</span>
+														</span>
+													</span>
+												</span>
+											</a>
+										</li>
+									</ul>
+									<ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
+										<li class="m-nav__separator m-nav__separator--fit"></li>
+										<li class="m-nav__section m--hide">
+											<span class="m-nav__section-text">
+												Section
+											</span>
+										</li>
+										<li class="m-nav__item">
+											<a href="../header/profile&amp;demo=default.html" class="m-nav__link">
+												<i class="m-nav__link-icon flaticon-share"></i>
+												<span class="m-nav__link-text">
+													Activity
+												</span>
+											</a>
+										</li>
+										<li class="m-nav__item">
+											<a href="../header/profile&amp;demo=default.html" class="m-nav__link">
+												<i class="m-nav__link-icon flaticon-chat-1"></i>
+												<span class="m-nav__link-text">
+													Messages
+												</span>
+											</a>
+										</li>
+										<li class="m-nav__item">
+											<a href="../header/profile&amp;demo=default.html" class="m-nav__link">
+												<i class="m-nav__link-icon flaticon-graphic-2"></i>
+												<span class="m-nav__link-text">
+													Sales
+												</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-9 col-lg-8">
+							<div class="m-portlet m-portlet--full-height m-portlet--tabs  ">
+								<div class="m-portlet__head">
+									<div class="m-portlet__head-tools">
+										<ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--left m-tabs-line--primary"
+											role="tablist">
+											<li class="nav-item m-tabs__item">
+												<a class="nav-link m-tabs__link active" data-toggle="tab"
+													href="#m_user_profile_tab_1" role="tab">
+													<i class="flaticon-share m--hide"></i>
+													Detail Profile
+												</a>
+											</li>
+											<li class="nav-item m-tabs__item">
+												<a class="nav-link m-tabs__link" data-toggle="tab"
+													href="#m_user_profile_tab_2" role="tab">
+													Historical
+												</a>
+											</li>
+											<li class="nav-item m-tabs__item">
+												<a class="nav-link m-tabs__link" data-toggle="tab"
+													href="#m_user_profile_tab_3" role="tab">
+													Members
+												</a>
+											</li>
+										</ul>
+									</div>
+									<div class="m-portlet__head-tools">
+										<ul class="m-portlet__nav">
+											<li class="m-portlet__nav-item m-portlet__nav-item--last">
+												<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
+													m-dropdown-toggle="hover" aria-expanded="true">
+													<a href="#"
+														class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+														<i class="la la-gear"></i>
+													</a>
+													<div class="m-dropdown__wrapper">
+														<span
+															class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+														<div class="m-dropdown__inner">
+															<div class="m-dropdown__body">
+																<div class="m-dropdown__content">
+																	<ul class="m-nav">
+																		<li
+																			class="m-nav__section m-nav__section--first">
+																			<span class="m-nav__section-text">
+																				Quick Actions
+																			</span>
+																		</li>
+																		<li class="m-nav__item">
+																			<a href="" class="m-nav__link">
+																				<i
+																					class="m-nav__link-icon flaticon-share"></i>
+																				<span class="m-nav__link-text">
+																					Create Post
+																				</span>
+																			</a>
+																		</li>
+																		<li class="m-nav__item">
+																			<a href="" class="m-nav__link">
+																				<i
+																					class="m-nav__link-icon flaticon-chat-1"></i>
+																				<span class="m-nav__link-text">
+																					Send Messages
+																				</span>
+																			</a>
+																		</li>
+																		<li class="m-nav__item">
+																			<a href="" class="m-nav__link">
+																				<i
+																					class="m-nav__link-icon flaticon-multimedia-2"></i>
+																				<span class="m-nav__link-text">
+																					Upload File
+																				</span>
+																			</a>
+																		</li>
+																		<li class="m-nav__section">
+																			<span class="m-nav__section-text">
+																				Useful Links
+																			</span>
+																		</li>
+																		<li class="m-nav__item">
+																			<a href="" class="m-nav__link">
+																				<i
+																					class="m-nav__link-icon flaticon-info"></i>
+																				<span class="m-nav__link-text">
+																					FAQ
+																				</span>
+																			</a>
+																		</li>
+																		<li class="m-nav__item">
+																			<a href="" class="m-nav__link">
+																				<i
+																					class="m-nav__link-icon flaticon-lifebuoy"></i>
+																				<span class="m-nav__link-text">
+																					Support
+																				</span>
+																			</a>
+																		</li>
+																		<li
+																			class="m-nav__separator m-nav__separator--fit m--hide">
+																		</li>
+																		<li class="m-nav__item m--hide">
+																			<a href="#"
+																				class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+																				Submit
+																			</a>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="tab-content">
+									<div class="tab-pane active" id="m_user_profile_tab_1">
+										<form class="m-form m-form--fit m-form--label-align-right">
+											<div class="m-portlet__body">
+												<div class="form-group m-form__group row">
+													<div class="col-10 ml-auto">
+														<h3 class="m-form__section">
+															Amoeba Details
+														</h3>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">
+														ID Amoeba
+													</label>
+													<div class="col-7">
+														<input class="form-control m-input" type="text" value="<%= amoeba.idAmoeba %>"
+															readonly>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">
+														Nama Amoeba
+													</label>
+													<div class="col-7">
+														<input class="form-control m-input" type="text" value="<%= amoeba.namaAmoeba %>"
+															readonly>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">
+														Deskripsi 1
+													</label>
+													<div class="col-7">
+														<textarea name="deskripsi1" id="deskripsi1" cols="30" rows="5"
+															class="form-control m-input" readonly><%= amoeba.deskripsi1 %></textarea>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">
+														Deksripsi 2
+													</label>
+													<div class="col-7">
+														<textarea name="deskripsi2" id="deskripsi2" cols="30" rows="5"
+															class="form-control m-input" readonly><%= amoeba.deskripsi2 %></textarea>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">
+														Batch
+													</label>
+													<div class="col-7">
+														<input class="form-control m-input" type="text" value="<%= amoeba.batch %>"
+															readonly>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">
+														Incubation/ Acceleration
+													</label>
+													<div class="col-7">
+														<input class="form-control m-input" type="text"
+															value="<%= amoeba.incbAcc %>" readonly>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">
+														Tipe Innovasi
+													</label>
+													<div class="col-7">
+														<input class="form-control m-input" type="text"
+															value="<%= amoeba.tipeInovasi %>" readonly>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">
+														Area Innovasi
+													</label>
+													<div class="col-7">
+														<input class="form-control m-input" type="text" value="<%= amoeba.areaInovasi %>"
+															readonly>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">
+														DTP
+													</label>
+													<div class="col-7">
+														<textarea name="deskripsi2" id="deskripsi2" cols="30" rows="5"
+															class="form-control m-input" readonly><%= amoeba.dtp %></textarea>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">
+														Mapping Pilar DDS
+													</label>
+													<div class="col-7">
+														<input class="form-control m-input" type="text"
+															value="<%= amoeba.mappingPilarDDS %>" readonly>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">
+														Mapping CFU
+													</label>
+													<div class="col-7">
+														<input class="form-control m-input" type="text" value="<%= amoeba.mappingCFU %>"
+															readonly>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">
+														Core
+													</label>
+													<div class="col-7">
+														<input class="form-control m-input" type="text" value="<%= amoeba.core %>"
+															readonly>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">
+														Ecosystem
+													</label>
+													<div class="col-7">
+														<input class="form-control m-input" type="text" value="<%= amoeba.ecosystem %>"
+															readonly>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+									<div class="tab-pane " id="m_user_profile_tab_2">
+										<div class="m-portlet__body">
+											<div class="m-scrollable mCustomScrollbar _mCS_5 mCS-autoHide"
+												data-scrollbar-shown="true" data-scrollable="true" data-max-height="430"
+												style="overflow: visible; height: 430px; max-height: 430px; position: relative;">
+												<!--Begin::Timeline 2 -->
+												<div class="m-timeline-2">
+													<div
+														class="m-timeline-2__items  m--padding-top-25 m--padding-bottom-30">
+														<div class="m-timeline-2__item">
+															<span class="m-timeline-2__item-time">
+																10:00
+															</span>
+															<div class="m-timeline-2__item-cricle">
+																<i class="fa fa-genderless m--font-danger"></i>
+															</div>
+															<div class="m-timeline-2__item-text  m--padding-top-5">
+																Lorem ipsum dolor sit amit,consectetur eiusmdd tempor
+																<br>
+																incididunt ut labore et dolore magna
+															</div>
+														</div>
+														<div class="m-timeline-2__item m--margin-top-30">
+															<span class="m-timeline-2__item-time">
+																12:45
+															</span>
+															<div class="m-timeline-2__item-cricle">
+																<i class="fa fa-genderless m--font-success"></i>
+															</div>
+															<div
+																class="m-timeline-2__item-text m-timeline-2__item-text--bold">
+																AEOL Meeting With
+															</div>
+															<div class="m-list-pics m-list-pics--sm m--padding-left-20">
+																<a href="../../#">
+																	<img src="assets/app/media/img/users/100_4.jpg"
+																		title="">
+																</a>
+																<a href="../../#">
+																	<img src="assets/app/media/img/users/100_13.jpg"
+																		title="">
+																</a>
+																<a href="../../#">
+																	<img src="assets/app/media/img/users/100_11.jpg"
+																		title="">
+																</a>
+																<a href="../../#">
+																	<img src="assets/app/media/img/users/100_14.jpg"
+																		title="">
+																</a>
+															</div>
+														</div>
+														<div class="m-timeline-2__item m--margin-top-30">
+															<span class="m-timeline-2__item-time">
+																14:00
+															</span>
+															<div class="m-timeline-2__item-cricle">
+																<i class="fa fa-genderless m--font-brand"></i>
+															</div>
+															<div class="m-timeline-2__item-text m--padding-top-5">
+																Make Deposit
+																<a href="#" class="m-link m-link--brand m--font-bolder">
+																	USD 700
+																</a>
+																To ESL.
+															</div>
+														</div>
+														<div class="m-timeline-2__item m--margin-top-30">
+															<span class="m-timeline-2__item-time">
+																16:00
+															</span>
+															<div class="m-timeline-2__item-cricle">
+																<i class="fa fa-genderless m--font-warning"></i>
+															</div>
+															<div class="m-timeline-2__item-text m--padding-top-5">
+																Lorem ipsum dolor sit amit,consectetur eiusmdd tempor
+																<br>
+																incididunt ut labore et dolore magna elit enim at minim
+																<br>
+																veniam quis nostrud
+															</div>
+														</div>
+														<div class="m-timeline-2__item m--margin-top-30">
+															<span class="m-timeline-2__item-time">
+																17:00
+															</span>
+															<div class="m-timeline-2__item-cricle">
+																<i class="fa fa-genderless m--font-info"></i>
+															</div>
+															<div class="m-timeline-2__item-text m--padding-top-5">
+																Placed a new order in
+																<a href="#" class="m-link m-link--brand m--font-bolder">
+																	SIGNATURE MOBILE
+																</a>
+																marketplace.
+															</div>
+														</div>
+														<div class="m-timeline-2__item m--margin-top-30">
+															<span class="m-timeline-2__item-time">
+																16:00
+															</span>
+															<div class="m-timeline-2__item-cricle">
+																<i class="fa fa-genderless m--font-brand"></i>
+															</div>
+															<div class="m-timeline-2__item-text m--padding-top-5">
+																Lorem ipsum dolor sit amit,consectetur eiusmdd tempor
+																<br>
+																incididunt ut labore et dolore magna elit enim at minim
+																<br>
+																veniam quis nostrud
+															</div>
+														</div>
+														<div class="m-timeline-2__item m--margin-top-30">
+															<span class="m-timeline-2__item-time">
+																17:00
+															</span>
+															<div class="m-timeline-2__item-cricle">
+																<i class="fa fa-genderless m--font-danger"></i>
+															</div>
+															<div class="m-timeline-2__item-text m--padding-top-5">
+																Received a new feedback on
+																<a href="#" class="m-link m-link--brand m--font-bolder">
+																	FinancePro App
+																</a>
+																product.
+															</div>
+														</div>
+													</div>
+												</div>
+												<!--End::Timeline 2 -->
+											</div>
+										</div>
+									</div>
+									<div class="tab-pane " id="m_user_profile_tab_3">
+										<div class="m-portlet__body">
+											<div class="form-group m-form__group row">
+												<div class="col-10 ml-auto">
+													<h3 class="m-form__section">
+														Member of Amoeba
+													</h3>
+												</div>
+											</div>
+											<% for (let innovator of innovators) { %>
+											<div class="form-group m-form__group row">
+												<label for="example-text-input" class="col-2 col-form-label">
+													Nama Innovator
+												</label>
+												<div class="col-7">
+													<input class="form-control m-input" type="text" value="<%= innovator.namaPeserta %>"
+														readonly>
+												</div>
+											</div>
+											<% } %>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end:: Body -->
+		<!-- begin::Footer -->
+		<%- include('includes/footer.ejs')%>
+		<!-- end::Footer -->
+	</div>
+	<!-- end:: Page -->
+	<!-- begin::Quick Sidebar -->
+	<%- include('includes/quick-sidebar.ejs')%>
+	<!-- end::Quick Sidebar -->
+	<!-- begin::Scroll Top -->
+	<div id="m_scroll_top" class="m-scroll-top">
+		<i class="la la-arrow-up"></i>
+	</div>
+	<!-- end::Scroll Top -->
+	<!-- begin::Quick Nav -->
+	<%- include('includes/quick-nav.ejs')%>
+	<!-- begin::Quick Nav -->
+	<!--begin::Base Scripts -->
+	<%- include('includes/base-scripts.ejs')%>
+	<!--end::Base Scripts -->
+	<!--begin::Page Snippets -->
+	<script src="/assets/app/js/dashboard.js" type="text/javascript"></script>
+	<!--end::Page Snippets -->
+</body>
+<!-- end::Body -->
+
+</html>
