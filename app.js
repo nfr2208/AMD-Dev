@@ -3,7 +3,7 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const Amoeba = require('./models/Amoeba');
+const Amoeba = require('./models/amoeba');
 const Innovator = require('./models/innovator');
 const User = require('./models/user');
 
@@ -56,7 +56,7 @@ sequelize
     })
     .then(user => {
         // console.log(user);
-        app.listen(3000);
+        app.listen(proces.env.PORT || 3000);
     })
     .catch(err => {
         console.log(err);
