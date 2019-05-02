@@ -149,7 +149,11 @@
 												<%= innovator.namaPeserta %>
 											</span>
 											<span class="m-card-profile">
-												<%= innovator.cLevel %> at <%= amoeba.namaAmoeba %>
+												<% if (amoeba) { %>
+													<%= innovator.cLevel %> at <%= amoeba.namaAmoeba %>
+												<% } else { %>
+													None
+												<% } %>
 											</span>
 											<br>
 											<a href="" class="m-card-profile__email m-link">
