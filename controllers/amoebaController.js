@@ -195,11 +195,8 @@ exports.getAmoebas = (req, res, next) => {
 
     // Phase
     let cv, pv, bmv, mv; 
-    Amoeba.findAll().then(amoebas => {
-        fetchedAmoebas = amoebas;
-        return Amoeba.findAll({
-            raw: true
-        });
+    Amoeba.findAll({
+        raw: true
     }).then(json => {
         jsonAmoebas = json;
         return Amoeba.count({

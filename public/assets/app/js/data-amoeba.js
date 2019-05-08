@@ -123,9 +123,9 @@ let DatatableDataLocalDemo = {
             }]
         }), i = a.getDataSourceQuery(), $("#m_form_status").on("change", function () {
             a.search($(this).val(), "statusAmoeba")
-        }).val(void 0 !== i.statusAmoeba ? i.statusAmoeba : ""), $("#m_form_type").on("change", function () {
+        }).val(void 0 !== i.statusAmoeba ? i.statusAmoeba : ""), $("#m_form_phase").on("change", function () {
             a.search($(this).val(), "currentPhase"), console.log(i.statusAmoeba);
-        }).val(void 0 !== i.currentPhase ? i.currentPhase : ""), $("#m_form_status, #m_form_type").selectpicker()
+        }).val(void 0 !== i.currentPhase ? i.currentPhase : ""), $("#m_form_status, #m_form_phase").selectpicker()
     }
 };
 jQuery(document).ready(function () {
