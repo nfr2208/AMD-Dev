@@ -20,7 +20,7 @@ var DatatablesBasicScrollable = {
                             class: "m-badge--success"
                         },
                         "Tidak Aktif": {
-                            title: "Danger",
+                            title: "Tidak Aktif",
                             class: "m-badge--danger"
                         }
                     };

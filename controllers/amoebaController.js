@@ -176,13 +176,91 @@ exports.getDetailAmoeba = (req, res, next) => {
 }
 
 exports.getAmoebas = (req, res, next) => {
+
+    // Amoeba.findAll().then(amoebas => {
+    //     amoebas = amoebas;
+    //     res.render('view-amoeba', {
+    //         amoebas: amoebas,
+    //         pageTitle: 'View Amoeba',
+    //         path: '/view-amoeba'
+    //     });
+    // }).catch(err => {
+    //     console.log(err);
+    // });
+
+    let fetchedAmoebas;
+    let jsonAmoebas;
+    // Status
+    let activeAmoebas, notActiveAmoebas, totalAmoeba;
+
+    // Phase
+    let cv, pv, bmv, mv; 
     Amoeba.findAll().then(amoebas => {
+        fetchedAmoebas = amoebas;
+        return Amoeba.findAll({
+            raw: true
+        });
+    }).then(json => {
+        jsonAmoebas = json;
+        return Amoeba.count({
+            where: {
+                statusAmoeba: 'Aktif'
+            }
+        });
+    }).then(active => {
+        activeAmoebas = active;
+        totalAmoeba = parseInt(activeAmoebas, 10);
+        return Amoeba.count({
+            where: {
+                statusAmoeba: 'Tidak aktif'
+            }
+        });
+    }).then(notActive => {
+        notActiveAmoebas = notActive;
+        totalAmoeba += parseInt(notActiveAmoebas, 10);
+        return Amoeba.count({
+            where: {
+                currentPhase: 'CV'
+            }
+        });
+    }).then(cvs => {
+        cv = cvs;
+        return Amoeba.count({
+            where: {
+                currentPhase: 'PV'
+            }
+        });
+    }).then(pvs => {
+        pv = pvs;
+        return Amoeba.count({
+            where: {
+                currentPhase: 'BMV'
+            }
+        });
+    }).then(bmvs => {
+        bmv = bmvs;
+        return Amoeba.count({
+            where: {
+                currentPhase: 'MV'
+            }
+        });
+    })
+    .then(mvs => {
+        mv = mvs;
         res.render('view-amoeba', {
-            amoes: amoebas,
+            active: activeAmoebas,
+            notActive: notActiveAmoebas,
+            total: totalAmoeba,
+            cv: cv,
+            pv: pv,
+            bmv: bmv,
+            mv: mv,
+            jsonAmoebas: jsonAmoebas,
             pageTitle: 'View Amoeba',
             path: '/view-amoeba'
         });
-    }).catch(err => {
+    })
+    .catch(err => {
         console.log(err);
     });
 };
