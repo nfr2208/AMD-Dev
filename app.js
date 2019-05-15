@@ -29,14 +29,14 @@ app.use(cors({
     credentials: true,
 }));
 
-app.use((req, res, next) => {
-    User.findByPk(1).then(user => {
-        req.user = user;
-        next();
-    }).catch(err => {
-        console.log(err);
-    });
-})
+// app.use((req, res, next) => {
+//     User.findByPk(1).then(user => {
+//         req.user = user;
+//         next();
+//     }).catch(err => {
+//         console.log(err);
+//     });
+// })
 
 //Routes
 
@@ -44,26 +44,28 @@ app.use(userRoutes);
 
 app.use(errorController.get404);
 
-Innovator.belongsTo(Amoeba, { constraints: true, onDelete: 'SET NULL' });
-Amoeba.hasMany(Innovator);
+app.listen(process.env.PORT || 3000);
 
-sequelize
-// .sync({force: true})
-.sync()
-    .then(result => {
-        return User.findByPk(1);
-        // console.log(result);
-    })
-    .then(user => {
-        if (!user) {
-            return User.create({name: 'Naufal', email: 'nfr2208@gmail.com', role: 'Admin', password: 'admin'});
-        }
-        return user;
-    })
-    .then(user => {
-        // console.log(user);
-        app.listen(process.env.PORT || 3000);
-    })
-    .catch(err => {
-        console.log(err);
-    });
+// Innovator.belongsTo(Amoeba, { constraints: true, onDelete: 'SET NULL' });
+// Amoeba.hasMany(Innovator);
+
+// sequelize
+// // .sync({force: true})
+// .sync()
+//     .then(result => {
+//         return User.findByPk(1);
+//         // console.log(result);
+//     })
+//     .then(user => {
+//         if (!user) {
+//             return User.create({name: 'Naufal', email: 'nfr2208@gmail.com', role: 'Admin', password: 'admin'});
+//         }
+//         return user;
+//     })
+//     .then(user => {
+//         // console.log(user);
+//         app.listen(process.env.PORT || 3000);
+//     })
+//     .catch(err => {
+//         console.log(err);
+//     });
