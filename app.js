@@ -3,6 +3,8 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
 const Amoeba = require('./models/amoeba');
 const Innovator = require('./models/innovator');
 const User = require('./models/user');
@@ -23,6 +25,9 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors({
+    credentials: true,
+}));
 
 app.use((req, res, next) => {
     User.findByPk(1).then(user => {
@@ -34,6 +39,7 @@ app.use((req, res, next) => {
 })
 
 //Routes
+
 app.use(userRoutes);
 
 app.use(errorController.get404);

@@ -1,9 +1,9 @@
-let json = document.getElementById("jsonAmoebas").title;
+let amoebas = document.getElementById("amoebas").title;
 
 let DatatableDataLocalDemo = {
     init: function () {
-        let e, a, i;
-        e = JSON.parse(json), a = $(".m_datatable").mDatatable({
+    let e, a, i;
+        e = JSON.parse(amoebas), a = $(".m_datatable").mDatatable({
             data: {
                 type: "local",
                 source: e,
@@ -124,7 +124,7 @@ let DatatableDataLocalDemo = {
         }), i = a.getDataSourceQuery(), $("#m_form_status").on("change", function () {
             a.search($(this).val(), "statusAmoeba")
         }).val(void 0 !== i.statusAmoeba ? i.statusAmoeba : ""), $("#m_form_phase").on("change", function () {
-            a.search($(this).val(), "currentPhase"), console.log(i.statusAmoeba);
+            a.search($(this).val(), "currentPhase")
         }).val(void 0 !== i.currentPhase ? i.currentPhase : ""), $("#m_form_status, #m_form_phase").selectpicker()
     }
 };
