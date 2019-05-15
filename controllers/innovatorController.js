@@ -49,8 +49,6 @@ exports.postRegisterInnovator = (req, res, next) => {
         timStruktur: timStruktur,
         cLevel: cLevel
     }).then(result => {
-        // console.log(result);
-        console.log("Created Innovator");
         res.redirect('/view-innovator');
     }).catch(err => {
         console.log(err);

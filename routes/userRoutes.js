@@ -3,6 +3,7 @@ const express = require('express');
 const menuController = require('../controllers/menuController');
 const amoebaController = require('../controllers/amoebaController');
 const innovatorController = require('../controllers/innovatorController');
+const teamDataController = require('../controllers/teamDataController');
 
 const router = express.Router();
 
@@ -30,5 +31,12 @@ router.get('/edit-amoeba/:idAmoeba', amoebaController.getEditAmoeba);
 router.post('/edit-amoeba', amoebaController.postEditAmoeba);
 router.post('/delete-amoeba', amoebaController.postDeleteAmoeba);
 router.get('/detail-amoeba/:idAmoeba', amoebaController.getDetailAmoeba);
+
+router.get('/api/amoebas', amoebaController.getAmoebasApi);
+router.post('/view-amoeba/upload', amoebaController.postUploadAmoeba);
+
+// View Team Data
+router.get('/view-team-data', teamDataController.getTeamDatas);
+router.post('/view-team-data/upload', teamDataController.postUploadTeamData);
 
 module.exports = router;

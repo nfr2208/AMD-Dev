@@ -380,19 +380,19 @@ var Dashboard = function () {
                 if (0 != $("#m_chart_profit_share").length) {
                     var e = new Chartist.Pie("#m_chart_profit_share", {
                         series: [{
-                            value: 32,
+                            value: 50,
                             className: "custom",
                             meta: {
                                 color: mApp.getColor("brand")
                             }
                         }, {
-                            value: 32,
+                            value: 25,
                             className: "custom",
                             meta: {
                                 color: mApp.getColor("accent")
                             }
                         }, {
-                            value: 36,
+                            value: 25,
                             className: "custom",
                             meta: {
                                 color: mApp.getColor("warning")
