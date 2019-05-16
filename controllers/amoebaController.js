@@ -85,7 +85,6 @@ exports.postEditAmoeba = (req, res, next) => {
             return amoeba.save();
         })
         .then(result => {
-            console.log("UPDATED PRODUCT");
             res.redirect('/view-amoeba');
         })
         .catch(err => {
@@ -313,7 +312,7 @@ exports.postUploadAmoeba = (req, res, next) => {
 
             Amoeba.destroy({ truncate: { cascade: true } });
             Amoeba.bulkCreate(df).then(result =>{
-                res.redirect('/view-amoeba');
+                res.redirect('/view-team-data');
             }).catch(err => console.log(err));
         }
     })

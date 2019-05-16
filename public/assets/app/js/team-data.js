@@ -22,24 +22,20 @@ let DatatableDataLocalDemo = {
             },
             columns: [{
                 field: "id",
-                title: "No.",
+                title: "#",        
+                width: 35
             }, {
                 field: "id_peserta",
                 title: "ID Peserta",
+                width: 100
             }, {
                 field: "nama",
                 title: "Nama",
-                width: 300,
-                responsive: {
-                    visible: "lg"
-                }
+                width: 300
             }, {
                 field: "nama_tim",
                 title: "Nama Tim",
-                width: 300,
-                responsive: {
-                    visible: "lg"
-                }
+                width: 265
             }, {
                 field: "batch_inovation",
                 title: "Batch Inovation"
@@ -95,18 +91,33 @@ let DatatableDataLocalDemo = {
             }, {
                 field: "email",
                 title: "Email",
-                width: 300,
-                responsive: {
-                    visible: "lg"
-                }
+                width: 300
             }]
         }), i = a.getDataSourceQuery(), $("#m_form_status").on("change", function () {
             a.search($(this).val(), "status")
-        }).val(void 0 !== i.status ? i.status : ""), $("#m_form_phase").on("change", function () {
+        }).val(void 0 !== i.status ? i.status : ""), $("#m_form_batch").on("change", function () {
             a.search($(this).val(), "batch_inovation")
-        }).val(void 0 !== i.batch_inovation ? i.batch_inovation : ""), $("#m_form_status, #m_form_phase").selectpicker(), 
+        }).val(void 0 !== i.batch_inovation ? i.batch_inovation : ""), $("#m_form_status, #m_form_batch").selectpicker(), 
         $("#m_datatable_hide_column").on("click", function () {
-            a.columns("status").visible()
+            a.columns("email").visible(!1);
+            a.columns("no_telp").visible(!1);
+            a.columns("loker_saat_ini").visible(!1);
+            a.columns("unit_kerja_saat_ini").visible(!1);
+            a.columns("loker_asal").visible(!1);
+            a.columns("unit_kerja_asal").visible(!1);
+            a.columns("flagging").visible(!1);
+            a.columns("bp").visible(!1);
+            a.columns("nik").visible(!1);
+        }), $("#m_datatable_show_column").on("click", function () {
+            a.columns("email").visible(!0);
+            a.columns("no_telp").visible(!0);
+            a.columns("loker_saat_ini").visible(!0);
+            a.columns("unit_kerja_saat_ini").visible(!0);
+            a.columns("loker_asal").visible(!0);
+            a.columns("unit_kerja_asal").visible(!0);
+            a.columns("flagging").visible(!0);
+            a.columns("bp").visible(!0);
+            a.columns("nik").visible(!0);
         })
     }
 };

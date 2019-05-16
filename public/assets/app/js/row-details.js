@@ -103,9 +103,9 @@ var DatatableAutoColumnHideDemo = {
             }]
         }), i = a.getDataSourceQuery(), $("#m_form_status").on("change", function () {
             a.search($(this).val(), "status")
-        }).val(void 0 !== i.status ? i.status : ""), $("#m_form_phase").on("change", function () {
+        }).val(void 0 !== i.status ? i.status : ""), $("#m_form_batch").on("change", function () {
             a.search($(this).val(), "batch_inovation")
-        }).val(void 0 !== i.batch_inovation ? i.batch_inovation : ""), $("#m_form_status, #m_form_phase").selectpicker()
+        }).val(void 0 !== i.batch_inovation ? i.batch_inovation : ""), $("#m_form_status, #m_form_batch").selectpicker()
     }
 };
 jQuery(document).ready(function () {
