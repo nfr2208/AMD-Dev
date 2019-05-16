@@ -18,11 +18,22 @@ let upload = multer({
 }).single('teamdata');
 
 exports.getTeamDatas = (req, res, next) => {
-    TeamData.findAll({
-        raw: true
+
+    let entry;
+
+    FileUpload.findAll({
+        limit: 1,
+        order: [ [ 'createdAt', 'DESC' ]]
+    }).then(entries => {
+        entry = entries[0];
+        return TeamData.findAll({
+            raw: true
+        })
     }).then(teamdata => {
         res.render('view-team-data', {
-            jsonTeamData: teamdata
+            jsonTeamData: teamdata,
+            entry: entry,
+            pageTitle: "View Team Data"
         });
     }).catch(err => {
         console.log(err);

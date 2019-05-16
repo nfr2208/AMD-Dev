@@ -1,19 +1,5 @@
 const Innovator = require('../models/innovator');
 
-exports.getDashboard = (req, res, next) => {
-    res.render('index', {
-        path: '/',
-        pageTitle: 'Dashboard'
-    });
-};
-
-exports.getInner = (req, res, next) => {
-    res.render('inner', {
-        path: '/inner',
-        pageTitle: 'Inner Dashboard'
-    });
-};
-
 exports.getRegisterInnovator = (req, res, next) => {
     res.render('register-innovator', {
         path: '/register-innovator',
@@ -118,7 +104,6 @@ exports.postEditInnovator = (req, res, next) => {
         return innovator.save();
     })
     .then(result => {
-        console.log("UPDATED PRODUCT");
         res.redirect('/view-innovator');
     })
     .catch(err => {
@@ -133,7 +118,6 @@ exports.postDeleteInnovator = (req, res, next) => {
         return innovator.destroy();
     })
     .then(result => {
-        console.log("DESTROY PRODUCT");
         res.redirect('/view-innovator');
     })
     .catch(err => {
