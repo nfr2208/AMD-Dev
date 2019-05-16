@@ -6,7 +6,7 @@ exports.getDashboard = (req, res, next) => {
 };
 
 exports.getInner = (req, res, next) => {
-    res.render('inner', {
+    res.render('login-5', {
         path: '/inner',
         pageTitle: 'Inner Dashboard'
     });
