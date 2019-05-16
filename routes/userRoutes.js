@@ -8,7 +8,9 @@ const teamDataController = require('../controllers/teamDataController');
 const router = express.Router();
 
 router.get('/', menuController.getDashboard);
+router.get('/index', menuController.getDashboard);
 router.get('/inner', menuController.getInner);
+router.get('/login', menuController.getLogin);
 
 //Register Innovator
 router.get('/register-innovator', innovatorController.getRegisterInnovator);
