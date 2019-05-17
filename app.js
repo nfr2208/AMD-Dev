@@ -21,7 +21,12 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 //Routing
-const userRoutes = require('./routes/userRoutes');
+const authRoutes = require('./routes/authRoutes');
+const menuRoutes = require('./routes/menuRoutes');
+const amoebaRoutes = require('./routes/amoebaRoutes');
+const dataTalentRoutes = require('./routes/dataTalentRoutes');
+const innovatorRoutes = require('./routes/innovatorRoutes');
+const errorRoutes = require('./routes/errorRoutes');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -38,10 +43,12 @@ app.use(session({
 }));
 
 //Routes
-
-app.use(userRoutes);
-
-app.use(errorController.get404);
+app.use(authRoutes);
+app.use(menuRoutes);
+app.use(amoebaRoutes);
+app.use(dataTalentRoutes);
+app.use(innovatorRoutes);
+app.use(errorRoutes);
 
 app.use((req, res, next) => {
     if(!req.session.user){
