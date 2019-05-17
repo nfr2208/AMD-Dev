@@ -43,7 +43,7 @@
 									Login To Your Account
 								</h3>
 							</div>
-							<form class="m-login__form m-form" action="">
+							<form class="m-login__form m-form" action="/login" method="POST">
 								<div class="form-group m-form__group">
 									<input class="form-control m-input" type="text" placeholder="Username" name="username" autocomplete="off">
 								</div>
@@ -65,7 +65,10 @@
 									</div>
 								</div>
 								<div class="m-login__form-action">
-									<button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+									<!-- <button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" type="submit">
+										Login
+									</button> -->
+									<button class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" type="submit">
 										Login
 									</button>
 								</div>

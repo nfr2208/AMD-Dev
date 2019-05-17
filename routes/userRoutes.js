@@ -10,7 +10,11 @@ const router = express.Router();
 router.get('/', menuController.getDashboard);
 router.get('/index', menuController.getDashboard);
 router.get('/inner', menuController.getInner);
+
+//Login
 router.get('/login', menuController.getLogin);
+router.post('/login', menuController.postLogin);
+router.post('/logout', menuController.postLogout);
 
 //Register Innovator
 router.get('/register-innovator', innovatorController.getRegisterInnovator);
