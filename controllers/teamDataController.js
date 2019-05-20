@@ -71,3 +71,11 @@ exports.postUploadTeamData = (req, res, next) => {
         }
     })
 };
+
+exports.getAddDataTalent = (req, res, next) => {
+    res.render('Add-Data-Talent', {
+        path: '/Add-Data-Talent',
+        pageTitle: 'Inner Dashboard',
+        editing: false
+    });
+};

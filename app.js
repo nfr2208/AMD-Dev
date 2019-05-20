@@ -50,26 +50,30 @@ app.use(dataTalentRoutes);
 app.use(innovatorRoutes);
 app.use(errorRoutes);
 
-app.use((req, res, next) => {
-    if(!req.session.user){
-        return next()
-    }
-    User.findByPk(req.session.user.id).then(user => {
-        req.user = user;
-        next();
-    }).catch(err => {
-        console.log(err);
-    });
-})
+app.listen(process.env.PORT || 3000)
 
-Innovator.belongsTo(Amoeba, { constraints: true, onDelete: 'SET NULL' });
-Amoeba.hasMany(Innovator);
 
-sequelize.sync().then(result =>{
-    app.listen(process.env.PORT || 3000)
-}).catch(err => {
-    console.log(err);
-});
+
+// app.use((req, res, next) => {
+//     if(!req.session.user){
+//         return next()
+//     }
+//     User.findByPk(req.session.user.id).then(user => {
+//         req.user = user;
+//         next();
+//     }).catch(err => {
+//         console.log(err);
+//     });
+// })
+
+// Innovator.belongsTo(Amoeba, { constraints: true, onDelete: 'SET NULL' });
+// Amoeba.hasMany(Innovator);
+
+// sequelize.sync().then(result =>{
+//     app.listen(process.env.PORT || 3000)
+// }).catch(err => {
+//     console.log(err);
+// });
 
 // sequelize
 // // .sync({force: true})
