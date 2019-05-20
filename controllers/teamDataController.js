@@ -33,7 +33,8 @@ exports.getTeamDatas = (req, res, next) => {
         res.render('view-team-data', {
             jsonTeamData: teamdata,
             entry: entry,
-            pageTitle: "View Team Data"
+            pageTitle: "View Team Data",
+            isAuthenticated: req.session.isLoggedIn
         });
     }).catch(err => {
         console.log(err);

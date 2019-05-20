@@ -43,12 +43,12 @@
 									Login To Your Account
 								</h3>
 							</div>
-							<form class="m-login__form m-form" action="">
+							<form class="m-login__form m-form" action="/login" method="POST">
 								<div class="form-group m-form__group">
-									<input class="form-control m-input" type="text" placeholder="Username" name="username" autocomplete="off">
+									<input class="form-control m-input" type="text" placeholder="Email" name="loginEmail" autocomplete="off">
 								</div>
 								<div class="form-group m-form__group">
-									<input class="form-control m-input m-login__form-input--last" type="Password" placeholder="Password" name="password">
+									<input class="form-control m-input m-login__form-input--last" type="Password" placeholder="Password" name="loginPassword">
 								</div>
 								<div class="row m-login__form-sub">
 									<div class="col m--align-left">
@@ -65,7 +65,10 @@
 									</div>
 								</div>
 								<div class="m-login__form-action">
-									<button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+									<!-- <button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" type="submit">
+										Login
+									</button> -->
+									<button class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" type="submit">
 										Login
 									</button>
 								</div>
@@ -80,7 +83,7 @@
 									Enter your details to create your account:
 								</div>
 							</div>
-							<form class="m-login__form m-form" action="">
+							<form class="m-login__form m-form" action="/signup" method="POST">
 								<div class="form-group m-form__group">
 									<input class="form-control m-input" type="text" placeholder="Fullname" name="fullname">
 								</div>
@@ -91,7 +94,7 @@
 									<input class="form-control m-input" type="password" placeholder="Password" name="password">
 								</div>
 								<div class="form-group m-form__group">
-									<input class="form-control m-input m-login__form-input--last" type="password" placeholder="Confirm Password" name="rpassword">
+									<input class="form-control m-input m-login__form-input--last" type="password" placeholder="Confirm Password" name="confirmPassword">
 								</div>
 								<div class="m-login__form-sub">
 									<label class="m-checkbox m-checkbox--focus">
@@ -106,10 +109,13 @@
 									<span class="m-form__help"></span>
 								</div>
 								<div class="m-login__form-action">
-									<button id="m_login_signup_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+									<!-- <button id="m_login_signup_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" type="submit">
+										Sign Up
+									</button> -->
+									<button class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" type="submit">
 										Sign Up
 									</button>
-									<button id="m_login_signup_cancel" class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom">
+									<button id="m_login_signup_cancel" class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom" type="reset">
 										Cancel
 									</button>
 								</div>
