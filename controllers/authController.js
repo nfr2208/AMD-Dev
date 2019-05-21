@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport(sendgridTransport({
 }));
 
 exports.getLogin = (req, res, next) => {
-    res.render('login', {
+    res.render('auth/login', {
         path: '/login',
         pageTitle: 'Login',
     });
@@ -139,7 +139,7 @@ exports.getNewPassword = (req, res, next) => {
             resetTokenExpiration: {[Op.gt]: Date.now()}
         }
     }).then(user => {
-        res.render('new-password', {
+        res.render('auth/new-password', {
             path: '/new-password',
             pageTitle: 'New Password',
             userId: user.id.toString(),
