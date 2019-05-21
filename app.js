@@ -26,7 +26,7 @@ app.set('views', path.join(__dirname, 'views'));
 const authRoutes = require('./routes/authRoutes');
 const menuRoutes = require('./routes/menuRoutes');
 const amoebaRoutes = require('./routes/amoebaRoutes');
-const dataTalentRoutes = require('./routes/teamDataRoutes');
+const teamDataRoutes = require('./routes/teamDataRoutes');
 const innovatorRoutes = require('./routes/innovatorRoutes');
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -58,7 +58,9 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
     res.locals.isAuthenticated = req.session.isLogggedIn;
+    res.locals.userRole = req.session.role;
     res.locals.csrfToken = req.csrfToken();
+    res.locals.userProfile = req.session.user;
     next();
 });
 
@@ -66,16 +68,13 @@ app.use((req, res, next) => {
 app.use(authRoutes);
 app.use(menuRoutes);
 app.use(amoebaRoutes);
-app.use(dataTalentRoutes);
+app.use(teamDataRoutes);
 app.use(innovatorRoutes);
 app.use(errorController.get404);
 
-Innovator.belongsTo(Amoeba, { constraints: true, onDelete: 'SET NULL' });
-Amoeba.hasMany(Innovator);
-
 sequelize
-    // .sync({force: true})
-    .sync()
+    .sync({force: true})
+    // .sync()
     .then(result =>{
         app.listen(process.env.PORT || 3000)
     }).catch(err => {
