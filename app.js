@@ -40,8 +40,6 @@ app.use(session({
 }));
 app.use(csrfProtection);
 
-app.listen(process.env.PORT || 3000)
-
 app.use((req, res, next) => {
     res.locals.isAuthenticated = req.session.isLogggedIn;
     res.locals.userRole = req.session.role;
