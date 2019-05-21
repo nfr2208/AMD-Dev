@@ -41,7 +41,6 @@
                 <div id="m_header_menu"
                     class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light ">
                     <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
-                        <% if (isAuthenticated) { %>
                         <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click"
                             aria-haspopup="true">
                             <a href="javascript:;" class="m-menu__link m-menu__toggle">
@@ -67,7 +66,6 @@
                                 </ul>
                             </div>
                         </li>
-                        <% } %>
                     </ul>
                 </div>
                 <!-- END: Horizontal Menu -->
@@ -75,7 +73,6 @@
                 <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
                     <div class="m-stack__item m-topbar__nav-wrapper">
                         <ul class="m-topbar__nav m-nav m-nav--inline">
-                            <% if (isAuthenticated) { %>
                             <li class="m-nav__item m-topbar__user-profile  m-dropdown m-dropdown--medium m-dropdown--arrow  m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
                                 m-dropdown-toggle="click">
                                 <a href="#" class="m-nav__link m-dropdown__toggle">
@@ -104,10 +101,10 @@
                                                 </div>
                                                 <div class="m-card-user__details">
                                                     <span class="m-card-user__name m--font-weight-500">
-                                                        Mark Andre
+                                                        <%= userProfile.name %>
                                                     </span>
                                                     <a href="" class="m-card-user__email m--font-weight-300 m-link">
-                                                        mark.andre@gmail.com
+                                                        <%= userProfile.email %>
                                                     </a>
                                                 </div>
                                             </div>
@@ -170,23 +167,19 @@
                                                             </span>
                                                         </a>
                                                     </li>
-                                                    <% if (isAuthenticated) { %>
                                                     <li class="m-nav__separator m-nav__separator--fit"></li>
                                                     <li class="m-nav__item">
                                                         <form action="/logout" method="POST">
+                                                            <input type="hidden" value="<%= csrfToken %>" name="_csrf">
                                                             <button class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">Logout</button>
                                                         </form>
                                                     </li>
-                                                    <% } %>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <% } else { %>
-                                <!-- Login -->
-                            <% } %>
                         </ul>
                     </div>
                 </div>

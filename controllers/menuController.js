@@ -1,8 +1,7 @@
 exports.getDashboard = (req, res, next) => {
     res.render('index', {
         path: '/index',
-        pageTitle: 'Dashboard',
-        isAuthenticated: req.session.isLoggedIn
+        pageTitle: 'Dashboard'
     });
 };
 

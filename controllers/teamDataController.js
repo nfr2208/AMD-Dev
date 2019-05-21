@@ -19,6 +19,10 @@ let upload = multer({
 
 exports.getTeamDatas = (req, res, next) => {
 
+    if(!req.session.isLoggedIn){
+        return res.redirect('/login');
+    }
+
     let entry;
 
     FileUpload.findAll({
@@ -33,8 +37,7 @@ exports.getTeamDatas = (req, res, next) => {
         res.render('view-team-data', {
             jsonTeamData: teamdata,
             entry: entry,
-            pageTitle: "View Team Data",
-            isAuthenticated: req.session.isLoggedIn
+            pageTitle: "View Team Data"
         });
     }).catch(err => {
         console.log(err);
@@ -70,4 +73,12 @@ exports.postUploadTeamData = (req, res, next) => {
             }).catch();
         }
     })
+};
+
+exports.getAddDataTalent = (req, res, next) => {
+    res.render('add-data-talent', {
+        path: '/add-data-talent',
+        pageTitle: 'Add Data Talent',
+        editing: false
+    });
 };
