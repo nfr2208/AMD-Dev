@@ -34,7 +34,7 @@ exports.getTeamDatas = (req, res, next) => {
             raw: true
         })
     }).then(teamdata => {
-        res.render('view-team-data', {
+        res.render('data_talent/view-team-data', {
             jsonTeamData: teamdata,
             entry: entry,
             pageTitle: "View Team Data"
@@ -76,7 +76,7 @@ exports.postUploadTeamData = (req, res, next) => {
 };
 
 exports.getAddDataTalent = (req, res, next) => {
-    res.render('add-data-talent', {
+    res.render('data_talent/add-data-talent', {
         path: '/add-data-talent',
         pageTitle: 'Add Data Talent',
         editing: false
