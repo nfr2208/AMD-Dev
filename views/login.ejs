@@ -43,7 +43,7 @@
 									Login To Your Account
 								</h3>
 							</div>
-							<form class="m-login__form m-form" action="/login" method="POST">
+							<form class="m-login__form m-form" action="/postlogin" method="POST">
 								<div class="form-group m-form__group">
 									<input class="form-control m-input" type="text" placeholder="Email" name="loginEmail" autocomplete="off">
 								</div>
@@ -68,6 +68,7 @@
 									<!-- <button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" type="submit">
 										Login
 									</button> -->
+									<input type="hidden" value="<%= csrfToken %>" name="_csrf">
 									<button class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" type="submit">
 										Login
 									</button>
@@ -112,6 +113,7 @@
 									<!-- <button id="m_login_signup_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" type="submit">
 										Sign Up
 									</button> -->
+									<input type="hidden" value="<%= csrfToken %>" name="_csrf">
 									<button class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" type="submit">
 										Sign Up
 									</button>
@@ -130,12 +132,16 @@
 									Enter your email to reset your password:
 								</div>
 							</div>
-							<form class="m-login__form m-form" action="">
+							<form class="m-login__form m-form" action="/reset" method="POST">
 								<div class="form-group m-form__group">
-									<input class="form-control m-input" type="text" placeholder="Email" name="email" id="m_email" autocomplete="off">
+									<input class="form-control m-input" type="text" placeholder="Email" name="resetEmail" id="resetEmail" autocomplete="off">
 								</div>
 								<div class="m-login__form-action">
-									<button id="m_login_forget_password_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+									<input type="hidden" value="<%= csrfToken %>" name="_csrf">
+									<!-- <button id="m_login_forget_password_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+										Request
+									</button> -->
+									<button class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" type="submit">
 										Request
 									</button>
 									<button id="m_login_forget_password_cancel" class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom ">

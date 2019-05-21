@@ -1,11 +1,12 @@
 const express = require('express');
 
 const menuController = require('../controllers/menuController');
+const isAuth = require('../middleware/is-auth');
 
 const router = express.Router();
 
-router.get('/', menuController.getDashboard);
-router.get('/index', menuController.getDashboard);
-router.get('/inner', menuController.getInner);
+router.get('/', isAuth, menuController.getDashboard);
+router.get('/index', isAuth, menuController.getDashboard);
+router.get('/inner', isAuth, menuController.getInner);
 
 module.exports = router;
