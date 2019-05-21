@@ -74,3 +74,11 @@ exports.postUploadTeamData = (req, res, next) => {
         }
     })
 };
+
+exports.getAddDataTalent = (req, res, next) => {
+    res.render('add-data-talent', {
+        path: '/add-data-talent',
+        pageTitle: 'Add Data Talent',
+        editing: false
+    });
+};

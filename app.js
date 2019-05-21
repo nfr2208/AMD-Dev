@@ -8,10 +8,6 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const csrf = require('csurf');
 
-const Amoeba = require('./models/amoeba');
-const Innovator = require('./models/innovator');
-const User = require('./models/user');
-
 const errorController = require('./controllers/errorController');
 const sequelize = require('./util/database');
 
@@ -44,17 +40,7 @@ app.use(session({
 }));
 app.use(csrfProtection);
 
-app.use((req, res, next) => {
-    if(!req.session.user){
-        return next()
-    }
-    User.findByPk(req.session.user.id).then(user => {
-        req.user = user;
-        next();
-    }).catch(err => {
-        console.log(err);
-    });
-})
+app.listen(process.env.PORT || 3000)
 
 app.use((req, res, next) => {
     res.locals.isAuthenticated = req.session.isLogggedIn;
@@ -73,10 +59,10 @@ app.use(innovatorRoutes);
 app.use(errorController.get404);
 
 sequelize
-    .sync({force: true})
-    // .sync()
+    // .sync({force: true})
+    .sync()
     .then(result =>{
-        app.listen(process.env.PORT || 3000)
+        app.listen(process.env.PORT || 3001)
     }).catch(err => {
         console.log(err);
     });

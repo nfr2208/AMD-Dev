@@ -45,7 +45,7 @@
 								<li class="m-nav__item">
 									<a href="" class="m-nav__link">
 										<span class="m-nav__link-text">
-											Register Amoeba
+											Add Data Talent
 										</span>
 									</a>
 								</li>
@@ -132,254 +132,96 @@
 												<i class="la la-gear"></i>
 											</span>
 											<h3 class="m-portlet__head-text">
-												Register Amoeba
+												Add Data Talent
 											</h3>
 										</div>
 									</div>
 								</div>
 								<!--begin::Form-->
 								<form class="m-form m-form--fit m-form--label-align-right"
-									action="/<% if (editing) { %>edit-amoeba<% } else { %>register-amoeba<% } %>"
+									action="/<% if (editing) { %>edit-innovator<% } else { %>register-innovator<% } %>"
 									method="POST">
 									<div class="m-portlet__body">
 										<div class="row">
 											<div class="col-md-4">
-												<div class="form-group m-form__group">
+												<div class="form-group m-form__group hidden">
 													<label for="idAmoeba">
 														ID Amoeba
 													</label>
-													<input type="text" class="form-control m-input m-input--solid"
+													<input type="text"
+														class="form-control m-input m-input--solid disabled"
 														name="idAmoeba" id="idAmoeba" placeholder="ID Amoeba"
-														value="<% if (editing) { %><%= amoeba.idAmoeba %><% } %>">
+														value="<% if (editing) { %><%= innovator.idPeserta %><% } %>">
 												</div>
 											</div>
 											<div class="col-md-4">
-												<div class="form-group m-form__group">
+												<div class="form-group m-form__group hidden">
 													<label for="namaAmoeba">
 														Nama Amoeba
 													</label>
-													<input type="text" class="form-control m-input m-input--solid"
+													<input type="text"
+														class="form-control m-input m-input--solid disabled"
 														name="namaAmoeba" id="namaAmoeba" placeholder="Nama Amoeba"
-														value="<% if (editing) { %><%= amoeba.namaAmoeba %><% } %>">
+														value="<% if (editing) { %><%= innovator.idPeserta %><% } %>">
 												</div>
 											</div>
-											<div class="col-md-4">
+											<div class=" col-md-4">
 												<div class="form-group m-form__group">
 													<label for="batch">
 														Batch
 													</label>
-													<input type="text" class="form-control m-input m-input--solid" name="batch"
-														id="batch" placeholder="Batch"
-														value="<% if (editing) { %><%= amoeba.batch %><% } %>">
+													<input type="text" class="form-control m-input m-input--solid"
+														name="batch" id="batch" placeholder="Batch"
+														value="<% if (editing) { %><%= innovator.namaPeserta %><% } %>">
 												</div>
 											</div>
 										</div>
 										<br>
-										<div class="form-group m-form__group">
-											<label for="deskripsi1">
-												Deskripsi
-											</label>
-											<textarea class="form-control m-input" name="deskripsi1" id="deskripsi1"
-												rows="3"><% if (editing) { %><%= amoeba.deskripsi1 %><% } %></textarea>
-										</div>
-										<div class="form-group m-form__group">
-											<label for="deskripsi(FF)">
-												Deskripsi (FF)
-											</label>
-											<textarea class="form-control m-input" name="deskripsi(FF)" id="deskripsi(FF)"
-												rows="3"><% if (editing) { %><%= amoeba.deskripsi(FF) %><% } %></textarea>
-										</div>							
-										<br>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="statusAmoeba">
-														Status Amoeba
-													</label>
-													<select class="form-control m-input m-input--solid"
-														name="statusAmoeba" id="statusAmoeba">
-														<option>
-															Aktif
-														</option>
-														<option>
-															Tidak Aktif
-														</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="currentPhase">
-														Current Phase
-													</label>
-													<select class="form-control m-input m-input--solid"
-														name="currentPhase" id="currentPhase"
-														value="<% if (editing) { %><%= amoeba.currentPhase %><% } %>">
-														<option>
-															CV
-														</option>
-														<option>
-															PV
-														</option>
-														<option>
-															BMV
-														</option>
-														<option>
-															MV
-														</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<br>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="incbAcc">
-														Incubation / Acceleration
-													</label>
-													<select class="form-control m-input m-input--solid" name="incbAcc"
-														id="incbAcc">
-														<option>
-															Incubation
-														</option>
-														<option>
-															Acceleration
-														</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="tipeInovasi">
-														Tipe Inovasi
-													</label>
-													<select class="form-control m-input m-input--solid"
-														name="tipeInovasi" id="tipeInovasi"
-														value="<% if (editing) { %><%= amoeba.tipeInovasi %><% } %>">
-														<option>
-															Digitalization
-														</option>
-														<option>
-															Digitization
-														</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<br>
-										<div class="form-group m-form__group">
-											<label for="dtp">
-												DTP
-											</label>
-											<textarea class="form-control m-input" name="dtp" id="dtp"
-												rows="3"><% if (editing) { %><%= amoeba.dtp %><% } %></textarea>
-										</div>
 										<div class="row">
 											<div class="col-md-4">
 												<div class="form-group m-form__group">
-													<label for="areaInovasi">
-														5 Area Inovasi
+													<label for="nik">
+														NIK
 													</label>
-													<select class="form-control m-input m-input--solid"
-														name="areaInovasi" id="areaInovasi"
-														value="<% if (editing) { %><%= amoeba.areaInovasi %><% } %>">
-														<option>
-															-
-														</option>
-														<option>
-															NP
-														</option>
-														<option>
-															BO
-														</option>
-														<option>
-															CX
-														</option>
-														<option>
-															EX
-														</option>
-														<option>
-															BM
-														</option>
-													</select>
+													<input type="text" class="form-control m-input m-input--solid"
+														name="nik" id="nik" placeholder="NIK"
+														value="<% if (editing) { %><%= innovator.nik %><% } %>">
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group m-form__group">
-													<label for="mappingPilarDDS">
-														Mapping Pilar DDS
+													<label for="namaPeserta">
+														Nama Peserta
 													</label>
-													<select class="form-control m-input m-input--solid"
-														name="mappingPilarDDS" id="mappingPilarDDS"
-														value="<% if (editing) { %><%= amoeba.mappingPilarDDS %><% } %>">
-														<option>
-															Indihome Product
-														</option>
-														<option>
-															Financial Service
-														</option>
-														<option>
-															Commerce
-														</option>
-														<option>
-															Logistic
-														</option>
-														<option>
-															Games
-														</option>
-														<option>
-															Travel / Tourism
-														</option>
-														<option>
-															Video / Music
-														</option>
-														<option>
-															Smartcity
-														</option>
-														<option>
-															GOV / BUMN
-														</option>
-														<option>
-															Enterprise / SME
-														</option>
-														<option>
-															Advertising
-														</option>
-														<option>
-															IoT
-														</option>
-														<option>
-															BigData Service
-														</option>
-														<option>
-															Others
-														</option>
-													</select>
+													<input type="text" class="form-control m-input m-input--solid"
+														name="namaPeserta" id="namaPeserta" placeholder="Nama Peserta"
+														value="<% if (editing) { %><%= innovator.nik %><% } %>">
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group m-form__group">
-													<label for="mappingCFU">
-														Mapping CFU
+													<label for="bp">
+														BP
 													</label>
-													<select class="form-control m-input m-input--solid"
-														name="mappingCFU" id="mappingCFU"
-														value="<% if (editing) { %><%= amoeba.mappingCFU %><% } %>">
+													<select class="form-control m-input m-input--solid" name="bp"
+														id="bp">
 														<option>
-															ENT
+															I
 														</option>
 														<option>
-															DITCONS
+															II
 														</option>
 														<option>
-															DIGITAL
+															III
 														</option>
 														<option>
-															WINS
+															IV
 														</option>
 														<option>
-															MOBILE
+															V
+														</option>
+														<option>
+															VI
 														</option>
 													</select>
 												</div>
@@ -387,63 +229,195 @@
 										</div>
 										<br>
 										<div class="row">
+												<div class="col-md-4">
+														<div class="form-group m-form__group">
+															<label for="cLevel">
+																C-Level
+															</label>
+															<select class="form-control m-input m-input--solid" name="cLevel"
+																id="cLevel">
+																<option>
+																	CEO (Chief Executive Officer)
+																</option>
+																<option>
+																	COO (Chief Operating Officer)
+																</option>
+																<option>
+																	CDO (Chief Data Officer)
+																</option>
+																<option>
+																	CTO (Chief Technical Officer)
+																</option>
+																<option>
+																	CMO (Chief Marketing Officer)
+																</option>
+																<option>
+																	CFO (Chief Financial Officer)
+																</option>
+															</select>
+														</div>
+													</div>
+											<div class="col-md-4">
+												<div class="form-group m-form__group">
+													<label for="noTelp">
+														No. Telepon
+													</label>
+													<input type="text" class="form-control m-input m-input--solid"
+														name="noTelp" id="noTelp" placeholder="No. Telepon"
+														value="<% if (editing) { %><%= innovator.noTelp %><% } %>">
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group m-form__group">
+													<label for="emailPeserta">
+														Email
+													</label>
+													<input type="text" class="form-control m-input m-input--solid"
+														name="emailPeserta" id="emailPeserta" placeholder="Email"
+														value="<% if (editing) { %><%= innovator.emailPeserta %><% } %>">
+												</div>
+											</div>
+										</div>
+										<br>
+										<hr>
+										<br>
+										<div class="row">
+												<div class="col-md-6">
+														<div class="form-group m-form__group">
+															<label for="timStruktur">
+																Tim Stuktur
+															</label>
+															<select class="form-control m-input m-input--solid" name="timStruktur"
+																id="timStruktur">
+																<option>
+																	Hustler
+																</option>
+																<option>
+																	Hipster
+																</option>
+																<option>
+																	Hacker
+																</option>
+															</select>
+														</div>
+													</div>
 											<div class="col-md-6">
 												<div class="form-group m-form__group">
-													<label for="core">
-														Core
+													<label for="natureStream">
+														Nature Stream
 													</label>
-													<select class="form-control m-input m-input--solid" name="core"
-														id="core" value="<% if (editing) { %><%= amoeba.core %><% } %>">
+													<select class="form-control m-input m-input--solid"
+														name="natureStream" id="natureStream">
 														<option>
-															B2B
+															Hustler
 														</option>
 														<option>
-															B2C
+															Hipster
 														</option>
 														<option>
-															B2B & B2C
+															Hacker
 														</option>
 													</select>
 												</div>
 											</div>
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="ecosystem">
-														Ecosystem
-													</label>
-													<select class="form-control m-input m-input--solid" name="ecosystem"
-														id="ecosystem"
-														value="<% if (editing) { %><%= amoeba.ecosystem %><% } %>">
-														<option>
-															GOV/SME
-														</option>
-														<option>
-															GOV/SME/LE
-														</option>
-														<option>
-															GOV
-														</option>
-														<option>
-															LE
-														</option>
-														<option>
-															SME
-														</option>
-														<option>
-															LE/SME
-														</option>
-													</select>
-												</div>
+											
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group m-form__group hidden">
+												<label for="unitKerjaAsal">
+													Unit Kerja Asal
+												</label>
+												<input type="text" class="form-control m-input m-input--solid disabled"
+													name="unitKerjaAsal" id="unitKerjaAsal" placeholder="Unit Kerja Asal"
+													value="<% if (editing) { %><%= innovator.unit %><% } %>">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group m-form__group hidden">
+												<label for="unitKerjaSaatIni">
+													Unit Kerja Saat Ini
+												</label>
+												<input type="text" class="form-control m-input m-input--solid disabled"
+													name="unitKerjaSaatIni" id="unitKerjaSaatIni" placeholder="Unit Kerja Saat Ini"
+													value="<% if (editing) { %><%= innovator.unit %><% } %>">
 											</div>
 										</div>
 									</div>
+									<br>
+									<div class="row">
+										<div class=" col-md-6">
+											<div class="form-group m-form__group">
+												<label for="lokerAsal">
+													Loker Asal
+												</label>
+												<input type="text" class="form-control m-input m-input--solid"
+													name="lokerAsal" id="lokerAsal" placeholder="Contoh: Jakarta, Medan, dll"
+													value="<% if (editing) { %><%= innovator.loker %><% } %>">
+											</div>
+										</div>										
+										<div class=" col-md-6">
+											<div class="form-group m-form__group">
+												<label for="lokerSaatIni">
+													Loker Saat Ini
+												</label>
+												<input type="text" class="form-control m-input m-input--solid"
+													name="lokerSaatIni" id="lokerSaatIni" placeholder="Contoh: Jakarta, Medan, dll"
+													value="<% if (editing) { %><%= innovator.loker %><% } %>">
+											</div>
+										</div>
+									</div>
+									<br>
+									<div class="row">
+										<div class="col-md-4">
+												<div class="form-group m-form__group">
+													<label for="statusInnovator">
+														Tipe Innovator
+													</label>
+													<select class="form-control m-input m-input--solid"
+														name="statusInnovator" id="statusInnovator">
+														<option>
+															100%
+														</option>
+														<option>
+															40/60
+														</option>
+														<option>
+															on Bootcamp
+														</option>
+													</select>
+												</div>
+											</div>
+										<div class=" col-md-4">
+											<div class="form-group m-form__group">
+												<label for="status">
+													Status
+												</label>
+												<input type="text" class="form-control m-input m-input--solid"
+													name="status" id="status" placeholder="Aktif atau Tidak Aktif"
+													value="<% if (editing) { %><%= innovator.loker %><% } %>">
+											</div>
+										</div>
+										<div class=" col-md-4">
+											<div class="form-group m-form__group">
+												<label for="flagging">
+													Flagging
+												</label>
+												<input type="text" class="form-control m-input m-input--solid"
+													name="flagging" id="flagging" placeholder="Active Talent or Alumni or Move Team"
+													value="<% if (editing) { %><%= innovator.loker %><% } %>">
+											</div>
+										</div>
+									</div>
+									<br>
 									<div class="m-portlet__foot m-portlet__foot--fit">
 										<div class="m-form__actions">
 											<button type="submit" class="btn btn-success">
-												<% if (editing) { %>Update Amoeba<% } else { %> Submit <% } %>
+												<% if (editing) { %>Update Innovator<% } else { %> Submit <% } %>
 											</button>
 											<% if (editing) { %>
-												<a href="/view-amoeba" class="btn btn-secondary"> Cancel </a>
+												<a href="/view-innovator" class="btn btn-secondary"> Cancel </a>
 											<% } else { %>
 											<button type="reset" class="btn btn-secondary"> Cancel </button>
 											<% } %>
@@ -479,7 +453,7 @@
 	<%- include('includes/base-scripts.ejs')%>
 	<!--end::Base Scripts -->
 	<!--begin::Page Snippets -->
-	<script src="assets/app/js/dashboard.js" type="text/javascript"></script>
+	<script src="/assets/app/js/dashboard.js" type="text/javascript"></script>
 	<!--end::Page Snippets -->
 </body>
 <!-- end::Body -->

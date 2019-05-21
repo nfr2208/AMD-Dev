@@ -145,12 +145,12 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group m-form__group hidden">
-													<label for="idPeserta">
-														ID Peserta
+													<label for="idInnovator">
+														ID Innovator
 													</label>
 													<input type="text"
 														class="form-control m-input m-input--solid disabled"
-														name="idPeserta" id="idPeserta" placeholder="ID Peserta"
+														name="idInnovator" id="idInnovator" placeholder="ID Innovator"
 														value="<% if (editing) { %><%= innovator.idPeserta %><% } %>">
 												</div>
 											</div>
@@ -233,6 +233,25 @@
 										<hr>
 										<br>
 										<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="timStruktur">
+															Tim Stuktur
+														</label>
+														<select class="form-control m-input m-input--solid" name="timStruktur"
+															id="timStruktur">
+															<option>
+																Hustler
+															</option>
+															<option>
+																Hipster
+															</option>
+															<option>
+																Hacker
+															</option>
+														</select>
+													</div>
+												</div>
 											<div class="col-md-6">
 												<div class="form-group m-form__group">
 													<label for="natureStream">
@@ -252,70 +271,9 @@
 													</select>
 												</div>
 											</div>
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="statusInnovator">
-														Status Innovator
-													</label>
-													<select class="form-control m-input m-input--solid"
-														name="statusInnovator" id="statusInnovator">
-														<option>
-															100%
-														</option>
-														<option>
-															40/60
-														</option>
-														<option>
-															on Bootcamp
-														</option>
-													</select>
-												</div>
-											</div>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group m-form__group hidden">
-												<label for="unit">
-													Unit
-												</label>
-												<input type="text" class="form-control m-input m-input--solid disabled"
-													name="unit" id="unit" placeholder=""
-													value="<% if (editing) { %><%= innovator.unit %><% } %>">
-											</div>
-										</div>
-										<div class=" col-md-6">
-											<div class="form-group m-form__group">
-												<label for="loker">
-													Loker
-												</label>
-												<input type="text" class="form-control m-input m-input--solid"
-													name="loker" id="loker" placeholder="Contoh: Jakarta, Medan, dll"
-													value="<% if (editing) { %><%= innovator.loker %><% } %>">
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group m-form__group">
-												<label for="timStruktur">
-													Tim Stuktur
-												</label>
-												<select class="form-control m-input m-input--solid" name="timStruktur"
-													id="timStruktur">
-													<option>
-														Hustler
-													</option>
-													<option>
-														Hipster
-													</option>
-													<option>
-														Hacker
-													</option>
-												</select>
-											</div>
-										</div>
+									<div class="row">										
 										<div class="col-md-6">
 											<div class="form-group m-form__group">
 												<label for="cLevel">
@@ -344,7 +302,49 @@
 												</select>
 											</div>
 										</div>
-									</div>
+										<div class="col-md-6">
+											<div class="form-group m-form__group">
+												<label for="statusInnovator">
+													Status Innovator
+												</label>
+												<select class="form-control m-input m-input--solid"
+													name="statusInnovator" id="statusInnovator">
+													<option>
+														100%
+													</option>
+													<option>
+														40/60
+													</option>
+													<option>
+														on Bootcamp
+													</option>
+												</select>
+											</div>
+										</div>
+									</div>									
+									<br>
+									<div class="row">
+										<div class="col-md-6">
+												<div class="form-group m-form__group hidden">
+													<label for="unit">
+														Unit Kerja
+													</label>
+													<input type="text" class="form-control m-input m-input--solid disabled"
+														name="unit" id="unit" placeholder=""
+														value="<% if (editing) { %><%= innovator.unit %><% } %>">
+												</div>
+											</div>
+											<div class=" col-md-6">
+												<div class="form-group m-form__group">
+													<label for="loker">
+														Loker
+													</label>
+													<input type="text" class="form-control m-input m-input--solid"
+														name="loker" id="loker" placeholder="Contoh: Jakarta, Medan, dll"
+														value="<% if (editing) { %><%= innovator.loker %><% } %>">
+												</div>
+											</div>
+									</div>									
 									<br>
 									<div class="m-portlet__foot m-portlet__foot--fit">
 										<div class="m-form__actions">
