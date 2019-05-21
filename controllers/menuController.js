@@ -1,12 +1,12 @@
 exports.getDashboard = (req, res, next) => {
-    res.render('index', {
+    res.render('menu/index', {
         path: '/index',
         pageTitle: 'Dashboard'
     });
 };
 
 exports.getInner = (req, res, next) => {
-    res.render('inner', {
+    res.render('menu/inner', {
         path: '/inner',
         pageTitle: 'Inner Dashboard'
     });
