@@ -1,4 +1,4 @@
-<%- include('../../includes/head.ejs')%>
+<%- include('../includes/head.ejs')%>
 </head>
 <!-- end::Head -->
 <!-- end::Body -->
@@ -45,7 +45,7 @@
 								<li class="m-nav__item">
 									<a href="" class="m-nav__link">
 										<span class="m-nav__link-text">
-											Add Data Talent
+											<% if (editing) { %>Edit Data Talent<% } else { %>Add Data Talent<% } %>
 										</span>
 									</a>
 								</li>
@@ -132,47 +132,48 @@
 												<i class="la la-gear"></i>
 											</span>
 											<h3 class="m-portlet__head-text">
-												Add Data Talent
+												<% if (editing) { %>Edit Data Talent<% } else { %>Add Data Talent<% } %>
 											</h3>
 										</div>
 									</div>
 								</div>
 								<!--begin::Form-->
 								<form class="m-form m-form--fit m-form--label-align-right"
-									action="/<% if (editing) { %>edit-innovator<% } else { %>register-innovator<% } %>"
+									action="/<% if (editing) { %>edit-data-talent<% } else { %>add-data-talent<% } %>"
 									method="POST">
+									<input type="hidden" name="idTeamdata" id="idTeamdata" value="<% if (editing) { %><%= teamdata.id %><% } %>">
 									<div class="m-portlet__body">
 										<div class="row">
 											<div class="col-md-4">
 												<div class="form-group m-form__group hidden">
-													<label for="idAmoeba">
-														ID Amoeba
+													<label for="id_peserta">
+														ID Peserta
 													</label>
 													<input type="text"
 														class="form-control m-input m-input--solid disabled"
-														name="idAmoeba" id="idAmoeba" placeholder="ID Amoeba"
-														value="<% if (editing) { %><%= innovator.idPeserta %><% } %>">
+														name="id_peserta" id="id_peserta" placeholder="ID Peserta"
+														value="<% if (editing) { %><%= teamdata.id_peserta %><% } %>">
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group m-form__group hidden">
-													<label for="namaAmoeba">
-														Nama Amoeba
+													<label for="nama_tim">
+														Nama Tim
 													</label>
 													<input type="text"
 														class="form-control m-input m-input--solid disabled"
-														name="namaAmoeba" id="namaAmoeba" placeholder="Nama Amoeba"
-														value="<% if (editing) { %><%= innovator.idPeserta %><% } %>">
+														name="nama_tim" id="nama_tim" placeholder="Nama Tim"
+														value="<% if (editing) { %><%= teamdata.nama_tim %><% } %>">
 												</div>
 											</div>
 											<div class=" col-md-4">
 												<div class="form-group m-form__group">
-													<label for="batch">
-														Batch
+													<label for="batch_inovation">
+														Batch Inovation
 													</label>
 													<input type="text" class="form-control m-input m-input--solid"
-														name="batch" id="batch" placeholder="Batch"
-														value="<% if (editing) { %><%= innovator.namaPeserta %><% } %>">
+														name="batch_inovation" id="batch_inovation" placeholder="Batch Inovation"
+														value="<% if (editing) { %><%= teamdata.batch_inovation %><% } %>">
 												</div>
 											</div>
 										</div>
@@ -185,42 +186,46 @@
 													</label>
 													<input type="text" class="form-control m-input m-input--solid"
 														name="nik" id="nik" placeholder="NIK"
-														value="<% if (editing) { %><%= innovator.nik %><% } %>">
+														value="<% if (editing) { %><%= teamdata.nik %><% } %>">
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group m-form__group">
-													<label for="namaPeserta">
-														Nama Peserta
+													<label for="nama">
+														Nama
 													</label>
 													<input type="text" class="form-control m-input m-input--solid"
-														name="namaPeserta" id="namaPeserta" placeholder="Nama Peserta"
-														value="<% if (editing) { %><%= innovator.nik %><% } %>">
+														name="nama" id="nama" placeholder="Nama"
+														value="<% if (editing) { %><%= teamdata.nama %><% } %>">
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group m-form__group">
+													<input type="hidden" value="<% if (editing) { %><%= teamdata.bp %><% } %>" id="bpEdit">
 													<label for="bp">
 														BP
 													</label>
 													<select class="form-control m-input m-input--solid" name="bp"
 														id="bp">
-														<option>
+														<option value="-">
+															-
+														</option>
+														<option value="I">
 															I
 														</option>
-														<option>
+														<option value="II">
 															II
 														</option>
-														<option>
+														<option value="III">
 															III
 														</option>
-														<option>
+														<option value="IV">
 															IV
 														</option>
-														<option>
+														<option value="V">
 															V
 														</option>
-														<option>
+														<option value="VI">
 															VI
 														</option>
 													</select>
@@ -229,52 +234,53 @@
 										</div>
 										<br>
 										<div class="row">
-												<div class="col-md-4">
-														<div class="form-group m-form__group">
-															<label for="cLevel">
-																C-Level
-															</label>
-															<select class="form-control m-input m-input--solid" name="cLevel"
-																id="cLevel">
-																<option>
-																	CEO (Chief Executive Officer)
-																</option>
-																<option>
-																	COO (Chief Operating Officer)
-																</option>
-																<option>
-																	CDO (Chief Data Officer)
-																</option>
-																<option>
-																	CTO (Chief Technical Officer)
-																</option>
-																<option>
-																	CMO (Chief Marketing Officer)
-																</option>
-																<option>
-																	CFO (Chief Financial Officer)
-																</option>
-															</select>
-														</div>
+											<div class="col-md-4">
+													<div class="form-group m-form__group">
+														<input type="hidden" value="<% if (editing) { %><%= teamdata.c_level %><% } %>" id="c_levelEdit">
+														<label for="c_level">
+															C-Level
+														</label>
+														<select class="form-control m-input m-input--solid" name="c_level"
+															id="c_level">
+															<option value="CEO">
+																CEO
+															</option>
+															<option value="COO">
+																COO
+															</option>
+															<option value="CDO">
+																CDO
+															</option>
+															<option value="CTO">
+																CTO
+															</option>
+															<option value="CMO">
+																CMO
+															</option>
+															<option value="CFO">
+																CFO
+															</option>
+														</select>
 													</div>
+												</div>
 											<div class="col-md-4">
 												<div class="form-group m-form__group">
-													<label for="noTelp">
+													<label for="no_telp">
 														No. Telepon
 													</label>
 													<input type="text" class="form-control m-input m-input--solid"
-														name="noTelp" id="noTelp" placeholder="No. Telepon"
-														value="<% if (editing) { %><%= innovator.noTelp %><% } %>">
+														name="no_telp" id="no_telp" placeholder="No. Telepon"
+														value="<% if (editing) { %><%= teamdata.no_telp %><% } %>">
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group m-form__group">
-													<label for="emailPeserta">
+													<label for="email">
 														Email
 													</label>
 													<input type="text" class="form-control m-input m-input--solid"
-														name="emailPeserta" id="emailPeserta" placeholder="Email"
-														value="<% if (editing) { %><%= innovator.emailPeserta %><% } %>">
+														name="email" id="email" placeholder="Email"
+														value="<% if (editing) { %><%= teamdata.email %><% } %>">
 												</div>
 											</div>
 										</div>
@@ -282,66 +288,66 @@
 										<hr>
 										<br>
 										<div class="row">
-												<div class="col-md-6">
-														<div class="form-group m-form__group">
-															<label for="timStruktur">
-																Tim Stuktur
-															</label>
-															<select class="form-control m-input m-input--solid" name="timStruktur"
-																id="timStruktur">
-																<option>
-																	Hustler
-																</option>
-																<option>
-																	Hipster
-																</option>
-																<option>
-																	Hacker
-																</option>
-															</select>
-														</div>
-													</div>
 											<div class="col-md-6">
 												<div class="form-group m-form__group">
-													<label for="natureStream">
-														Nature Stream
+													<input type="hidden" value="<% if (editing) { %><%= teamdata.tim_struktur %><% } %>" id="tim_strukturEdit">
+													<label for="tim_struktur">
+														Tim Struktur
 													</label>
-													<select class="form-control m-input m-input--solid"
-														name="natureStream" id="natureStream">
-														<option>
-															Hustler
+													<select class="form-control m-input m-input--solid" name="tim_struktur"
+														id="tim_struktur">
+														<option value="HUSTLER">
+															HUSTLER
 														</option>
-														<option>
-															Hipster
+														<option value="HIPSTER">
+															HIPSTER
 														</option>
-														<option>
-															Hacker
+														<option value="HACKER">
+															HACKER
 														</option>
 													</select>
 												</div>
 											</div>
-											
+											<div class=" col-md-6">
+												<div class="form-group m-form__group">
+													<input type="hidden" value="<% if (editing) { %><%= teamdata.flagging %><% } %>" id="flaggingEdit">
+													<label for="flagging">
+														Flagging
+													</label>
+													<select class="form-control m-input m-input--solid" name="flagging" id="flagging">
+														<option value="ACTIVE TALENT">
+															ACTIVE TALENT
+														</option>
+														<option value="ALUMNI">
+															ALUMNI
+														</option>
+														<option value="MOVE TEAM">
+															MOVE TEAM
+														</option>
+													</select>
+												</div>
+											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-6">
-											<div class="form-group m-form__group hidden">
-												<label for="unitKerjaAsal">
+											<div class="form-group m-form__group">
+												<label for="unit_kerja_asal">
 													Unit Kerja Asal
 												</label>
 												<input type="text" class="form-control m-input m-input--solid disabled"
-													name="unitKerjaAsal" id="unitKerjaAsal" placeholder="Unit Kerja Asal"
-													value="<% if (editing) { %><%= innovator.unit %><% } %>">
+													name="unit_kerja_asal" id="unit_kerja_asal" placeholder="Unit Kerja Asal"
+													value="<% if (editing) { %><%= teamdata.unit_kerja_asal %><% } %>">
 											</div>
 										</div>
 										<div class="col-md-6">
-											<div class="form-group m-form__group hidden">
-												<label for="unitKerjaSaatIni">
+											<div class="form-group m-form__group">
+												<label for="unit_kerja_saat_ini">
 													Unit Kerja Saat Ini
 												</label>
 												<input type="text" class="form-control m-input m-input--solid disabled"
-													name="unitKerjaSaatIni" id="unitKerjaSaatIni" placeholder="Unit Kerja Saat Ini"
-													value="<% if (editing) { %><%= innovator.unit %><% } %>">
+													name="unit_kerja_saat_ini" id="unit_kerja_saat_ini" placeholder="Unit Kerja Saat Ini"
+													value="<% if (editing) { %><%= teamdata.unit_kerja_saat_ini %><% } %>">
 											</div>
 										</div>
 									</div>
@@ -349,75 +355,75 @@
 									<div class="row">
 										<div class=" col-md-6">
 											<div class="form-group m-form__group">
-												<label for="lokerAsal">
+												<label for="loker_asal">
 													Loker Asal
 												</label>
 												<input type="text" class="form-control m-input m-input--solid"
-													name="lokerAsal" id="lokerAsal" placeholder="Contoh: Jakarta, Medan, dll"
-													value="<% if (editing) { %><%= innovator.loker %><% } %>">
+													name="loker_asal" id="loker_asal" placeholder="Contoh: Jakarta, Medan, dll"
+													value="<% if (editing) { %><%= teamdata.loker_asal %><% } %>">
 											</div>
 										</div>										
 										<div class=" col-md-6">
 											<div class="form-group m-form__group">
-												<label for="lokerSaatIni">
+												<label for="loker_saat_ini">
 													Loker Saat Ini
 												</label>
 												<input type="text" class="form-control m-input m-input--solid"
-													name="lokerSaatIni" id="lokerSaatIni" placeholder="Contoh: Jakarta, Medan, dll"
-													value="<% if (editing) { %><%= innovator.loker %><% } %>">
+													name="loker_saat_ini" id="loker_saat_ini" placeholder="Contoh: Jakarta, Medan, dll"
+													value="<% if (editing) { %><%= teamdata.loker_saat_ini %><% } %>">
 											</div>
 										</div>
 									</div>
 									<br>
 									<div class="row">
-										<div class="col-md-4">
-												<div class="form-group m-form__group">
-													<label for="statusInnovator">
-														Tipe Innovator
-													</label>
-													<select class="form-control m-input m-input--solid"
-														name="statusInnovator" id="statusInnovator">
-														<option>
-															100%
-														</option>
-														<option>
-															40/60
-														</option>
-														<option>
-															on Bootcamp
-														</option>
-													</select>
-												</div>
-											</div>
-										<div class=" col-md-4">
+										<div class="col-md-6">
 											<div class="form-group m-form__group">
+												<input type="hidden" value="<% if (editing) { %><%= teamdata.tipe_inovator %><% } %>" id="tipe_inovatorEdit">
+												<label for="tipe_inovator">
+													Tipe Innovator
+												</label>
+												<select class="form-control m-input m-input--solid" name="tipe_inovator" id="tipe_inovator">
+													<option value="100%">
+														100%
+													</option>
+													<option value="40/60">
+														40/60
+													</option>
+													<option value="Bootcamp">
+														Bootcamp
+													</option>
+													<option value="NotJoin">
+														NotJoin
+													</option>
+												</select>
+											</div>
+										</div>
+										<div class=" col-md-6">
+											<div class="form-group m-form__group">
+												<input type="hidden" value="<% if (editing) { %><%= teamdata.status %><% } %>" id="statusEdit">
 												<label for="status">
 													Status
 												</label>
-												<input type="text" class="form-control m-input m-input--solid"
-													name="status" id="status" placeholder="Aktif atau Tidak Aktif"
-													value="<% if (editing) { %><%= innovator.loker %><% } %>">
-											</div>
-										</div>
-										<div class=" col-md-4">
-											<div class="form-group m-form__group">
-												<label for="flagging">
-													Flagging
-												</label>
-												<input type="text" class="form-control m-input m-input--solid"
-													name="flagging" id="flagging" placeholder="Active Talent or Alumni or Move Team"
-													value="<% if (editing) { %><%= innovator.loker %><% } %>">
+												<select class="form-control m-input m-input--solid" name="status" id="status">
+													<option value=1>
+														Active
+													</option>
+													<option value=0>
+														Inactive
+													</option>
+												</select>
 											</div>
 										</div>
 									</div>
 									<br>
 									<div class="m-portlet__foot m-portlet__foot--fit">
 										<div class="m-form__actions">
+											<input type="hidden" value="<%= csrfToken %>" name="_csrf" id="csrfToken">
 											<button type="submit" class="btn btn-success">
-												<% if (editing) { %>Update Innovator<% } else { %> Submit <% } %>
+												<% if (editing) { %>Update Data Talent<% } else { %> Submit <% } %>
 											</button>
 											<% if (editing) { %>
-												<a href="/view-innovator" class="btn btn-secondary"> Cancel </a>
+												<a href="/view-team-data" class="btn btn-secondary"> Cancel </a>
 											<% } else { %>
 											<button type="reset" class="btn btn-secondary"> Cancel </button>
 											<% } %>
@@ -453,7 +459,7 @@
 	<%- include('../includes/base-scripts.ejs')%>
 	<!--end::Base Scripts -->
 	<!--begin::Page Snippets -->
-	<script src="/assets/app/js/dashboard.js" type="text/javascript"></script>
+	<script src="/assets/app/js/edit-teamdata.js" type="text/javascript"></script>
 	<!--end::Page Snippets -->
 </body>
 <!-- end::Body -->
