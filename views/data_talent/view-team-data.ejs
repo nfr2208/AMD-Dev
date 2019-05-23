@@ -345,13 +345,15 @@
 											</div>
 										</div>
 									</div>
+									<input type="hidden" value="<%= csrfToken %>" name="_csrf" id="csrfToken">
+									<% if (userProfile.role === 'AI') { %>
 									<div class="col-xl-4 order-1 order-xl-2 m--align-right">
-										<input type="hidden" value="<%= csrfToken %>" name="_csrf" id="csrfToken">
 										<button type="button" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" data-toggle="modal" data-target="#m_modal_5">
 											Upload File
 										</button>
 										<div class="m-separator m-separator--dashed d-xl-none"></div>
 									</div>
+									<% } %>
 								</div>
 							</div>
 							<div class="m-separator m-separator--dashed d-xl"></div>
@@ -386,7 +388,7 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<form method="POST" action="/view-team-data/upload?_csrf=<%= csrfToken %>" enctype="multipart/form-data">
+						<form method="POST" action="/dashboard/view-team-data/upload?_csrf=<%= csrfToken %>" enctype="multipart/form-data">
 							<div class="form-group">
 								<label for="teamdata">Update Team Data</label>
 								<input type="file" class="form-control-file" id="teamdata" name="teamdata">

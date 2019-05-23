@@ -139,7 +139,7 @@
 								</div>
 								<!--begin::Form-->
 								<form class="m-form m-form--fit m-form--label-align-right"
-									action="/<% if (editing) { %>edit-data-talent<% } else { %>add-data-talent<% } %>"
+									action="/<% if (editing) { %>dashboard/dedit-data-talent<% } else { %>dashboard/add-data-talent<% } %>"
 									method="POST">
 									<input type="hidden" name="idTeamdata" id="idTeamdata" value="<% if (editing) { %><%= teamdata.id %><% } %>">
 									<div class="m-portlet__body">
@@ -423,7 +423,7 @@
 												<% if (editing) { %>Update Data Talent<% } else { %> Submit <% } %>
 											</button>
 											<% if (editing) { %>
-												<a href="/view-team-data" class="btn btn-secondary"> Cancel </a>
+												<a href="/dashboard/view-team-data" class="btn btn-secondary"> Cancel </a>
 											<% } else { %>
 											<button type="reset" class="btn btn-secondary"> Cancel </button>
 											<% } %>
