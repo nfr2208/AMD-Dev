@@ -55,8 +55,18 @@
                             <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
                                 <span class="m-menu__arrow m-menu__arrow--adjust"></span>
                                 <ul class="m-menu__subnav">
+                                    <% if (userProfile.role === 'AI') { %>
                                     <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                        <a href="/view-team-data" class="m-menu__link ">
+                                        <a href="/dashboard/add-data-talent" class="m-menu__link ">
+                                            <i class="m-menu__link-icon flaticon-users"></i>
+                                            <span class="m-menu__link-text">
+                                                Add Data Talent
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <% } %>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
+                                        <a href="/dashboard/view-team-data" class="m-menu__link ">
                                             <i class="m-menu__link-icon flaticon-users"></i>
                                             <span class="m-menu__link-text">
                                                 View Team Data
@@ -77,7 +87,7 @@
                                 m-dropdown-toggle="click">
                                 <a href="#" class="m-nav__link m-dropdown__toggle">
                                     <span class="m-topbar__userpic m--hide">
-                                        <img src="assets/app/media/img/users/user4.jpg"
+                                        <img src="/assets/app/media/img/users/user4.jpg"
                                             class="m--img-rounded m--marginless m--img-centered" alt="" />
                                     </span>
                                     <span class="m-nav__link-icon m-topbar__usericon">
@@ -86,7 +96,7 @@
                                         </span>
                                     </span>
                                     <span class="m-topbar__username m--hide">
-                                        Nick
+                                        <%= userProfile.name %>
                                     </span>
                                 </a>
                                 <div class="m-dropdown__wrapper">
@@ -96,7 +106,7 @@
                                         <div class="m-dropdown__header m--align-center">
                                             <div class="m-card-user m-card-user--skin-light">
                                                 <div class="m-card-user__pic">
-                                                    <img src="assets/app/media/img/users/user4.jpg"
+                                                    <img src="/assets/app/media/img/users/user4.jpg"
                                                         class="m--img-rounded m--marginless" alt="" />
                                                 </div>
                                                 <div class="m-card-user__details">

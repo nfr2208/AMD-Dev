@@ -35,7 +35,6 @@ exports.postLogin = (req, res, next) => {
         bcrypt.compare(password, user.password).then(doMatch => {
             if(doMatch){
                 req.session.isLoggedIn = true;
-                req.session.userRole = user.role;
                 req.session.user = user;
                 return req.session.save(err => {
                     console.log(err);
@@ -57,6 +56,7 @@ exports.postSignUp = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword;
+    const role = req.body.role;
 
     User.findOne({
         where: {
@@ -71,7 +71,7 @@ exports.postSignUp = (req, res, next) => {
                 name: fullname,
                 email: email,
                 password: hashedPassword,
-                role: 'user'
+                role: role
             });
         }).then(result => {
             res.redirect('/login');

@@ -1,4 +1,5 @@
 let jsonTeamData = document.getElementById("jsonTeamData").title;
+let csrfToken = document.getElementById("csrfToken").value;
 
 var DatatableAutoColumnHideDemo = {
     init: function () {
@@ -56,7 +57,7 @@ var DatatableAutoColumnHideDemo = {
                 template: function (e) {
                     let a = {
                         0: {
-                            title: "NOT ACTIVE",
+                            title: "INACTIVE",
                             class: " m-badge--danger"
                         },
                         1: {
@@ -83,7 +84,8 @@ var DatatableAutoColumnHideDemo = {
                 title: "Tim Struktur"
             }, {
                 field: "c_level",
-                title: "C-Level"
+                title: "C-Level",
+                width: 110
             }, {
                 field: "unit_kerja_asal",
                 title: "Unit Kerja Asal"
@@ -94,12 +96,24 @@ var DatatableAutoColumnHideDemo = {
                 field: "unit_kerja_saat_ini",
                 title: "Unit Kerja Saat Ini"
             }, {
+                field: "loker_saat_ini",
+                title: "Loker Saat Ini"
+            }, {
                 field: "no_telp",
                 title: "No. Telp"
             }, {
                 field: "email",
                 title: "Email",
                 width: 300
+            }, {
+                field: "Actions",
+                width: 110,
+                title: "Actions",
+                sortable: !1,
+                overflow: "visible",
+                template: function (e, a, i) {
+                    return '\t\t\t\t\t\t<div class="dropdown ' + (i.getPageSize() - a <= 4 ? "dropup" : "") + '">\t\t\t\t\t\t\t<a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">                                <i class="la la-ellipsis-h"></i>                            </a>\t\t\t\t\t\t  \t<div class="dropdown-menu dropdown-menu-right">\t\t\t\t\t\t    \t<a class="dropdown-item" href="/dashboard/edit-data-talent/'+ e.id +'?edit=true"><i class="la la-edit"></i> Edit Data Talent</a>\t\t\t\t\t\t    \t</div>\t\t\t\t\t\t</div>\t\t\t\t\t\t<form action="/dashboard/delete-data-talent" method="POST" class="d-inline"><input type="hidden" value="'+ csrfToken +'" name="_csrf"><input type="hidden" name="id" value="'+ e.id +'"><button class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" type="submit" title="Delete"><i class="la la-trash"></i></button></form>\t\t\t\t\t'
+                }
             }]
         }), i = a.getDataSourceQuery(), $("#m_form_status").on("change", function () {
             a.search($(this).val(), "status")

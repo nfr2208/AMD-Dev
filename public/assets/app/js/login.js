@@ -92,7 +92,7 @@ var SnippetLogin = function() {
             btn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', true);
 
             form.ajaxSubmit({
-                url: 'localhost:3000/index',
+                url: 'localhost:3000/postlogin',
                 success: function(response, status, xhr, $form) {
                 	// similate 2s delay
                 	setTimeout(function() {
@@ -124,6 +124,9 @@ var SnippetLogin = function() {
                         required: true
                     },
                     confirmPassword: {
+                        required: true
+                    },
+                    role: {
                         required: true
                     },
                     agree: {
