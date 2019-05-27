@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap Part 14 : Membuat Carousel dengan Bootstrap</title>
+	<link href="/assets/app/carousel/carousel.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>	
+</head>
+<body>
+
+   <div class="container" id="slider-utama">
+		<div class="slider-wrapper">
+			<img src="/assets/app/media/img/logos/001.png" class="slide" />
+			<img src="/assets/app/media/img/logos/002.png" class="slide" />
+			<img src="/assets/app/media/img/logos/003.png" class="slide" />
+			<img src="/assets/app/media/img/logos/004.png" class="slide" />
+			<img src="/assets/app/media/img/logos/005.png" class="slide" />
+			<img src="/assets/app/media/img/logos/006.png" class="slide" />
+			<img src="/assets/app/media/img/logos/007.png" class="slide" />			
+		</div>
+	</div>
+
+<script type="text/javascript">
+		(function() {
+	
+	function Slideshow( element ) {
+		this.el = document.querySelector( element );
+		this.init();
+	}
+	
+	Slideshow.prototype = {
+		init: function() {
+			this.wrapper = this.el.querySelector( ".slider-wrapper" );
+			this.slides = this.el.querySelectorAll( ".slide" );
+			this.index = 0;
+			this.total = this.slides.length;
+			this.timer = null;
+			
+			this.action();
+			this.stopStart();	
+		},
+		_slideTo: function( slide ) {
+			var currentSlide = this.slides[slide];
+			currentSlide.style.opacity = 1;
+			
+			for( var i = 0; i < this.slides.length; i++ ) {
+				var slide = this.slides[i];
+				if( slide !== currentSlide ) {
+					slide.style.opacity = 0;
+				}
+			}
+		},
+		action: function() {
+			var self = this;
+			self.timer = setInterval(function() {
+				self.index++;
+				if( self.index == self.slides.length ) {
+					self.index = 0;
+				}
+				self._slideTo( self.index );
+				
+			}, 3000);
+		},
+		stopStart: function() {
+			var self = this;
+			self.el.addEventListener( "mouseover", function() {
+				clearInterval( self.timer );
+				self.timer = null;
+				
+			}, false);
+			self.el.addEventListener( "mouseout", function() {
+				self.action();
+				
+			}, false);
+		}
+		
+		
+	};
+	
+	document.addEventListener( "DOMContentLoaded", function() {
+		
+		var slider = new Slideshow( "#slider-utama" );
+		
+	});
+	
+	
+})();
+
+	</script>
+</body>
+</html>
