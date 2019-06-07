@@ -51,44 +51,6 @@ exports.postLogin = (req, res, next) => {
     });
 };
 
-exports.postSignUp = (req, res, next) => {
-    const fullname = req.body.fullname;
-    const email = req.body.email;
-    const password = req.body.password;
-    const confirmPassword = req.body.confirmPassword;
-    const role = req.body.role;
-
-    User.findOne({
-        where: {
-            email: email
-        }
-    }).then(user => {
-        if(user){
-            return res.redirect('/login');
-        }
-        return bcrypt.hash(password, 12).then(hashedPassword => {
-            return User.create({
-                name: fullname,
-                email: email,
-                password: hashedPassword,
-                role: role
-            });
-        }).then(result => {
-            res.redirect('/login');
-            return transporter.sendMail({
-                to: email,
-                from: 'amd@digitalamoeba.id',
-                subject: 'Signup succeeded!',
-                html: '<h1>You successfully signed up!</h1>'
-            });
-        }).catch(err => {
-            console.log(err);
-        });
-    }).catch(err => {
-        console.log(err);
-    });
-};
-
 exports.postLogout = (req, res, next) => {
     req.session.destroy(err => {
         console.log(err);

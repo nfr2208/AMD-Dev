@@ -21,6 +21,7 @@ app.set('views', path.join(__dirname, 'views'));
 //Routing
 const authRoutes = require('./routes/authRoutes');
 const menuRoutes = require('./routes/menuRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 const amoebaRoutes = require('./routes/amoebaRoutes');
 const teamDataRoutes = require('./routes/teamDataRoutes');
 const innovatorRoutes = require('./routes/innovatorRoutes');
@@ -50,6 +51,7 @@ app.use((req, res, next) => {
 //Routes
 app.use(authRoutes);
 app.use(menuRoutes);
+app.use('/admin', adminRoutes);
 app.use(amoebaRoutes);
 app.use(teamDataRoutes);
 app.use(innovatorRoutes);
