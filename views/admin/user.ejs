@@ -51,75 +51,99 @@
 								</li>					
 							</ul>
 						</div>
-						<div>
-							<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
-								m-dropdown-toggle="hover" aria-expanded="true">
-								<a href="#"
-									class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-									<i class="la la-plus m--hide"></i>
-									<i class="la la-ellipsis-h"></i>
-								</a>
-							</div>
-						</div>
 					</div>
 				</div>
 				<!-- END: Subheader -->
 				<div class="m-content">
-					<div class="row">
-						<div class="col-md-12">
-							<!--begin::Portlet-->
-							<div class="m-portlet m-portlet--tab">
-								<div class="m-portlet__head">
-									<div class="m-portlet__head-caption">
-										<div class="m-portlet__head-title">
-											<span class="m-portlet__head-icon m--hide">
-												<i class="la la-gear"></i>
-											</span>
-											<h3 class="m-portlet__head-text">
-												Create new user
-											</h3>
+					<div class="m-portlet m-portlet--tab">
+						<div class="m-portlet__head">
+							<div class="m-portlet__head-caption">
+								<div class="m-portlet__head-title">
+									<span class="m-portlet__head-icon m--hide">
+										<i class="la la-gear"></i>
+									</span>
+									<h3 class="m-portlet__head-text">
+										Create new user
+									</h3>
+								</div>
+							</div>
+						</div>
+						<!--begin::Form-->
+						<form class="m-form m-form--fit m-form--label-align-right"
+							action="#"
+							method="POST">
+							<input type="hidden" name="idTeamdata" id="idTeamdata">
+							<div class="m-portlet__body">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group m-form__group hidden">
+											<label for="id_peserta">
+												Nama
+											</label>
+											<input type="text"
+												class="form-control m-input m-input--solid disabled"
+												name="nama" id="nama" placeholder="Nama">
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group m-form__group hidden">
+											<label for="nama_tim">
+												Email
+											</label>
+											<input type="email"
+												class="form-control m-input m-input--solid disabled"
+												name="email" id="email" placeholder="Email">
+										</div>
+									</div>
+									<div class=" col-md-4">
+										<div class="form-group m-form__group hidden">
+											<label for="role">
+												Role
+											</label>
+											<select class="form-control m-input--solid disabled" name="role">
+												<option value="AI">
+													Amoeba Incubator
+												</option>
+												<option value="AB">
+													Amoeba Bushido
+												</option>
+												<option value="AC">
+													Amoeba Caeros
+												</option>
+												<option value="AA">
+													Amoeba Accelerator
+												</option>
+											</select>
 										</div>
 									</div>
 								</div>
-								<!--begin::Form-->
-								<form class="m-form m-form--fit m-form--label-align-right"
-									action="#"
-									method="POST">
-									<input type="hidden" name="idTeamdata" id="idTeamdata">
-									<div class="m-portlet__body">
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group m-form__group hidden">
-													<label for="id_peserta">
-														ID Peserta
-													</label>
-													<input type="text"
-														class="form-control m-input m-input--solid disabled"
-														name="id_peserta" id="id_peserta" placeholder="ID Peserta">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group m-form__group hidden">
-													<label for="nama_tim">
-														Nama Tim
-													</label>
-													<input type="text"
-														class="form-control m-input m-input--solid disabled"
-														name="nama_tim" id="nama_tim" placeholder="Nama Tim">
-												</div>
-											</div>
-											<div class=" col-md-4">
-												<div class="form-group m-form__group">
-													<label for="batch_inovation">
-														Batch Inovation
-													</label>
-													<input type="text" class="form-control m-input m-input--solid"
-														name="batch_inovation" id="batch_inovation" placeholder="Batch Inovation">
-												</div>
-											</div>
-										</div>
-									</form>
+							</div>
+							<div class="m-portlet__foot m-portlet__foot--fit m--align-right">
+								<div class="m-form__actions">
+									<!-- <input type="hidden" value="<%= csrfToken %>" name="_csrf" id="csrfToken"> -->
+									<button type="submit" class="btn btn-success">
+										Create user
+									</button>
+									<button type="reset" class="btn btn-secondary"> Cancel </button>
 								</div>
+							</div>
+						</form>
+					</div>
+					<div class="m-portlet m-portlet--mobile">
+						<div class="m-portlet__head">
+							<div class="m-portlet__head-caption">
+								<div class="m-portlet__head-title">
+									<h3 class="m-portlet__head-text">
+										List of Team Data
+										<small hidden>
+											initialized from json
+										</small>
+									</h3>
+								</div>
+							</div>
+						</div>
+						<div class="m-portlet__body">
+							<div class="m_datatable" id="local_data">
 							</div>
 						</div>
 					</div>
@@ -140,15 +164,10 @@
 		<i class="la la-arrow-up"></i>
 	</div>
 	<!-- end::Scroll Top -->
-	<!-- begin::Quick Nav -->
-	<%- include('../includes-admin/quick-nav.ejs')%>
-	<!-- begin::Quick Nav -->
 	<!--begin::Base Scripts -->
 	<%- include('../includes-admin/base-scripts.ejs')%>
 	<!--end::Base Scripts -->
-	<!--begin::Page Snippets -->
-	<script src="assets/app/js/dashboard.js" type="text/javascript"></script>
-	<!--end::Page Snippets -->
+	<!-- <script src="/assets/app/js/row-details.js" type="text/javascript"></script> -->
 </body>
 <!-- end::Body -->
 
