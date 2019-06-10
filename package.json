@@ -28,8 +28,9 @@
     "react-items-carousel": "^2.3.6",
     "react-slick": "^0.24.0",
     "request": "^2.88.0",
-    "sequelize": "^5.7.4",
+    "sequelize": "^5.8.7",
     "slick-carousel": "^1.8.1",
+    "tedious": "^6.1.1",
     "xlsx": "^0.14.3"
   },
   "repository": {
