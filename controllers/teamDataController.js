@@ -157,7 +157,7 @@ exports.postUploadTeamData = (req, res, next) => {
 
             TeamData.destroy({ truncate: { cascade: true } });
             TeamData.bulkCreate(df).then(result =>{
-                res.redirect('/dashboard/view-team-data');
+                res.redirect('/data-talent/view-team-data');
             }).catch();
         }
     })
@@ -208,7 +208,7 @@ exports.postAddDataTalent = (req, res, next) => {
         no_telp: no_telp,
         email: email
     }).then(result => {
-        res.redirect('/dashboard/view-team-data');
+        res.redirect('/data-talent/view-team-data');
     }).catch(err => {
         console.log(err);
     });
@@ -223,7 +223,7 @@ exports.getEditDataTalent = (req, res, next) => {
     TeamData.findByPk(id)
         .then(teamdata => {
             if (!teamdata) {
-                return res.redirect('/dashboard/view-team-data');
+                return res.redirect('/data-talent/view-team-data');
             }
             res.render('data_talent/add-data-talent', {
                 path: '/add-data-talent',
@@ -279,7 +279,7 @@ exports.postEditDataTalent = (req, res, next) => {
             return teamdata.save();
         })
         .then(result => {
-            res.redirect('/dashboard/view-team-data');
+            res.redirect('/data-talent/view-team-data');
         })
         .catch(err => {
             console.log(err);
@@ -293,9 +293,16 @@ exports.postDeleteDataTalent = (req, res, next) => {
             return teamdata.destroy();
         })
         .then(result => {
-            res.redirect('/dashboard/view-team-data');
+            res.redirect('/data-talent/view-team-data');
         })
         .catch(err => {
             console.log(err);
         });
+};
+
+exports.getProfile = (req, res, next) => {
+    res.render('data_talent/profile', {
+        path: '/profile',
+        pageTitle: 'Profile'
+    });
 };

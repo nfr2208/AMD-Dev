@@ -14,6 +14,8 @@ const User = sequelize.define('user', {
     email: Sequelize.STRING,
     resetToken: Sequelize.STRING,
     resetTokenExpiration: Sequelize.DATE,
+    createPasswordToken: Sequelize.STRING,
+    createPasswordTokenExpiration: Sequelize.DATE,
     role: Sequelize.STRING,
     password: Sequelize.STRING
 });

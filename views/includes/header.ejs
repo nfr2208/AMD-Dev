@@ -41,12 +41,21 @@
                 <div id="m_header_menu"
                     class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light ">
                     <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
+                        <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" aria-haspopup="true">
+                            <a href="index" class="m-menu__link">
+                                <span class="m-menu__item-here"></span>
+                                <span class="m-menu__link-text">
+                                    Dashboard
+                                </span>
+                            </a>
+                        </li>
+
                         <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click"
                             aria-haspopup="true">
                             <a href="javascript:;" class="m-menu__link m-menu__toggle">
                                 <span class="m-menu__item-here"></span>
                                 <span class="m-menu__link-text">
-                                    Dashboard
+                                    Data Talent
                                 </span>
                                 <i class="m-menu__hor-arrow la la-angle-down"></i>
                                 <i class="m-menu__ver-arrow la la-angle-right"></i>
@@ -128,12 +137,14 @@
                                                         </span>
                                                     </li>
                                                     <li class="m-nav__item">
+                                                        <% if (userProfile.role === 'Admin') { %>
                                                         <a href="/admin/index" class="m-nav__link">
                                                             <i class="m-nav__link-icon flaticon-share"></i>
                                                             <span class="m-nav__link-text">
                                                                 Admin Dashboard
                                                             </span>
                                                         </a>
+                                                        <% } %>
                                                     </li>
                                                     <li class="m-nav__item">
                                                         <a href="profile.html" class="m-nav__link">
