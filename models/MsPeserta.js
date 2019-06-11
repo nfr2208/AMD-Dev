@@ -32,14 +32,6 @@ const Peserta = sequelize.define('peserta', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    ID_Unit_Kerja: {
-        //foreign key in MsUnitKerja Table
-        type: Sequelize.INTEGER
-    },
-    ID_Lokasi_Kerja: {
-        //foreign key in MsLokasiKerja Table
-        type: Sequelize.INTEGER
-    },
     Nama_Atasan: {
         type: Sequelize.STRING,
         allowNull: false

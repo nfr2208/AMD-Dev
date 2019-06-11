@@ -7,9 +7,18 @@ const cors = require('cors');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-const Amoeba = require('./models/amoeba');
-const Innovator = require('./models/innovator');
-const User = require('./models/user');
+// const Amoeba = require('./models/amoeba');
+// const Innovator = require('./models/innovator');
+// const User = require('./models/user');
+// const Peserta = require('./models/MsPeserta');
+// const LokasiKerja = require('./models/MsLokasiKerja');
+// const UnitKerja = require('./models/MsUnitKerja');
+
+// LokasiKerja.hasMany(Peserta);
+// Peserta.belongsTo(LokasiKerja);
+
+// UnitKerja.hasMany(Peserta);
+// Peserta.belongsTo(UnitKerja);
 
 const errorController = require('./controllers/errorController');
 const sequelize = require('./util/database');
@@ -95,3 +104,4 @@ app.listen(process.env.PORT || 3000)
 //     .catch(err => {
 //         console.log(err);
 //     });
+
