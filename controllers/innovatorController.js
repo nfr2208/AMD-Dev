@@ -1,4 +1,4 @@
-const Innovator = require('../models/innovator');
+const Innovator = require('../models/MsInnovator');
 
 exports.getRegisterInnovator = (req, res, next) => {
     res.render('register-innovator', {

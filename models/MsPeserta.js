@@ -2,56 +2,44 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../util/database');
 
-const Innovator = sequelize.define('innovator', {
-    idPeserta: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        primaryKey: true
-    },
-    namaPeserta: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    nik: {
+const Peserta = sequelize.define('peserta', {
+    id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
     },
-    bp: {
+    NIK: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    noTelp: {
+    Nama_Peserta: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    emailPeserta: {
+    Jabatan: {
+        type: Sequelize.STRING
+    },
+    Band_Position: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    natureStream: {
+    No_Telpon_Peserta: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    statusInnovator: {
+    Email_Peserta: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    unit: {
+    Nama_Atasan: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    loker: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    timStruktur: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    cLevel: {
+    Jabatan_Atasan: {
         type: Sequelize.STRING,
         allowNull: false
     }
 });
 
-module.exports = Innovator;
+module.exports = Peserta;
