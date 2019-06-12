@@ -1,6 +1,6 @@
-const Amoeba = require('../models/amoeba');
-const Innovator = require('../models/innovator');
-const FileUpload = require('../models/file_upload');
+const Amoeba = require('../../models/amoeba');
+const Innovator = require('../../models/innovator');
+const FileUpload = require('../../models/file_upload');
 
 const multer = require('multer');
 const path = require('path');

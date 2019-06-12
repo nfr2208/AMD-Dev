@@ -1,6 +1,6 @@
 const express = require('express');
 
-const amoebaController = require('../controllers/amoebaController');
+const amoebaController = require('../../controllers/old/amoebaController');
 
 const router = express.Router();
 

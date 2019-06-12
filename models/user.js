@@ -3,21 +3,21 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../util/database');
 
-const User = sequelize.define('user', {
-    id: {
+const User = sequelize.define('User', {
+    Id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    name: Sequelize.STRING,
-    email: Sequelize.STRING,
-    resetToken: Sequelize.STRING,
-    resetTokenExpiration: Sequelize.DATE,
-    createPasswordToken: Sequelize.STRING,
-    createPasswordTokenExpiration: Sequelize.DATE,
-    role: Sequelize.STRING,
-    password: Sequelize.STRING
+    Nama: Sequelize.STRING,
+    Email: Sequelize.STRING,
+    ResetToken: Sequelize.STRING,
+    ResetTokenExpiration: Sequelize.DATE,
+    CreatePasswordToken: Sequelize.STRING,
+    CreatePasswordTokenExpiration: Sequelize.DATE,
+    Role: Sequelize.STRING,
+    Password: Sequelize.STRING
 });
 
 module.exports = User;

@@ -1,6 +1,6 @@
 const express = require('express');
 
-const innovatorController = require('../controllers/innovatorController');
+const innovatorController = require('../controllers/old/innovatorController');
 
 const router = express.Router();
 

@@ -1,10 +1,10 @@
 const express = require('express');
 
-const teamDataController = require('../controllers/teamDataController');
-const isAuth = require('../middleware/is-auth');
-const isAdmin = require('../middleware/is-admin');
-const isAI = require('../middleware/is-ai');
-const isAB = require('../middleware/is-ab');
+const teamDataController = require('../../controllers/old/teamDataController');
+const isAuth = require('../../middleware/is-auth');
+const isAdmin = require('../../middleware/is-admin');
+const isAI = require('../../middleware/is-ai');
+const isAB = require('../../middleware/is-ab');
 
 const router = express.Router();
 

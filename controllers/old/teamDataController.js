@@ -1,8 +1,8 @@
-TeamData = require('../models/team_data');
-FileUpload = require('../models/file_upload');
+const TeamData = require('../../models/team_data');
+const FileUpload = require('../../models/file_upload');
 
-multer = require('multer');
-path = require('path');
+const multer = require('multer');
+const path = require('path');
 
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
