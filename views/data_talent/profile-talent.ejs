@@ -8,7 +8,7 @@
 	<!-- begin:: Page -->
 	<div class="m-grid m-grid--hor m-grid--root m-page">
 		<!-- BEGIN: Header -->
-		<%- include('../includes/header.ejs')%>
+		
 		<!-- END: Header -->
 		<!-- begin::Body -->
 		<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
@@ -585,41 +585,54 @@
 												</div>
 												<div class="form-group m-form__group row">
 													<label for="example-text-input" class="col-2 col-form-label">
-														Full Name
+														NIK
 													</label>
 													<div class="col-7">
-														<input class="form-control m-input" type="text"
-															value="Mark Andre">
+														<input type="text"
+														class="form-control m-input"
+														name="NIK" id="NIK"	value="123xxx">
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">										
+														Nama
+													</label>
+													<div class="col-7">
+														<input type="text"
+														class="form-control m-input"
+														name="Nama" id="Nama" value="Annisa Zakia Putri">
+													</label>											
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">										
+														No. Telpon
+													</label>
+													<div class="col-7">
+														<input type="text"
+														class="form-control m-input"
+														name="NoTlpn" id="NoTlpn" value="081xxx">
+													</label>											
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-2 col-form-label">										
+														Email
+													</label>
+													<div class="col-7">
+														<input type="text"
+														class="form-control m-input"
+														name="Email" id="Email" value="annisa@gmail.com">
+													</label>											
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
 													<label for="example-text-input" class="col-2 col-form-label">
-														Occupation
-													</label>
-													<div class="col-7">
-														<input class="form-control m-input" type="text" value="CTO">
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">
-														Company Name
+														Batch Innovation
 													</label>
 													<div class="col-7">
 														<input class="form-control m-input" type="text"
-															value="Keenthemes">
-														<span class="m-form__help">
-															If you want your invoices addressed to a company. Leave
-															blank to use your full name.
-														</span>
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">
-														Phone No.
-													</label>
-													<div class="col-7">
-														<input class="form-control m-input" type="text"
-															value="+456669067890">
+														name="Batch" id="Batch" value="Batch - xx">
 													</div>
 												</div>
 												<div
@@ -628,43 +641,298 @@
 												<div class="form-group m-form__group row">
 													<div class="col-10 ml-auto">
 														<h3 class="m-form__section">
-															2. Address
+															2. Data Talent
 														</h3>
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
 													<label for="example-text-input" class="col-2 col-form-label">
-														Address
+														Tanggal Join Tim
 													</label>
 													<div class="col-7">
-														<input class="form-control m-input" type="text"
-															value="L-12-20 Vertex, Cybersquare">
+														<input type="date" class="form-control m-input"
+														name="TglJoinTim" id="TglJoinTim" value="">
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">
-														City
+													<label for="BP" class="col-2 col-form-label">
+														BP
+													</label>
+														<div class="col-7">
+															<select class="form-control m-input" name="BP"
+																id="BP">
+																<option value="-">
+																	-
+																</option>
+																<option value="I">
+																	I
+																</option>
+																<option value="II">
+																	II
+																</option>
+																<option value="III">
+																	III
+																</option>
+																<option value="IV">
+																	IV
+																</option>
+																<option value="V">
+																	V
+																</option>
+																<option value="VI">
+																	VI
+																</option>
+															</select>
+														</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="NatureStream" class="col-2 col-form-label">
+														Nature Stream
 													</label>
 													<div class="col-7">
-														<input class="form-control m-input" type="text"
-															value="San Francisco">
+														<select class="form-control m-input" name="NatureStream"
+															id="NatureStream">
+															<option value="-">
+																-
+															</option>
+															<option value="HUSTLER">
+																HUSTLER
+															</option>
+															<option value="HIPSTER">
+																HIPSTER
+															</option>
+															<option value="HACKER">
+																HACKER
+															</option>
+														</select>
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">
-														State
+													<label for="CLevel" class="col-2 col-form-label">
+														C-Level
 													</label>
 													<div class="col-7">
-														<input class="form-control m-input" type="text"
-															value="California">
+														<input type="text" class="form-control m-input"
+															name="CLevel" id="CLevel" placeholder="Ex: CEO"
+															value="">
 													</div>
 												</div>
 												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">
-														Postcode
+													<label for="TipeInovator" class="col-2 col-form-label">
+														Tipe Inovator
 													</label>
 													<div class="col-7">
-														<input class="form-control m-input" type="text" value="45000">
+														<select class="form-control m-input" name="TipeInovator" id="TipeInovator">
+															<option value="100%">
+																100%
+															</option>
+															<option value="40/60">
+																40/60
+															</option>
+															<option value="Bootcamp">
+																Bootcamp
+															</option>
+															<option value="NotJoin">
+																NotJoin
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="TimStruktur" class="col-2 col-form-label">
+														Tim Struktur
+													</label>
+													<div class="col-7">
+														<select class="form-control m-input" name="TimStruktur"
+															id="TimStruktur">
+															<option value="-">
+																-
+															</option>
+															<option value="HUSTLER">
+																HUSTLER
+															</option>
+															<option value="HIPSTER">
+																HIPSTER
+															</option>
+															<option value="HACKER">
+																HACKER
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="FlaggingId" class="col-2 col-form-label">
+														Flagging
+													</label>
+													<div class="col-7">
+														<select class="form-control m-input" name="FlaggingId" id="FlaggingId">
+															<option value="1">
+																Active Talent
+															</option>
+															<option value="2">
+																Alumni
+															</option>
+															<option value="3">
+																Move Team
+															</option>
+															<option value="4">
+																Tim as Squad (Tribe)
+															</option>
+															<option value="5">
+																Tim as Service Provider (Tribe)
+															</option>
+															<option value="6">
+																Tim as Talent Provider (Tribe)
+															</option>
+															<option value="7">
+																Talent Provided As Innovator (Tribe)
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="Status" class="col-2 col-form-label">
+														Status
+													</label>
+													<div class="col-7">
+														<select class="form-control m-input" name="Status" id="Status">
+															<option value=1>
+																Active
+															</option>
+															<option value=0>
+																Inactive
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="LokerAsal" class="col-2 col-form-label">
+														Loker Asal
+													</label>
+													<div class="col-7">
+														<input type="text" class="form-control m-input"
+															name="LokerAsal" id="LokerAsal" placeholder="Ex: Jakarta, Medan, dll"
+															value="">
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="LokerSaatIni" class="col-2 col-form-label">
+														Loker Saat Ini
+													</label>
+													<div class="col-7">
+														<input type="text" class="form-control m-input"
+															name="LokerSaatIni" id="LokerSaatIni" placeholder="Ex: Jakarta, Medan, dll"
+															value="">
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="UnitKerjaAsalId" class="col-2 col-form-label">
+														Unit Kerja Asal
+													</label>
+													<div class="col-7">
+														<select class="form-control m-input" name="UnitKerjaAsalId"
+															id="UnitKerjaAsalId">
+															<option value="1">
+																TR1
+															</option>
+															<option value="2">
+																TR4
+															</option>
+															<option value="3">
+																TR6
+															</option>
+															<option value="4">
+																TR7
+															</option>
+															<option value="5">
+																METRANET
+															</option>
+															<option value="6">
+																DSO
+															</option>
+															<option value="7">
+																DDS
+															</option>
+															<option value="8">
+																HCM
+															</option>
+															<option value="9">
+																DIT/KEU
+															</option>
+															<option value="10">
+																INFOMEDIA
+															</option>
+															<option value="11">
+																TELIN
+															</option>
+															<option value="12">
+																TELKOM TELSTRA
+															</option>
+															<option value="13">
+																SIGMA
+															</option>
+															<option value="14">
+																TCUC
+															</option>
+															<option value="15">
+																PND
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group m-form__group row">
+													<label for="UnitKerjaSaatIniId" class="col-2 col-form-label">
+														Unit Kerja Saat Ini
+													</label>
+													<div class="col-7">
+														<select class="form-control m-input" name="UnitKerjaSaatIniId"
+															id="UnitKerjaSaatIniId">
+															<option value="1">
+																TR1
+															</option>
+															<option value="2">
+																TR4
+															</option>
+															<option value="3">
+																TR6
+															</option>
+															<option value="4">
+																TR7
+															</option>
+															<option value="5">
+																METRANET
+															</option>
+															<option value="6">
+																DSO
+															</option>
+															<option value="7">
+																DDS
+															</option>
+															<option value="8">
+																HCM
+															</option>
+															<option value="9">
+																DIT/KEU
+															</option>
+															<option value="10">
+																INFOMEDIA
+															</option>
+															<option value="11">
+																TELIN
+															</option>
+															<option value="12">
+																TELKOM TELSTRA
+															</option>
+															<option value="13">
+																SIGMA
+															</option>
+															<option value="14">
+																TCUC
+															</option>
+															<option value="15">
+																PND
+															</option>
+														</select>
 													</div>
 												</div>
 												<div
