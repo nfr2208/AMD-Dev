@@ -121,18 +121,26 @@ exports.getTalents = (req, res, next) => {
 };
 
 exports.getAddTalent = (req, res, next) => {
-    res.render('data_talent/add-talent', {
-        path: '/talent/add-talent',
-        pageTitle: 'Add Talent'
+    Amoeba.findAll({
+        raw: true
+    }).then(amoebas => {
+        res.render('data_talent/add-talent', {
+            jsonAmoeba: amoebas,
+            path: '/talent/add-talent',
+            pageTitle: 'Add Talent'
+        });
+    }).catch(err => {
+        console.log(err);
     });
 };
 
 exports.postAddTalent = (req, res, next) => {
-    const BatchInovation = req.body.BatchInovation;
     const NIK = req.body.NIK;
     const Nama = req.body.Nama;
     const NoTelp = req.body.NoTelp;
     const Email = req.body.Email;
+    const BatchInovation = req.body.BatchInovation;
+    const AmoebaId = req.body.AmoebaId;
     const TglJoinTim = req.body.TglJoinTim;
     const BP = req.body.BP;
     const NatureStream = req.body.NatureStream;
@@ -147,11 +155,12 @@ exports.postAddTalent = (req, res, next) => {
     const UnitKerjaSaatIniId = req.body.UnitKerjaSaatIniId;
 
     Talent.create({
-        BatchInovation: BatchInovation,
         NIK: NIK,
         Nama: Nama,
         NoTelp: NoTelp,
         Email: Email,
+        BatchInovation: BatchInovation,
+        AmoebaId: AmoebaId,
         TglJoinTim: TglJoinTim,
         BP: BP,
         NatureStream: NatureStream,
@@ -164,7 +173,6 @@ exports.postAddTalent = (req, res, next) => {
         LokerSaatIni: LokerSaatIni,
         UnitKerjaAsalId: UnitKerjaAsalId,
         UnitKerjaSaatIniId: UnitKerjaSaatIniId,
-        AmoebaId: null
     }).then(result => {
         res.redirect('/talent/list-talent');
     }).catch(err => {

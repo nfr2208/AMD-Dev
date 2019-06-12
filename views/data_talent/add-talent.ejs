@@ -8,7 +8,7 @@
 	<!-- begin:: Page -->
 	<div class="m-grid m-grid--hor m-grid--root m-page">
 		<!-- BEGIN: Header -->
-		<%- include('../includes/header.ejs')%>
+		
 		<!-- END: Header -->
 		<!-- begin::Body -->
 		<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
@@ -88,21 +88,6 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group m-form__group hidden">
-													<label for="BatchInovation">
-														Batch Inovation
-													</label>
-													<input type="text"
-														class="form-control m-input m-input--solid disabled"
-														name="BatchInovation" id="BatchInovation" placeholder="Batch-xx"
-														value="">
-												</div>
-											</div>
-											<div class="col-md-6"></div>
-										</div>
-										<br>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group m-form__group hidden">
 													<label for="NIK">
 														NIK
 													</label>
@@ -149,6 +134,33 @@
 										</div>
 										<br>
 										<hr>
+										<br>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group m-form__group hidden">
+													<label for="BatchInovation">
+														Batch Inovation
+													</label>
+													<input type="text"
+														class="form-control m-input m-input--solid disabled"
+														name="BatchInovation" id="BatchInovation" placeholder="Batch-xx"
+														value="">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group m-form__group hidden">
+													<label for="Amoeba">
+														Amoeba Team
+													</label>
+													<br>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#m_modal_amoeba">
+														Select Amoeba
+													</button>
+													&nbsp;&nbsp;&nbsp;<b><span id="m_selected_amoeba"></span></b>
+													<input type="hidden" name="AmoebaId" id="m_selected_amoebaId">
+												</div>
+											</div>
+										</div>
 										<br>
 										<div class="row">
 											<div class="col-md-6">
@@ -476,6 +488,77 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="modal fade" id="m_modal_amoeba" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">
+							Select Amoeba
+						</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">
+								&times;
+							</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+							<div class="row align-items-center">
+								<div class="col-xl-8 order-2 order-xl-1">
+									<div class="form-group m-form__group row align-items-center">
+										<div class="col-md-12">
+											<div class="m-input-icon m-input-icon--left">
+												<input type="text" class="form-control m-input m-input--solid" placeholder="Search..." id="generalSearch">
+												<span class="m-input-icon__icon m-input-icon__icon--left">
+													<span>
+														<i class="la la-search"></i>
+													</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="m-separator m-separator--dashed d-xl"></div>
+						<!--end: Search Form -->
+						<!--begin: Selected Rows Group Action Form -->
+						<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30 collapse" id="m_datatable_group_action_form">
+							<div class="row align-items-center">
+								<div class="col-xl-12">
+									<div class="m-form__group m-form__group--inline">
+										<div class="m-form__label m-form__label-no-wrap">
+											<label class="m--font-bold m--font-danger-">
+												Selected
+												<span id="m_datatable_selected_number"></span>
+												records:
+											</label>
+										</div>
+										<div class="m-form__control">
+											<div class="btn-toolbar">
+												<button class="btn btn-sm btn-success" type="button" id="m_fetch_id" data-dismiss="modal">
+													Select Amoeba
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="m_datatable" id="local_record_selection">
+							<p hidden id="jsonAmoeba" title="<%= JSON.stringify(jsonAmoeba) %>"></p>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">
+							Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- end:: Body -->
 		<!-- begin::Footer -->
 		<%- include('../includes/footer.ejs')%>
@@ -497,7 +580,7 @@
 	<%- include('../includes/base-scripts.ejs')%>
 	<!--end::Base Scripts -->
 	<!--begin::Page Snippets -->
-	<script src="/assets/app/js/edit-teamdata.js" type="text/javascript"></script>
+	<script src="/assets/app/js/amoeba-selection.js" type="text/javascript"></script>
 	<!--end::Page Snippets -->
 </body>
 <!-- end::Body -->
