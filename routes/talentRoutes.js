@@ -9,7 +9,7 @@ router.get('/talents', talentController.getTalentsAPI);
 router.get('/list-talent', talentController.getTalents);
 router.get('/add-talent', talentController.getAddTalent);
 router.post('/add-talent', talentController.postAddTalent);
-
-router.get('/profile-talent', talentController.getTalentProfile);
+router.post('/edit-talent', talentController.postEditTalent);
+router.get('/profile-talent/:Id', talentController.getTalentProfile);
 
 module.exports = router;

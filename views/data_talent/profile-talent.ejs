@@ -8,7 +8,7 @@
 	<!-- begin:: Page -->
 	<div class="m-grid m-grid--hor m-grid--root m-page">
 		<!-- BEGIN: Header -->
-		
+		<%- include('../includes/header.ejs')%>
 		<!-- END: Header -->
 		<!-- begin::Body -->
 		<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
@@ -55,7 +55,7 @@
 								<li class="m-nav__item">
 									<a href="" class="m-nav__link">
 										<span class="m-nav__link-text">
-											Latest Orders
+											<%= talent.Nama %>
 										</span>
 									</a>
 								</li>
@@ -85,42 +85,35 @@
 										</div>
 										<div class="m-card-profile__pic">
 											<div class="m-card-profile__pic-wrapper">
-												<img src="../assets/app/media/img/users/user4.jpg" alt="" />
+												<img src="/assets/app/media/img/users/user4.jpg" alt="" />
 											</div>
 										</div>
 										<div class="m-card-profile__details">
 											<span class="m-card-profile__name">
-												Annisa Zakia Putri
+												<%= talent.Nama %>
 											</span>
-											<span class="m-badge m-badge--primary m-badge--wide">
-												100% Innovator
+											<span class="m-badge m-badge--info m-badge--wide">
+												<%= talent.NamaAmoeba %>
 											</span>
-											<div class="m-separator m-separator--space m-separator--dashed"></div>
-											<i class="fa fa-whatsapp">
-												081382765672
-											</i>
-											<i class="fa fa-envelope">
-												annisa@gmail.com
-											</i>
-											<div class="m-separator m-separator--space m-separator--dashed"></div>
-											<span class="m-card-profile_nik">
-												Nik : 940092 <br>
-											</span>
-											<i class="fa fa-building-o">
-												MDD
-											</i><br>
-											<i class="fa fa-map-pin">
-												Jakarta
-											</i>
 										</div>
 									</div>
 									<ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
 										<li class="m-nav__separator m-nav__separator--fit"></li>
-										<li class="m-nav__section m--hide">
-											<span class="m-nav__section-text">
-												Section
-											</span>
-										</li>
+									</ul>
+									<div class="m-card-profile__details">
+										<b><i class="fa fa-whatsapp"></i> Whatsapp</b>: <%= talent.NoTelp %>
+										<br>
+										<b><i class="fa fa-envelope"></i> Email</b>: <%= talent.Email %>
+										
+										<div class="m-separator m-separator--space m-separator--dashed"></div>
+										<span class="m-card-profile_nik"></span> <b>NIK</b>: <%= talent.NIK %>
+										<br>
+										<b><i class="fa fa-building-o"></i> Divisi</b>: <%= talent.UnitKerjaSaatIni %>
+										<br>
+										<b><i class="fa fa-map-pin"></i> Loker Saat Ini</b>: <%= talent.LokerSaatIni %>
+									</div>
+									<ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
+										<li class="m-nav__separator m-nav__separator--fit"></li>
 									</ul>
 								</div>
 							</div>
@@ -135,19 +128,19 @@
 												<a class="nav-link m-tabs__link active" data-toggle="tab"
 													href="#m_user_profile_tab_1" role="tab">
 													<i class="flaticon-share m--hide"></i>
-													Amoeba
+													Profile
 												</a>
 											</li>
 											<li class="nav-item m-tabs__item">
 												<a class="nav-link m-tabs__link" data-toggle="tab"
 													href="#m_user_profile_tab_2" role="tab">
-													Timeline
+													Amoeba
 												</a>
 											</li>
 											<li class="nav-item m-tabs__item">
 												<a class="nav-link m-tabs__link" data-toggle="tab"
 													href="#m_user_profile_tab_3" role="tab">
-													Edit Profile
+													Timeline
 												</a>
 											</li>
 										</ul>
@@ -245,9 +238,13 @@
 								</div>
 								<div class="tab-content">
 									<div class="tab-pane active" id="m_user_profile_tab_1">
+										<!-- <%- include('../includes/data_talent/profile-uneditable.ejs')%> -->
+										<%- include('../includes/data_talent/profile-editable.ejs')%>
+									</div>
+									<div class="tab-pane " id="m_user_profile_tab_2">
 										<!--begin::Portlet-->
 										<div class="m-portlet m-portlet--collapsed m-portlet--head-sm" m-portlet="true"
-											id="m_portlet_tools_7" style="margin: 0">
+											id="m_portlet_tools" style="margin: 0">
 											<div class="m-portlet__head">
 												<div class="m-portlet__head-caption">
 													<div class="m-portlet__head-title">
@@ -255,7 +252,7 @@
 															<img src="/assets/app/media/img/logo_amoeba/smarteye.png"
 																height="50px" width="55x"
 																class="m--marginless m--img-centered" alt="" />
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Smarteye
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= talent.NamaAmoeba %>
 														</h3>
 													</div>
 												</div>
@@ -263,7 +260,7 @@
 													<ul class="m-portlet__nav">
 														<li class="m-portlet__nav-item">
 															<span class="m-badge m-badge--success m-badge--dot"></span>
-															1yr 3mos
+															Duration
 														</li>
 														<li class="m-portlet__nav-item">
 															<a href="#" m-portlet-tool="toggle"
@@ -277,64 +274,26 @@
 											<div class="m-portlet__body">
 												<div class="m-scrollable">
 													<p>
-														<strong>
-															01/12/2019 - Present
-														</strong>
+														<span class="m-badge m-badge--info m-badge--dot"></span> <%= talent.TglJoinTim %> - <strong>Present</strong>
 													</p>
 													<p>
-														CMO
+														<b>C-Level</b>: <%= talent.CLevel %>
 													</p>
 													<p>
-														Hipster
+														<b>Loker Saat Ini</b>: <%= talent.LokerSaatIni %>
 													</p>
 													<p>
-														MDD
+														<b>Unit Kerja Saat Ini</b>: <%= talent.UnitKerjaSaatIni %>
 													</p>
 													<p>
-														Jakarta
+														<b>Tim Struktur</b>: <%= talent.TimStruktur %>
 													</p>
 												</div>
 											</div>
 										</div>
 										<!--end::Portlet-->
-										<!--begin::Portlet 2-->
-										<div class="m-portlet m-portlet--collapsed m-portlet--head-sm" m-portlet="true"
-											id="m_portlet_tools_7" style="margin: 0">
-											<div class="m-portlet__head">
-												<div class="m-portlet__head-caption">
-													<div class="m-portlet__head-title">
-														<h3 class="m-portlet__head-text">
-															<img src="/assets/app/media/img/logo_amoeba/arkademy.png"
-																height="50px" width="90px"
-																class="m--marginless m--img-centered" alt="" />
-															&nbsp;&nbsp;&nbsp;Arkademy
-														</h3>
-													</div>
-												</div>
-												<div class="m-portlet__head-tools">
-													<ul class="m-portlet__nav">
-														<li class="m-portlet__nav-item">
-															<span class=""></span>
-															8mos
-														</li>
-														<li class="m-portlet__nav-item">
-															<a href="#" m-portlet-tool="toggle"
-																class="m-portlet__nav-link m-portlet__nav-link--icon">
-																<i class="la la-angle-down"></i>
-															</a>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="m-portlet__body">
-												<div class="m-scrollable">
-													CMO
-												</div>
-											</div>
-										</div>
-										<!--end::Portlet 2-->
 									</div>
-									<div class="tab-pane " id="m_user_profile_tab_2">
+									<div class="tab-pane " id="m_user_profile_tab_3">
 										<!--Begin::Portlet-->
 										<div class="m-portlet  m-portlet--full-height ">
 											<div class="m-portlet__head">
@@ -564,444 +523,6 @@
 										</div>
 										<!--End::Portlet-->
 									</div>
-
-
-									<div class="tab-pane " id="m_user_profile_tab_3">
-										<form class="m-form m-form--fit m-form--label-align-right">
-											<div class="m-portlet__body">
-												<div class="form-group m-form__group m--margin-top-10 m--hide">
-													<div class="alert m-alert m-alert--default" role="alert">
-														The example form below demonstrates common HTML form elements
-														that receive updated styles from Bootstrap with additional
-														classes.
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<div class="col-10 ml-auto">
-														<h3 class="m-form__section">
-															1. Personal Details
-														</h3>
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">
-														NIK
-													</label>
-													<div class="col-7">
-														<input type="text"
-														class="form-control m-input"
-														name="NIK" id="NIK"	value="123xxx">
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">										
-														Nama
-													</label>
-													<div class="col-7">
-														<input type="text"
-														class="form-control m-input"
-														name="Nama" id="Nama" value="Annisa Zakia Putri">
-													</label>											
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">										
-														No. Telpon
-													</label>
-													<div class="col-7">
-														<input type="text"
-														class="form-control m-input"
-														name="NoTlpn" id="NoTlpn" value="081xxx">
-													</label>											
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">										
-														Email
-													</label>
-													<div class="col-7">
-														<input type="text"
-														class="form-control m-input"
-														name="Email" id="Email" value="annisa@gmail.com">
-													</label>											
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">
-														Batch Innovation
-													</label>
-													<div class="col-7">
-														<input class="form-control m-input" type="text"
-														name="Batch" id="Batch" value="Batch - xx">
-													</div>
-												</div>
-												<div
-													class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x">
-												</div>
-												<div class="form-group m-form__group row">
-													<div class="col-10 ml-auto">
-														<h3 class="m-form__section">
-															2. Data Talent
-														</h3>
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">
-														Tanggal Join Tim
-													</label>
-													<div class="col-7">
-														<input type="date" class="form-control m-input"
-														name="TglJoinTim" id="TglJoinTim" value="">
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="BP" class="col-2 col-form-label">
-														BP
-													</label>
-														<div class="col-7">
-															<select class="form-control m-input" name="BP"
-																id="BP">
-																<option value="-">
-																	-
-																</option>
-																<option value="I">
-																	I
-																</option>
-																<option value="II">
-																	II
-																</option>
-																<option value="III">
-																	III
-																</option>
-																<option value="IV">
-																	IV
-																</option>
-																<option value="V">
-																	V
-																</option>
-																<option value="VI">
-																	VI
-																</option>
-															</select>
-														</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="NatureStream" class="col-2 col-form-label">
-														Nature Stream
-													</label>
-													<div class="col-7">
-														<select class="form-control m-input" name="NatureStream"
-															id="NatureStream">
-															<option value="-">
-																-
-															</option>
-															<option value="HUSTLER">
-																HUSTLER
-															</option>
-															<option value="HIPSTER">
-																HIPSTER
-															</option>
-															<option value="HACKER">
-																HACKER
-															</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="CLevel" class="col-2 col-form-label">
-														C-Level
-													</label>
-													<div class="col-7">
-														<input type="text" class="form-control m-input"
-															name="CLevel" id="CLevel" placeholder="Ex: CEO"
-															value="">
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="TipeInovator" class="col-2 col-form-label">
-														Tipe Inovator
-													</label>
-													<div class="col-7">
-														<select class="form-control m-input" name="TipeInovator" id="TipeInovator">
-															<option value="100%">
-																100%
-															</option>
-															<option value="40/60">
-																40/60
-															</option>
-															<option value="Bootcamp">
-																Bootcamp
-															</option>
-															<option value="NotJoin">
-																NotJoin
-															</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="TimStruktur" class="col-2 col-form-label">
-														Tim Struktur
-													</label>
-													<div class="col-7">
-														<select class="form-control m-input" name="TimStruktur"
-															id="TimStruktur">
-															<option value="-">
-																-
-															</option>
-															<option value="HUSTLER">
-																HUSTLER
-															</option>
-															<option value="HIPSTER">
-																HIPSTER
-															</option>
-															<option value="HACKER">
-																HACKER
-															</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="FlaggingId" class="col-2 col-form-label">
-														Flagging
-													</label>
-													<div class="col-7">
-														<select class="form-control m-input" name="FlaggingId" id="FlaggingId">
-															<option value="1">
-																Active Talent
-															</option>
-															<option value="2">
-																Alumni
-															</option>
-															<option value="3">
-																Move Team
-															</option>
-															<option value="4">
-																Tim as Squad (Tribe)
-															</option>
-															<option value="5">
-																Tim as Service Provider (Tribe)
-															</option>
-															<option value="6">
-																Tim as Talent Provider (Tribe)
-															</option>
-															<option value="7">
-																Talent Provided As Innovator (Tribe)
-															</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="Status" class="col-2 col-form-label">
-														Status
-													</label>
-													<div class="col-7">
-														<select class="form-control m-input" name="Status" id="Status">
-															<option value=1>
-																Active
-															</option>
-															<option value=0>
-																Inactive
-															</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="LokerAsal" class="col-2 col-form-label">
-														Loker Asal
-													</label>
-													<div class="col-7">
-														<input type="text" class="form-control m-input"
-															name="LokerAsal" id="LokerAsal" placeholder="Ex: Jakarta, Medan, dll"
-															value="">
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="LokerSaatIni" class="col-2 col-form-label">
-														Loker Saat Ini
-													</label>
-													<div class="col-7">
-														<input type="text" class="form-control m-input"
-															name="LokerSaatIni" id="LokerSaatIni" placeholder="Ex: Jakarta, Medan, dll"
-															value="">
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="UnitKerjaAsalId" class="col-2 col-form-label">
-														Unit Kerja Asal
-													</label>
-													<div class="col-7">
-														<select class="form-control m-input" name="UnitKerjaAsalId"
-															id="UnitKerjaAsalId">
-															<option value="1">
-																TR1
-															</option>
-															<option value="2">
-																TR4
-															</option>
-															<option value="3">
-																TR6
-															</option>
-															<option value="4">
-																TR7
-															</option>
-															<option value="5">
-																METRANET
-															</option>
-															<option value="6">
-																DSO
-															</option>
-															<option value="7">
-																DDS
-															</option>
-															<option value="8">
-																HCM
-															</option>
-															<option value="9">
-																DIT/KEU
-															</option>
-															<option value="10">
-																INFOMEDIA
-															</option>
-															<option value="11">
-																TELIN
-															</option>
-															<option value="12">
-																TELKOM TELSTRA
-															</option>
-															<option value="13">
-																SIGMA
-															</option>
-															<option value="14">
-																TCUC
-															</option>
-															<option value="15">
-																PND
-															</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="UnitKerjaSaatIniId" class="col-2 col-form-label">
-														Unit Kerja Saat Ini
-													</label>
-													<div class="col-7">
-														<select class="form-control m-input" name="UnitKerjaSaatIniId"
-															id="UnitKerjaSaatIniId">
-															<option value="1">
-																TR1
-															</option>
-															<option value="2">
-																TR4
-															</option>
-															<option value="3">
-																TR6
-															</option>
-															<option value="4">
-																TR7
-															</option>
-															<option value="5">
-																METRANET
-															</option>
-															<option value="6">
-																DSO
-															</option>
-															<option value="7">
-																DDS
-															</option>
-															<option value="8">
-																HCM
-															</option>
-															<option value="9">
-																DIT/KEU
-															</option>
-															<option value="10">
-																INFOMEDIA
-															</option>
-															<option value="11">
-																TELIN
-															</option>
-															<option value="12">
-																TELKOM TELSTRA
-															</option>
-															<option value="13">
-																SIGMA
-															</option>
-															<option value="14">
-																TCUC
-															</option>
-															<option value="15">
-																PND
-															</option>
-														</select>
-													</div>
-												</div>
-												<div
-													class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x">
-												</div>
-												<div class="form-group m-form__group row">
-													<div class="col-10 ml-auto">
-														<h3 class="m-form__section">
-															3. Social Links
-														</h3>
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">
-														Linkedin
-													</label>
-													<div class="col-7">
-														<input class="form-control m-input" type="text"
-															value="www.linkedin.com/Mark.Andre">
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">
-														Facebook
-													</label>
-													<div class="col-7">
-														<input class="form-control m-input" type="text"
-															value="www.facebook.com/Mark.Andre">
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">
-														Twitter
-													</label>
-													<div class="col-7">
-														<input class="form-control m-input" type="text"
-															value="www.twitter.com/Mark.Andre">
-													</div>
-												</div>
-												<div class="form-group m-form__group row">
-													<label for="example-text-input" class="col-2 col-form-label">
-														Instagram
-													</label>
-													<div class="col-7">
-														<input class="form-control m-input" type="text"
-															value="www.instagram.com/Mark.Andre">
-													</div>
-												</div>
-											</div>
-											<div class="m-portlet__foot m-portlet__foot--fit">
-												<div class="m-form__actions">
-													<div class="row">
-														<div class="col-2"></div>
-														<div class="col-7">
-															<button type="reset"
-																class="btn btn-accent m-btn m-btn--air m-btn--custom">
-																Save changes
-															</button>
-															&nbsp;&nbsp;
-															<button type="reset"
-																class="btn btn-secondary m-btn m-btn--air m-btn--custom">
-																Cancel
-															</button>
-														</div>
-													</div>
-												</div>
-											</div>
-										</form>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -1029,9 +550,7 @@
 	<!--begin::Base Scripts -->
 	<%- include('../includes/base-scripts.ejs')%>
 	<!--end::Base Scripts -->
-	<!--begin::Page Snippets -->
-	<script src="assets/app/js/dashboard.js" type="text/javascript"></script>
-	<!--end::Page Snippets -->
+	<script src="/assets/app/js/data_talent/profile-value.js" type="text/javascript"></script>
 </body>
 <!-- end::Body -->
 

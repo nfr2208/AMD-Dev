@@ -1,0 +1,423 @@
+<form class="m-form m-form--fit m-form--label-align-right">
+        <div class="m-portlet__body">
+            <div class="form-group m-form__group m--margin-top-10 m--hide">
+                <div class="alert m-alert m-alert--default" role="alert">
+                    The example form below demonstrates common HTML form elements
+                    that receive updated styles from Bootstrap with additional
+                    classes.
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <div class="col-10 ml-auto">
+                    <h3 class="m-form__section">
+                        1. Personal Details
+                    </h3>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label for="example-text-input" class="col-2 col-form-label">
+                    NIK
+                </label>
+                <div class="col-7">
+                    <input readonly type="text"
+                    class="form-control m-input"
+                    name="NIK" id="NIK"	value="<%= talent.NIK %>">
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label for="example-text-input" class="col-2 col-form-label">										
+                    Nama
+                </label>
+                <div class="col-7">
+                    <input readonly type="text"
+                    class="form-control m-input"
+                    name="Nama" id="Nama" value="<%= talent.Nama %>">
+                </label>											
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label for="example-text-input" class="col-2 col-form-label">										
+                    No. Telpon
+                </label>
+                <div class="col-7">
+                    <input readonly type="text"
+                    class="form-control m-input"
+                    name="NoTelp" id="NoTelp" value="<%= talent.NoTelp %>">
+                </label>											
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label for="example-text-input" class="col-2 col-form-label">										
+                    Email
+                </label>
+                <div class="col-7">
+                    <input readonly type="text"
+                    class="form-control m-input"
+                    name="Email" id="Email" value="<%= talent.Email %>">
+                </label>											
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label for="example-text-input" class="col-2 col-form-label">
+                    Batch Innovation
+                </label>
+                <div class="col-7">
+                    <input readonly class="form-control m-input" type="text"
+                    name="Batch" id="Batch" value="<%= talent.BatchInovation %>">
+                </div>
+            </div>
+            <div
+                class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x">
+            </div>
+            <div class="form-group m-form__group row">
+                <div class="col-10 ml-auto">
+                    <h3 class="m-form__section">
+                        2. Data Talent
+                    </h3>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label for="example-text-input" class="col-2 col-form-label">
+                    Tanggal Join Tim
+                </label>
+                <div class="col-7">
+                    <input readonly type="date" class="form-control m-input"
+                    name="TglJoinTim" id="TglJoinTim" value="<%= talent.TglJoinTim %>">
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <input type="hidden" class="form-control m-input" id="BPVal" value="<%= talent.BP %>">
+                <label for="BP" class="col-2 col-form-label">
+                    BP
+                </label>
+                    <div class="col-7">
+                        <select disabled class="form-control m-input" name="BP"
+                            id="BP">
+                            <option value="-">
+                                -
+                            </option>
+                            <option value="I">
+                                I
+                            </option>
+                            <option value="II">
+                                II
+                            </option>
+                            <option value="III">
+                                III
+                            </option>
+                            <option value="IV">
+                                IV
+                            </option>
+                            <option value="V">
+                                V
+                            </option>
+                            <option value="VI">
+                                VI
+                            </option>
+                        </select>
+                    </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <input type="hidden" class="form-control m-input" id="NatureStreamVal" value="<%= talent.NatureStream %>">
+                <label for="NatureStream" class="col-2 col-form-label">
+                    Nature Stream
+                </label>
+                <div class="col-7">
+                    <select disabled class="form-control m-input" name="NatureStream"
+                        id="NatureStream">
+                        <option value="-">
+                            -
+                        </option>
+                        <option value="HUSTLER">
+                            HUSTLER
+                        </option>
+                        <option value="HIPSTER">
+                            HIPSTER
+                        </option>
+                        <option value="HACKER">
+                            HACKER
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label for="CLevel" class="col-2 col-form-label">
+                    C-Level
+                </label>
+                <div class="col-7">
+                    <input readonly type="text" class="form-control m-input"
+                        name="CLevel" id="CLevel" placeholder="Ex: CEO"
+                        value="<%= talent.CLevel %>">
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <input type="hidden" class="form-control m-input" id="TipeInovatorVal" value="<%= talent.TipeInovator %>">
+                <label for="TipeInovator" class="col-2 col-form-label">
+                    Tipe Inovator
+                </label>
+                <div class="col-7">
+                    <select disabled class="form-control m-input" name="TipeInovator" id="TipeInovator">
+                        <option value="100%">
+                            100%
+                        </option>
+                        <option value="40/60">
+                            40/60
+                        </option>
+                        <option value="Bootcamp">
+                            Bootcamp
+                        </option>
+                        <option value="NotJoin">
+                            NotJoin
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <input type="hidden" class="form-control m-input" id="TimStrukturVal" value="<%= talent.TimStruktur %>">
+                <label for="TimStruktur" class="col-2 col-form-label">
+                    Tim Struktur
+                </label>
+                <div class="col-7">
+                    <select disabled class="form-control m-input" name="TimStruktur"
+                        id="TimStruktur">
+                        <option value="-">
+                            -
+                        </option>
+                        <option value="HUSTLER">
+                            HUSTLER
+                        </option>
+                        <option value="HIPSTER">
+                            HIPSTER
+                        </option>
+                        <option value="HACKER">
+                            HACKER
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <input type="hidden" class="form-control m-input" id="FlaggingVal" value="<%= talent.FlaggingId %>">
+                <label for="FlaggingId" class="col-2 col-form-label">
+                    Flagging
+                </label>
+                <div class="col-7">
+                    <select disabled class="form-control m-input" name="FlaggingId" id="FlaggingId">
+                        <option value="1">
+                            Active Talent
+                        </option>
+                        <option value="2">
+                            Alumni
+                        </option>
+                        <option value="3">
+                            Move Team
+                        </option>
+                        <option value="4">
+                            Tim as Squad (Tribe)
+                        </option>
+                        <option value="5">
+                            Tim as Service Provider (Tribe)
+                        </option>
+                        <option value="6">
+                            Tim as Talent Provider (Tribe)
+                        </option>
+                        <option value="7">
+                            Talent Provided As Innovator (Tribe)
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <input type="hidden" class="form-control m-input" id="StatusVal" value="<%= talent.Status %>">
+                <label for="Status" class="col-2 col-form-label">
+                    Status
+                </label>
+                <div class="col-7">
+                    <select disabled class="form-control m-input" name="Status" id="Status">
+                        <option value=1>
+                            Active
+                        </option>
+                        <option value=0>
+                            Inactive
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label for="LokerAsal" class="col-2 col-form-label">
+                    Loker Asal
+                </label>
+                <div class="col-7">
+                    <input readonly type="text" class="form-control m-input"
+                        name="LokerAsal" id="LokerAsal" placeholder="Ex: Jakarta, Medan, dll"
+                        value="<%= talent.LokerAsal %>">
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label for="LokerSaatIni" class="col-2 col-form-label">
+                    Loker Saat Ini
+                </label>
+                <div class="col-7">
+                    <input readonly type="text" class="form-control m-input"
+                        name="LokerSaatIni" id="LokerSaatIni" placeholder="Ex: Jakarta, Medan, dll"
+                        value="<%= talent.LokerSaatIni %>">
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <input type="hidden" class="form-control m-input" id="UnitKerjaAsalVal" value="<%= talent.UnitKerjaAsalId %>">
+                <label for="UnitKerjaAsalId" class="col-2 col-form-label">
+                    Unit Kerja Asal
+                </label>
+                <div class="col-7">
+                    <select disabled class="form-control m-input" name="UnitKerjaAsalId"
+                        id="UnitKerjaAsalId">
+                        <option value="1">
+                            TR1
+                        </option>
+                        <option value="2">
+                            TR4
+                        </option>
+                        <option value="3">
+                            TR6
+                        </option>
+                        <option value="4">
+                            TR7
+                        </option>
+                        <option value="5">
+                            METRANET
+                        </option>
+                        <option value="6">
+                            DSO
+                        </option>
+                        <option value="7">
+                            DDS
+                        </option>
+                        <option value="8">
+                            HCM
+                        </option>
+                        <option value="9">
+                            DIT/KEU
+                        </option>
+                        <option value="10">
+                            INFOMEDIA
+                        </option>
+                        <option value="11">
+                            TELIN
+                        </option>
+                        <option value="12">
+                            TELKOM TELSTRA
+                        </option>
+                        <option value="13">
+                            SIGMA
+                        </option>
+                        <option value="14">
+                            TCUC
+                        </option>
+                        <option value="15">
+                            PND
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <input type="hidden" class="form-control m-input" id="UnitKerjaSaatIniVal" value="<%= talent.UnitKerjaSaatIniId %>">
+                <label for="UnitKerjaSaatIniId" class="col-2 col-form-label">
+                    Unit Kerja Saat Ini
+                </label>
+                <div class="col-7">
+                    <select disabled class="form-control m-input" name="UnitKerjaSaatIniId"
+                        id="UnitKerjaSaatIniId">
+                        <option value="1">
+                            TR1
+                        </option>
+                        <option value="2">
+                            TR4
+                        </option>
+                        <option value="3">
+                            TR6
+                        </option>
+                        <option value="4">
+                            TR7
+                        </option>
+                        <option value="5">
+                            METRANET
+                        </option>
+                        <option value="6">
+                            DSO
+                        </option>
+                        <option value="7">
+                            DDS
+                        </option>
+                        <option value="8">
+                            HCM
+                        </option>
+                        <option value="9">
+                            DIT/KEU
+                        </option>
+                        <option value="10">
+                            INFOMEDIA
+                        </option>
+                        <option value="11">
+                            TELIN
+                        </option>
+                        <option value="12">
+                            TELKOM TELSTRA
+                        </option>
+                        <option value="13">
+                            SIGMA
+                        </option>
+                        <option value="14">
+                            TCUC
+                        </option>
+                        <option value="15">
+                            PND
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x">
+            </div>
+            <div class="form-group m-form__group row">
+                <div class="col-10 ml-auto">
+                    <h3 class="m-form__section">
+                        3. Social Links
+                    </h3>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label for="example-text-input" class="col-2 col-form-label">
+                    Linkedin
+                </label>
+                <div class="col-7">
+                    <input readonly class="form-control m-input" type="text"
+                        value="www.linkedin.com/Mark.Andre">
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label for="example-text-input" class="col-2 col-form-label">
+                    Facebook
+                </label>
+                <div class="col-7">
+                    <input readonly class="form-control m-input" type="text"
+                        value="www.facebook.com/Mark.Andre">
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label for="example-text-input" class="col-2 col-form-label">
+                    Twitter
+                </label>
+                <div class="col-7">
+                    <input readonly class="form-control m-input" type="text"
+                        value="www.twitter.com/Mark.Andre">
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label for="example-text-input" class="col-2 col-form-label">
+                    Instagram
+                </label>
+                <div class="col-7">
+                    <input readonly class="form-control m-input" type="text"
+                        value="www.instagram.com/Mark.Andre">
+                </div>
+            </div>
+        </div>
+    </form>

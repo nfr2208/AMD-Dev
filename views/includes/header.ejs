@@ -64,6 +64,7 @@
                             <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
                                 <span class="m-menu__arrow m-menu__arrow--adjust"></span>
                                 <ul class="m-menu__subnav">
+                                    <% if (userProfile.Role === 'AI') { %>
                                     <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
                                         <a href="/talent/add-talent" class="m-menu__link ">
                                             <i class="m-menu__link-icon flaticon-users"></i>
@@ -72,6 +73,7 @@
                                             </span>
                                         </a>
                                     </li>
+                                    <% } %>
                                     <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
                                         <a href="/talent/list-talent" class="m-menu__link ">
                                             <i class="m-menu__link-icon flaticon-users"></i>
@@ -103,7 +105,7 @@
                                         </span>
                                     </span>
                                     <span class="m-topbar__username m--hide">
-                                        <%= userProfile.name %>
+                                        <%= userProfile.Nama %>
                                     </span>
                                 </a>
                                 <div class="m-dropdown__wrapper">
@@ -118,10 +120,10 @@
                                                 </div>
                                                 <div class="m-card-user__details">
                                                     <span class="m-card-user__name m--font-weight-500">
-                                                        <%= userProfile.name %>
+                                                        <%= userProfile.Nama %>
                                                     </span>
                                                     <a href="" class="m-card-user__email m--font-weight-300 m-link">
-                                                        <%= userProfile.email %>
+                                                        <%= userProfile.Email %>
                                                     </a>
                                                 </div>
                                             </div>
@@ -135,7 +137,7 @@
                                                         </span>
                                                     </li>
                                                     <li class="m-nav__item">
-                                                        <% if (userProfile.role === 'Admin') { %>
+                                                        <% if (userProfile.Role === 'Admin') { %>
                                                         <a href="/admin/index" class="m-nav__link">
                                                             <i class="m-nav__link-icon flaticon-share"></i>
                                                             <span class="m-nav__link-text">

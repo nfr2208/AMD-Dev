@@ -26,11 +26,11 @@ var DatatableAutoColumnHideDemo = {
                 autoHide: !0
             },
             columns: [{
-                field: "name",
-                title: "Name",
+                field: "Nama",
+                title: "Nama",
                 width: 150
             }, {
-                field: "email",
+                field: "Email",
                 title: "Email",
                 width: 150,
                 responsive: {

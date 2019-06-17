@@ -8,10 +8,10 @@ const isAB = require('../middleware/is-ab');
 
 const router = express.Router();
 
-router.get('/index', isAuth, isAdmin, adminController.getIndex);
-router.get('/inner', isAuth, isAdmin, adminController.getInner);
-router.get('/usercontrol', isAuth, isAdmin, adminController.getUserControl);
-router.post('/create-user', isAuth, isAdmin, adminController.postCreateUser);
+router.get('/index', adminController.getIndex);
+router.get('/inner', adminController.getInner);
+router.get('/usercontrol', adminController.getUserControl);
+router.post('/create-user', adminController.postCreateUser);
 router.get('/create-password/:token', adminController.getCreatePassword);
 router.post('/create-password', adminController.postCreatePassword);
 

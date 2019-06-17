@@ -10,7 +10,7 @@ const User = require('../models/user');
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth: {
-        api_key: 'dsda'
+        api_key: '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'
     }
 }));
 
@@ -44,9 +44,9 @@ exports.getUserControl = (req, res, next) => {
 };
 
 exports.postCreateUser = (req, res, next) => {
-    const name = req.body.name;
-    const email = req.body.email;
-    const role = req.body.role;
+    const Nama = req.body.Nama;
+    const Email = req.body.Email;
+    const Role = req.body.Role;
 
     crypto.randomBytes(32, (err, buffer) => {
         if(err){
@@ -56,23 +56,23 @@ exports.postCreateUser = (req, res, next) => {
         const token = buffer.toString('hex');
         User.findOne({
             where: {
-                email: email
+                Email: Email
             }
         }).then(user => {
             if(user){
                 return res.redirect('/admin/usercontrol');
             }
             return User.create({
-                name: name,
-                email: email,
-                createPasswordToken: token,
-                createPasswordTokenExpiration: Date.now() + 34600000,
-                role: role
+                Nama: Nama,
+                Email: Email,
+                CreatePasswordToken: token,
+                CreatePasswordTokenExpiration: Date.now() + 34600000,
+                Role: Role
             });
         }).then(result => {
             res.redirect('/admin/usercontrol');
             return transporter.sendMail({
-                to: email,
+                to: Email,
                 from: 'amd@digitalamoeba.id',
                 subject: 'Create user succeeded!',
                 html: `
@@ -90,14 +90,14 @@ exports.getCreatePassword = (req, res, next) => {
     const token = req.params.token;
     User.findOne({
         where: {
-            createPasswordToken: token,
-            createPasswordTokenExpiration: {[Op.gt]: Date.now()}
+            CreatePasswordToken: token,
+            CreatePasswordTokenExpiration: {[Op.gt]: Date.now()}
         }
     }).then(user => {
         res.render('auth/create-password', {
             path: '/create-password',
             pageTitle: 'Create Password',
-            userId: user.id.toString(),
+            userId: user.Id.toString(),
             createPasswordToken: token
         })
     }).catch(err => {
@@ -106,24 +106,24 @@ exports.getCreatePassword = (req, res, next) => {
 };
 
 exports.postCreatePassword = (req, res, next) => {
-    const password = req.body.password;
-    const createPasswordToken = req.body.createPasswordToken;
+    const Password = req.body.Password;
+    const CreatePasswordToken = req.body.CreatePasswordToken;
     const userId = req.body.userId;
     let createUser;
 
     User.findOne({
         where: {
-            createPasswordToken: createPasswordToken,
-            createPasswordTokenExpiration: {[Op.gt]: Date.now()},
-            id: userId
+            CreatePasswordToken: CreatePasswordToken,
+            CreatePasswordTokenExpiration: {[Op.gt]: Date.now()},
+            Id: userId
         }
     }).then(user => {
         createUser = user;
-        return bcrypt.hash(password, 12);
+        return bcrypt.hash(Password, 12);
     }).then(hashedPassword => {
-        createUser.password = hashedPassword;
-        createUser.createPasswordToken = null;
-        createUser.createPasswordTokenExpiration = undefined;
+        createUser.Password = hashedPassword;
+        createUser.CreatePasswordToken = null;
+        createUser.CreatePasswordTokenExpiration = null;
         return createUser.save();
     }).then(result => {
         res.redirect('/login');
@@ -131,77 +131,3 @@ exports.postCreatePassword = (req, res, next) => {
         console.log(err);
     });
 };
-
-
-// exports.postSignUp = (req, res, next) => {
-//     const fullname = req.body.fullname;
-//     const email = req.body.email;
-//     const password = req.body.password;
-//     const confirmPassword = req.body.confirmPassword;
-//     const role = req.body.role;
-
-//     User.findOne({
-//         where: {
-//             email: email
-//         }
-//     }).then(user => {
-//         if(user){
-//             return res.redirect('/login');
-//         }
-//         return bcrypt.hash(password, 12).then(hashedPassword => {
-//             return User.create({
-//                 name: fullname,
-//                 email: email,
-//                 password: hashedPassword,
-//                 role: role
-//             });
-//         }).then(result => {
-//             res.redirect('/login');
-//             return transporter.sendMail({
-//                 to: email,
-//                 from: 'amd@digitalamoeba.id',
-//                 subject: 'Signup succeeded!',
-//                 html: '<h1>You successfully signed up!</h1>'
-//             });
-//         }).catch(err => {
-//             console.log(err);
-//         });
-//     }).catch(err => {
-//         console.log(err);
-//     });
-// };
-
-// exports.postReset = (req, res, next) => {
-//     crypto.randomBytes(32, (err, buffer) => {
-//         if(err){
-//             console.log(err);
-//             return res.redirect('/login');
-//         }
-//         const token = buffer.toString('hex');
-//         User.findOne({
-//             where: {
-//                 email: req.body.resetEmail
-//             }
-//         }).then(user => {
-//             if(!user){
-//                 return res.redirect('/login');
-//             }
-//             user.resetToken = token;
-//             user.resetTokenExpiration = Date.now() + 34600000;
-//             return user.save();
-//         }).then(result => {
-//             res.redirect('/login');
-//             transporter.sendMail({
-//                 to: req.body.resetEmail,
-//                 from: 'amd@digitalamoeba.id',
-//                 subject: 'Password reset',
-//                 html: `
-//                     <p>You requested a password reset</p>
-//                     <p>Click this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.</p>
-//                 `
-//             });
-//         }).catch(err => {
-//             console.log(err);
-//         });
-//     });
-// };

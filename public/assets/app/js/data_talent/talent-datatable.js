@@ -64,17 +64,16 @@ let DatatableDataLocalDemo = {
             }, {
                 field: "LokerSaatIni",
                 title: "Loker Saat Ini",
+            }, {
+                field: "Actions",
+                width: 110,
+                title: "Actions",
+                sortable: !1,
+                overflow: "visible",
+                template: function (e) {
+                    return '\t\t\t\t\t\t<a href="/talent/profile-talent/'+ e.Id +'" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Profile Details">\t\t\t\t\t\t\t<i class="la la-user"></i>\t\t\t\t\t\t</a>\t\t\t\t\t'
+                }
             }]
-            // , {
-            //     field: "Actions",
-            //     width: 110,
-            //     title: "Actions",
-            //     sortable: !1,
-            //     overflow: "visible",
-            //     template: function (e, a, i) {
-            //         return '\t\t\t\t\t\t<div class="dropdown ' + (i.getPageSize() - a <= 4 ? "dropup" : "") + '">\t\t\t\t\t\t\t<a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">                                <i class="la la-ellipsis-h"></i>                            </a>\t\t\t\t\t\t  \t<div class="dropdown-menu dropdown-menu-right">\t\t\t\t\t\t    \t<a class="dropdown-item" href="/dashboard/edit-data-talent/'+ e.id +'?edit=true"><i class="la la-edit"></i> Edit Data Talent</a>\t\t\t\t\t\t    \t</div>\t\t\t\t\t\t</div>\t\t\t\t\t\t<form action="/dashboard/delete-data-talent" method="POST" class="d-inline"><input type="hidden" value="'+ csrfToken +'" name="_csrf"><input type="hidden" name="id" value="'+ e.id +'"><button class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" type="submit" title="Delete"><i class="la la-trash"></i></button></form>\t\t\t\t\t'
-            //     }
-            // }]
         }), i = a.getDataSourceQuery(), $("#m_form_status").on("change", function () {
             a.search($(this).val(), "Status")
         }).val(void 0 !== i.Status ? i.Status : ""), $("#m_form_batch").on("change", function () {

@@ -8,7 +8,7 @@
 	<!-- begin:: Page -->
 	<div class="m-grid m-grid--hor m-grid--root m-page">
 		<!-- BEGIN: Header -->
-		
+		<%- include('../includes/header.ejs')%>
 		<!-- END: Header -->
 		<!-- begin::Body -->
 		<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
@@ -82,401 +82,419 @@
 									</div>
 								</div>
 								<!--begin::Form-->
-								<form class="m-form m-form--fit m-form--label-align-right"
-									action="/talent/add-talent" method="POST">
+								<form class="m-form m-form--fit m-form--label-align-right" action="/talent/add-talent"
+									method="POST">
 									<div class="m-portlet__body">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group m-form__group hidden">
-													<label for="NIK">
-														NIK
-													</label>
-													<input type="text"
-														class="form-control m-input m-input--solid disabled"
-														name="NIK" id="NIK" placeholder="123xxx"
-														value="">
+										<div class="m-form__content">
+											<div class="m-alert m-alert--icon alert alert-danger m--hide" role="alert"
+												id="m_form_1_msg">
+												<div class="m-alert__icon">
+													<i class="la la-warning"></i>
+												</div>
+												<div class="m-alert__text">
+													Oh snap! Change a few things up and try submitting again.
+												</div>
+												<div class="m-alert__close">
+													<button type="button" class="close" data-close="alert"
+														aria-label="Close"></button>
 												</div>
 											</div>
-											<div class="col-md-6">
-												<div class="form-group m-form__group hidden">
-													<label for="Nama">
-														Nama
-													</label>
-													<input type="text"
-														class="form-control m-input m-input--solid disabled"
-														name="Nama" id="Nama" placeholder="Nama"
-														value="">
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group hidden">
+														<label for="NIK">
+															NIK
+														</label>
+														<input type="text"
+															class="form-control m-input m-input--solid disabled"
+															name="NIK" id="NIK" placeholder="123xxx" value="">
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group m-form__group hidden">
+														<label for="Nama">
+															Nama
+														</label>
+														<input type="text"
+															class="form-control m-input m-input--solid disabled"
+															name="Nama" id="Nama" placeholder="Nama" value="">
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="NoTelp">
+															No. Telepon
+														</label>
+														<input type="text" class="form-control m-input m-input--solid"
+															name="NoTelp" id="NoTelp" placeholder="(021/08)xx-xxxx-xxx"
+															value="">
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="Email">
+															Email
+														</label>
+														<input type="text" class="form-control m-input m-input--solid"
+															name="Email" id="Email" placeholder="John@email.com"
+															value="">
+													</div>
+												</div>
+											</div>
+											<br>
+											<hr>
+											<br>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group hidden">
+														<label for="BatchInovation">
+															Batch Inovation
+														</label>
+														<input type="text"
+															class="form-control m-input m-input--solid disabled"
+															name="BatchInovation" id="BatchInovation"
+															placeholder="Batch-xx" value="">
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group m-form__group hidden">
+														<label for="Amoeba">
+															Amoeba Team
+														</label>
+														<br>
+														<button type="button" class="btn btn-primary"
+															data-toggle="modal" data-target="#m_modal_amoeba">
+															Select Amoeba
+														</button>
+														&nbsp;&nbsp;&nbsp;<b><span id="m_selected_amoeba"></span></b>
+														<input type="hidden" name="AmoebaId" id="m_selected_amoebaId">
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="TglJoinTim">
+															Tanggal Join Tim
+														</label>
+														<input type="date" class="form-control m-input m-input--solid"
+															name="TglJoinTim" id="TglJoinTim">
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="BP">
+															BP
+														</label>
+														<select class="form-control m-input m-input--solid" name="BP"
+															id="BP">
+															<option value="-">
+																-
+															</option>
+															<option value="I">
+																I
+															</option>
+															<option value="II">
+																II
+															</option>
+															<option value="III">
+																III
+															</option>
+															<option value="IV">
+																IV
+															</option>
+															<option value="V">
+																V
+															</option>
+															<option value="VI">
+																VI
+															</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="NatureStream">
+															Nature Stream
+														</label>
+														<select class="form-control m-input m-input--solid"
+															name="NatureStream" id="NatureStream">
+															<option value="-">
+																-
+															</option>
+															<option value="HUSTLER">
+																HUSTLER
+															</option>
+															<option value="HIPSTER">
+																HIPSTER
+															</option>
+															<option value="HACKER">
+																HACKER
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="CLevel">
+															C-Level
+														</label>
+														<input type="text" class="form-control m-input m-input--solid"
+															name="CLevel" id="CLevel" placeholder="Ex: CEO" value="">
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="TipeInovator">
+															Tipe Inovator
+														</label>
+														<select class="form-control m-input m-input--solid"
+															name="TipeInovator" id="TipeInovator">
+															<option value="100%">
+																100%
+															</option>
+															<option value="40/60">
+																40/60
+															</option>
+															<option value="Bootcamp">
+																Bootcamp
+															</option>
+															<option value="NotJoin">
+																NotJoin
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="TimStruktur">
+															Tim Struktur
+														</label>
+														<select class="form-control m-input m-input--solid"
+															name="TimStruktur" id="TimStruktur">
+															<option value="-">
+																-
+															</option>
+															<option value="HUSTLER">
+																HUSTLER
+															</option>
+															<option value="HIPSTER">
+																HIPSTER
+															</option>
+															<option value="HACKER">
+																HACKER
+															</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class=" col-md-6">
+													<div class="form-group m-form__group">
+														<label for="FlaggingId">
+															Flagging
+														</label>
+														<select class="form-control m-input m-input--solid"
+															name="FlaggingId" id="FlaggingId">
+															<option value="1">
+																Active Talent
+															</option>
+															<option value="2">
+																Alumni
+															</option>
+															<option value="3">
+																Move Team
+															</option>
+															<option value="4">
+																Tim as Squad (Tribe)
+															</option>
+															<option value="5">
+																Tim as Service Provider (Tribe)
+															</option>
+															<option value="6">
+																Tim as Talent Provider (Tribe)
+															</option>
+															<option value="7">
+																Talent Provided As Innovator (Tribe)
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class=" col-md-6">
+													<div class="form-group m-form__group">
+														<label for="Status">
+															Status
+														</label>
+														<select class="form-control m-input m-input--solid"
+															name="Status" id="Status">
+															<option value=1>
+																Active
+															</option>
+															<option value=0>
+																Inactive
+															</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class=" col-md-6">
+													<div class="form-group m-form__group">
+														<label for="LokerAsal">
+															Loker Asal
+														</label>
+														<input type="text" class="form-control m-input m-input--solid"
+															name="LokerAsal" id="LokerAsal"
+															placeholder="Ex: Jakarta, Medan, dll" value="">
+													</div>
+												</div>
+												<div class=" col-md-6">
+													<div class="form-group m-form__group">
+														<label for="LokerSaatIni">
+															Loker Saat Ini
+														</label>
+														<input type="text" class="form-control m-input m-input--solid"
+															name="LokerSaatIni" id="LokerSaatIni"
+															placeholder="Ex: Jakarta, Medan, dll" value="">
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="UnitKerjaAsalId">
+															Unit Kerja Asal
+														</label>
+														<select class="form-control m-input m-input--solid"
+															name="UnitKerjaAsalId" id="UnitKerjaAsalId">
+															<option value="1">
+																TR1
+															</option>
+															<option value="2">
+																TR4
+															</option>
+															<option value="3">
+																TR6
+															</option>
+															<option value="4">
+																TR7
+															</option>
+															<option value="5">
+																METRANET
+															</option>
+															<option value="6">
+																DSO
+															</option>
+															<option value="7">
+																DDS
+															</option>
+															<option value="8">
+																HCM
+															</option>
+															<option value="9">
+																DIT/KEU
+															</option>
+															<option value="10">
+																INFOMEDIA
+															</option>
+															<option value="11">
+																TELIN
+															</option>
+															<option value="12">
+																TELKOM TELSTRA
+															</option>
+															<option value="13">
+																SIGMA
+															</option>
+															<option value="14">
+																TCUC
+															</option>
+															<option value="15">
+																PND
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="UnitKerjaSaatIniId">
+															Unit Kerja Saat Ini
+														</label>
+														<select class="form-control m-input m-input--solid"
+															name="UnitKerjaSaatIniId" id="UnitKerjaSaatIniId">
+															<option value="1">
+																TR1
+															</option>
+															<option value="2">
+																TR4
+															</option>
+															<option value="3">
+																TR6
+															</option>
+															<option value="4">
+																TR7
+															</option>
+															<option value="5">
+																METRANET
+															</option>
+															<option value="6">
+																DSO
+															</option>
+															<option value="7">
+																DDS
+															</option>
+															<option value="8">
+																HCM
+															</option>
+															<option value="9">
+																DIT/KEU
+															</option>
+															<option value="10">
+																INFOMEDIA
+															</option>
+															<option value="11">
+																TELIN
+															</option>
+															<option value="12">
+																TELKOM TELSTRA
+															</option>
+															<option value="13">
+																SIGMA
+															</option>
+															<option value="14">
+																TCUC
+															</option>
+															<option value="15">
+																PND
+															</option>
+														</select>
+													</div>
 												</div>
 											</div>
 										</div>
 										<br>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="NoTelp">
-														No. Telp
-													</label>
-													<input type="text" class="form-control m-input m-input--solid"
-														name="NoTelp" id="NoTelp" placeholder="08xxx"
-														value="">
-												</div>
+										<div class="m-portlet__foot m-portlet__foot--fit">
+											<div class="m-form__actions">
+												<input type="hidden" value="<%= csrfToken %>" name="_csrf"
+													id="csrfToken">
+												<button type="submit" class="btn btn-success">
+													Submit
+												</button>
+												<button type="reset" class="btn btn-secondary"> Cancel </button>
 											</div>
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="Email">
-														Email
-													</label>
-													<input type="text" class="form-control m-input m-input--solid"
-														name="Email" id="Email" placeholder="John@email.com"
-														value="">
-												</div>
-											</div>
-										</div>
-										<br>
-										<hr>
-										<br>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group m-form__group hidden">
-													<label for="BatchInovation">
-														Batch Inovation
-													</label>
-													<input type="text"
-														class="form-control m-input m-input--solid disabled"
-														name="BatchInovation" id="BatchInovation" placeholder="Batch-xx"
-														value="">
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group m-form__group hidden">
-													<label for="Amoeba">
-														Amoeba Team
-													</label>
-													<br>
-													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#m_modal_amoeba">
-														Select Amoeba
-													</button>
-													&nbsp;&nbsp;&nbsp;<b><span id="m_selected_amoeba"></span></b>
-													<input type="hidden" name="AmoebaId" id="m_selected_amoebaId">
-												</div>
-											</div>
-										</div>
-										<br>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="TglJoinTim">
-														Tanggal Join Tim
-													</label>
-													<input type="date" class="form-control m-input m-input--solid"
-														name="TglJoinTim" id="TglJoinTim">
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="BP">
-														BP
-													</label>
-													<select class="form-control m-input m-input--solid" name="BP"
-														id="BP">
-														<option value="-">
-															-
-														</option>
-														<option value="I">
-															I
-														</option>
-														<option value="II">
-															II
-														</option>
-														<option value="III">
-															III
-														</option>
-														<option value="IV">
-															IV
-														</option>
-														<option value="V">
-															V
-														</option>
-														<option value="VI">
-															VI
-														</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<br>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="NatureStream">
-														Nature Stream
-													</label>
-													<select class="form-control m-input m-input--solid" name="NatureStream"
-														id="NatureStream">
-														<option value="-">
-															-
-														</option>
-														<option value="HUSTLER">
-															HUSTLER
-														</option>
-														<option value="HIPSTER">
-															HIPSTER
-														</option>
-														<option value="HACKER">
-															HACKER
-														</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="CLevel">
-														C-Level
-													</label>
-													<input type="text" class="form-control m-input m-input--solid"
-														name="CLevel" id="CLevel" placeholder="Ex: CEO"
-														value="">
-												</div>
-											</div>
-										</div>
-										<br>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="TipeInovator">
-														Tipe Inovator
-													</label>
-													<select class="form-control m-input m-input--solid" name="TipeInovator" id="TipeInovator">
-														<option value="100%">
-															100%
-														</option>
-														<option value="40/60">
-															40/60
-														</option>
-														<option value="Bootcamp">
-															Bootcamp
-														</option>
-														<option value="NotJoin">
-															NotJoin
-														</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="TimStruktur">
-														Tim Struktur
-													</label>
-													<select class="form-control m-input m-input--solid" name="TimStruktur"
-														id="TimStruktur">
-														<option value="-">
-															-
-														</option>
-														<option value="HUSTLER">
-															HUSTLER
-														</option>
-														<option value="HIPSTER">
-															HIPSTER
-														</option>
-														<option value="HACKER">
-															HACKER
-														</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<br>
-										<div class="row">
-											<div class=" col-md-6">
-												<div class="form-group m-form__group">
-													<label for="FlaggingId">
-														Flagging
-													</label>
-													<select class="form-control m-input m-input--solid" name="FlaggingId" id="FlaggingId">
-														<option value="1">
-															Active Talent
-														</option>
-														<option value="2">
-															Alumni
-														</option>
-														<option value="3">
-															Move Team
-														</option>
-														<option value="4">
-															Tim as Squad (Tribe)
-														</option>
-														<option value="5">
-															Tim as Service Provider (Tribe)
-														</option>
-														<option value="6">
-															Tim as Talent Provider (Tribe)
-														</option>
-														<option value="7">
-															Talent Provided As Innovator (Tribe)
-														</option>
-													</select>
-												</div>
-											</div>
-											<div class=" col-md-6">
-												<div class="form-group m-form__group">
-													<label for="Status">
-														Status
-													</label>
-													<select class="form-control m-input m-input--solid" name="Status" id="Status">
-														<option value=1>
-															Active
-														</option>
-														<option value=0>
-															Inactive
-														</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<br>
-										<div class="row">
-											<div class=" col-md-6">
-												<div class="form-group m-form__group">
-													<label for="LokerAsal">
-														Loker Asal
-													</label>
-													<input type="text" class="form-control m-input m-input--solid"
-														name="LokerAsal" id="LokerAsal" placeholder="Ex: Jakarta, Medan, dll"
-														value="">
-												</div>
-											</div>										
-											<div class=" col-md-6">
-												<div class="form-group m-form__group">
-													<label for="LokerSaatIni">
-														Loker Saat Ini
-													</label>
-													<input type="text" class="form-control m-input m-input--solid"
-														name="LokerSaatIni" id="LokerSaatIni" placeholder="Ex: Jakarta, Medan, dll"
-														value="">
-												</div>
-											</div>
-										</div>
-										<br>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="UnitKerjaAsalId">
-														Unit Kerja Asal
-													</label>
-													<select class="form-control m-input m-input--solid" name="UnitKerjaAsalId"
-														id="UnitKerjaAsalId">
-														<option value="1">
-															TR1
-														</option>
-														<option value="2">
-															TR4
-														</option>
-														<option value="3">
-															TR6
-														</option>
-														<option value="4">
-															TR7
-														</option>
-														<option value="5">
-															METRANET
-														</option>
-														<option value="6">
-															DSO
-														</option>
-														<option value="7">
-															DDS
-														</option>
-														<option value="8">
-															HCM
-														</option>
-														<option value="9">
-															DIT/KEU
-														</option>
-														<option value="10">
-															INFOMEDIA
-														</option>
-														<option value="11">
-															TELIN
-														</option>
-														<option value="12">
-															TELKOM TELSTRA
-														</option>
-														<option value="13">
-															SIGMA
-														</option>
-														<option value="14">
-															TCUC
-														</option>
-														<option value="15">
-															PND
-														</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group m-form__group">
-													<label for="UnitKerjaSaatIniId">
-														Unit Kerja Saat Ini
-													</label>
-													<select class="form-control m-input m-input--solid" name="UnitKerjaSaatIniId"
-														id="UnitKerjaSaatIniId">
-														<option value="1">
-															TR1
-														</option>
-														<option value="2">
-															TR4
-														</option>
-														<option value="3">
-															TR6
-														</option>
-														<option value="4">
-															TR7
-														</option>
-														<option value="5">
-															METRANET
-														</option>
-														<option value="6">
-															DSO
-														</option>
-														<option value="7">
-															DDS
-														</option>
-														<option value="8">
-															HCM
-														</option>
-														<option value="9">
-															DIT/KEU
-														</option>
-														<option value="10">
-															INFOMEDIA
-														</option>
-														<option value="11">
-															TELIN
-														</option>
-														<option value="12">
-															TELKOM TELSTRA
-														</option>
-														<option value="13">
-															SIGMA
-														</option>
-														<option value="14">
-															TCUC
-														</option>
-														<option value="15">
-															PND
-														</option>
-													</select>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="m-portlet__foot m-portlet__foot--fit">
-										<div class="m-form__actions">
-											<input type="hidden" value="<%= csrfToken %>" name="_csrf" id="csrfToken">
-											<button type="submit" class="btn btn-success">
-												Submit
-											</button>
-											<button type="reset" class="btn btn-secondary"> Cancel </button>
 										</div>
 									</div>
 								</form>
@@ -489,7 +507,8 @@
 			</div>
 		</div>
 
-		<div class="modal fade" id="m_modal_amoeba" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="m_modal_amoeba" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -509,7 +528,8 @@
 									<div class="form-group m-form__group row align-items-center">
 										<div class="col-md-12">
 											<div class="m-input-icon m-input-icon--left">
-												<input type="text" class="form-control m-input m-input--solid" placeholder="Search..." id="generalSearch">
+												<input type="text" class="form-control m-input m-input--solid"
+													placeholder="Search..." id="generalSearch">
 												<span class="m-input-icon__icon m-input-icon__icon--left">
 													<span>
 														<i class="la la-search"></i>
@@ -524,7 +544,8 @@
 						<div class="m-separator m-separator--dashed d-xl"></div>
 						<!--end: Search Form -->
 						<!--begin: Selected Rows Group Action Form -->
-						<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30 collapse" id="m_datatable_group_action_form">
+						<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30 collapse"
+							id="m_datatable_group_action_form">
 							<div class="row align-items-center">
 								<div class="col-xl-12">
 									<div class="m-form__group m-form__group--inline">
@@ -537,7 +558,8 @@
 										</div>
 										<div class="m-form__control">
 											<div class="btn-toolbar">
-												<button class="btn btn-sm btn-success" type="button" id="m_fetch_id" data-dismiss="modal">
+												<button class="btn btn-sm btn-success" type="button" id="m_fetch_id"
+													data-dismiss="modal">
 													Select Amoeba
 												</button>
 											</div>
@@ -580,7 +602,7 @@
 	<%- include('../includes/base-scripts.ejs')%>
 	<!--end::Base Scripts -->
 	<!--begin::Page Snippets -->
-	<script src="/assets/app/js/amoeba-selection.js" type="text/javascript"></script>
+	<script src="/assets/app/js/data_talent/amoeba-selection.js" type="text/javascript"></script>
 	<!--end::Page Snippets -->
 </body>
 <!-- end::Body -->
