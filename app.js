@@ -14,6 +14,16 @@ const sequelize = require('./util/database');
 const app = express();
 const csrfProtection = csrf();
 
+//Model
+const Talent = require('./models/data_talent/Talent');
+const Flagging = require('./models/data_talent/Flagging');
+const UnitKerjaAsal = require('./models/data_talent/UnitKerjaAsal');
+const UnitKerjaSaatIni = require('./models/data_talent/UnitKerjaSaatIni');
+const Amoeba = require('./models/amoeba/Amoeba');
+const AreaInovasi = require('./models/amoeba/AreaInovasi');
+const Tribe = require('./models/amoeba/Tribe');
+const CFU = require('./models/amoeba/CFU');
+
 // Templating Engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -21,9 +31,11 @@ app.set('views', path.join(__dirname, 'views'));
 //Routing
 const authRoutes = require('./routes/authRoutes');
 const menuRoutes = require('./routes/menuRoutes');
-const amoebaRoutes = require('./routes/amoebaRoutes');
-const teamDataRoutes = require('./routes/teamDataRoutes');
-const innovatorRoutes = require('./routes/innovatorRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+const talentRoutes = require('./routes/talentRoutes');
+const amoebaRoutes = require('./routes/old/amoebaRoutes');
+// const teamDataRoutes = require('./routes/old/teamDataRoutes');
+// const innovatorRoutes = require('./routes/old/innovatorRoutes');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -50,10 +62,22 @@ app.use((req, res, next) => {
 //Routes
 app.use(authRoutes);
 app.use(menuRoutes);
+app.use('/admin', adminRoutes);
+app.use('/talent', talentRoutes);
 app.use(amoebaRoutes);
-app.use(teamDataRoutes);
-app.use(innovatorRoutes);
+// app.use(teamDataRoutes);
+// app.use(innovatorRoutes);
 app.use(errorController.get404);
+
+//Relations
+Talent.belongsTo(Flagging);
+Talent.belongsTo(UnitKerjaAsal);
+Talent.belongsTo(UnitKerjaSaatIni);
+Talent.belongsTo(Amoeba);
+Amoeba.hasMany(Talent);
+Amoeba.belongsTo(AreaInovasi);
+Amoeba.belongsTo(Tribe);
+Amoeba.belongsTo(CFU);
 
 sequelize
     // .sync({force: true})

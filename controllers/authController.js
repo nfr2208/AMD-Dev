@@ -6,7 +6,7 @@ const sendgridTransport = require('nodemailer-sendgrid-transport');
 
 const { Op } = require('sequelize');
 
-const User = require('../models/user');
+const User = require('../models/User');
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth: {
@@ -22,17 +22,17 @@ exports.getLogin = (req, res, next) => {
 };
 
 exports.postLogin = (req, res, next) => {
-    const email = req.body.loginEmail;
-    const password = req.body.loginPassword;    
+    const Email = req.body.loginEmail;
+    const Password = req.body.loginPassword;    
     User.findOne({
         where: {
-            email: email
+            Email: Email
         }
     }).then(user => {
         if(!user){
             return res.redirect('/login');
         }
-        bcrypt.compare(password, user.password).then(doMatch => {
+        bcrypt.compare(Password, user.Password).then(doMatch => {
             if(doMatch){
                 req.session.isLoggedIn = true;
                 req.session.user = user;
@@ -51,48 +51,10 @@ exports.postLogin = (req, res, next) => {
     });
 };
 
-exports.postSignUp = (req, res, next) => {
-    const fullname = req.body.fullname;
-    const email = req.body.email;
-    const password = req.body.password;
-    const confirmPassword = req.body.confirmPassword;
-    const role = req.body.role;
-
-    User.findOne({
-        where: {
-            email: email
-        }
-    }).then(user => {
-        if(user){
-            return res.redirect('/login');
-        }
-        return bcrypt.hash(password, 12).then(hashedPassword => {
-            return User.create({
-                name: fullname,
-                email: email,
-                password: hashedPassword,
-                role: role
-            });
-        }).then(result => {
-            res.redirect('/login');
-            return transporter.sendMail({
-                to: email,
-                from: 'amd@digitalamoeba.id',
-                subject: 'Signup succeeded!',
-                html: '<h1>You successfully signed up!</h1>'
-            });
-        }).catch(err => {
-            console.log(err);
-        });
-    }).catch(err => {
-        console.log(err);
-    });
-};
-
 exports.postLogout = (req, res, next) => {
     req.session.destroy(err => {
         console.log(err);
-        res.redirect('/index');
+        res.redirect('/login');
     });
 };
 
@@ -105,14 +67,14 @@ exports.postReset = (req, res, next) => {
         const token = buffer.toString('hex');
         User.findOne({
             where: {
-                email: req.body.resetEmail
+                Email: req.body.resetEmail
             }
         }).then(user => {
             if(!user){
                 return res.redirect('/login');
             }
-            user.resetToken = token;
-            user.resetTokenExpiration = Date.now() + 34600000;
+            user.ResetToken = token;
+            user.ResetTokenExpiration = Date.now() + 34600000;
             return user.save();
         }).then(result => {
             res.redirect('/login');
@@ -135,8 +97,8 @@ exports.getNewPassword = (req, res, next) => {
     const token = req.params.token;
     User.findOne({
         where: {
-            resetToken: token,
-            resetTokenExpiration: {[Op.gt]: Date.now()}
+            ResetToken: token,
+            ResetTokenExpiration: {[Op.gt]: Date.now()}
         }
     }).then(user => {
         res.render('auth/new-password', {
@@ -151,24 +113,24 @@ exports.getNewPassword = (req, res, next) => {
 };
 
 exports.postNewPassword = (req, res, next) => {
-    const newPassword = req.body.password;
+    const newPassword = req.body.Password;
     const userId = req.body.userId;
     const passwordToken = req.body.passwordToken;
     let resetUser;
 
     User.findOne({
         where: {
-            resetToken: passwordToken,
-            resetTokenExpiration: {[Op.gt]: Date.now()},
-            id: userId
+            ResetToken: passwordToken,
+            ResetTokenExpiration: {[Op.gt]: Date.now()},
+            Id: userId
         }
     }).then(user => {
         resetUser = user;
         return bcrypt.hash(newPassword, 12);
     }).then(hashedPassword => {
-        resetUser.password = hashedPassword;
-        resetUser.resetToken = null;
-        resetUser.resetTokenExpiration = undefined;
+        resetUser.Password = hashedPassword;
+        resetUser.ResetToken = null;
+        resetUser.ResetTokenExpiration = null;
         return resetUser.save();
     }).then(result => {
         res.redirect('/login');

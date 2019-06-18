@@ -42,7 +42,7 @@
 								</li>
 							</ul>
 						</div>
-						<div>
+						<!-- <div>
 							<span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
 								<span class="m-subheader__daterange-label">
 									<span class="m-subheader__daterange-title"></span>
@@ -53,169 +53,13 @@
 									<i class="la la-angle-down"></i>
 								</a>
 							</span>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<!-- END: Subheader -->
 				<div class="m-content">				
 					<!--Begin::Section-->
-					<div class="m-portlet">
-						<div class="m-portlet__body  m-portlet__body--no-padding">
-							<div class="row m-row--no-padding m-row--col-separator-xl">
-								<div class="col-xl-4">
-									<div class="m-widget1">
-										<div class="m-widget1__item">
-											<div class="row m-row--no-padding align-items-center">
-												<div class="col">
-													<h3 class="m-widget1__title">
-														100% Inovator
-													</h3>
-													<span class="m-widget1__desc">
-														Total of 100% Inovator
-													</span>
-												</div>
-												<div class="col m--align-right">
-													<span class="m-widget1__number m--font-brand">
-														<p id="fullTeamData"></p><b><%= fullTeamData %></b>
-													</span>
-												</div>
-											</div>
-										</div>
-										<div class="m-widget1__item">
-											<div class="row m-row--no-padding align-items-center">
-												<div class="col">
-													<h3 class="m-widget1__title">
-														40/60
-													</h3>
-													<span class="m-widget1__desc">
-														Total of 40/60
-													</span>
-												</div>
-												<div class="col m--align-right">
-													<span class="m-widget1__number m--font-danger">
-														<p id="fsTeamData"></p><b><%= fsTeamData %></b>
-													</span>
-												</div>
-											</div>
-										</div>
-										<div class="m-widget1__item">
-											<div class="row m-row--no-padding align-items-center">
-												<div class="col">
-													<h3 class="m-widget1__title">
-														On Bootcamp
-													</h3>
-													<span class="m-widget1__desc">
-														Total of On Bootcamp
-													</span>
-												</div>
-												<div class="col m--align-right">
-													<span class="m-widget1__number m--font-success">
-														<p id="onBootcampTeamData"></p><b><%= onBootcampTeamData %></b>
-													</span>
-												</div>
-											</div>
-										</div>
-										<div class="m-widget1__item">
-											<div class="row m-row--no-padding align-items-center">
-												<div class="col">
-													<h3 class="m-widget1__title">
-														Not Join
-													</h3>
-													<span class="m-widget1__desc">
-														Total of Not Join
-													</span>
-												</div>
-												<div class="col m--align-right">
-													<span class="m-widget1__number m--font-accent">
-														<p id="notJoinTeamData"></p><b><%= notJoinTeamData %></b>
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-4">
-									<div class="m-widget14">
-										<div class="m-widget14__header">
-											<h3 class="m-widget14__title">
-												Team Data Flagging
-											</h3>
-											<span class="m-widget14__desc">
-												Detail of Team Data Flagging
-											</span>
-										</div>
-										<div class="row  align-items-center">
-											<div class="col">
-												<div id="flagging_chart" class="m-widget14__chart"
-													style="height: 160px">
-												</div>
-											</div>
-											<div class="col">
-												<div class="m-widget14__legends">
-													<div class="m-widget14__legend">
-														<span class="m-widget14__legend-bullet m--bg-danger"></span>
-														<span class="m-widget14__legend-text">
-															<p hidden id="alumniTeamData" title="<%= alumniTeamData %>"></p><b><%= alumniTeamData %></b> Alumni Status
-														</span>
-													</div>
-													<div class="m-widget14__legend">
-														<span class="m-widget14__legend-bullet m--bg-success"></span>
-														<span class="m-widget14__legend-text">
-															<p hidden id="activeTalentTeamData" title="<%= activeTalentTeamData %>"></p><b><%= activeTalentTeamData %></b> Active Talent Status
-														</span>
-													</div>
-													<div class="m-widget14__legend">
-														<span class="m-widget14__legend-bullet m--bg-warning"></span>
-														<span class="m-widget14__legend-text">
-															<p hidden id="moveTeamData" title="<%= moveTeamData %>"></p><b><%= moveTeamData %></b> Move Team Status
-														</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-4">
-									<div class="m-widget14">
-										<div class="m-widget14__header">
-											<h3 class="m-widget14__title">
-												Team Data Status Chart
-											</h3>
-											<span class="m-widget14__desc">
-												Chart of Active/Inactive Team Data
-											</span>
-										</div>
-										<div class="row  align-items-center">
-											<div class="col">
-												<div id="status_chart" class="m-widget14__chart"
-													style="height: 160px">
-													<div class="m-widget14__stat">
-														<p hidden id="totalTeamData" title="<%= totalTeamData %>"></p><b><%= totalTeamData %></b>
-													</div>
-												</div>
-											</div>
-											<div class="col">
-												<div class="m-widget14__legends">
-													<div class="m-widget14__legend">
-														<span class="m-widget14__legend-bullet m--bg-success"></span>
-														<span class="m-widget14__legend-text">
-															<p hidden id="activeTeamData" title="<%= activeTeamData %>"></p><b><%= activeTeamData %></b> Active Status
-														</span>
-													</div>
-													<div class="m-widget14__legend">
-														<span class="m-widget14__legend-bullet m--bg-danger"></span>
-														<span class="m-widget14__legend-text">
-															<p hidden id="notActiveTeamData" title="<%= notActiveTeamData %>"></p><b><%= notActiveTeamData %></b> Not Active Status
-														</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<!-- PowerBI -->
 					<!--End::Section-->
 				</div>
 			</div>
@@ -234,9 +78,6 @@
 		<i class="la la-arrow-up"></i>
 	</div>
 	<!-- end::Scroll Top -->
-	<!-- begin::Quick Nav -->
-	<%- include('../includes/quick-nav.ejs')%>
-	<!-- begin::Quick Nav -->
 	<!--begin::Base Scripts -->
 	<%- include('../includes/base-scripts.ejs')%>
 	<!--end::Base Scripts -->

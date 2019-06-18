@@ -18,14 +18,6 @@ var SnippetLogin = function() {
 
     //== Private Functions
 
-    var displaySignUpForm = function() {
-        login.removeClass('m-login--forget-password');
-        login.removeClass('m-login--signin');
-
-        login.addClass('m-login--signup');
-        mUtil.animateClass(login.find('.m-login__signup')[0], 'flipInX animated');
-    }
-
     var displaySignInForm = function() {
         login.removeClass('m-login--forget-password');
         login.removeClass('m-login--signup');
@@ -104,65 +96,6 @@ var SnippetLogin = function() {
         });
     }
 
-    var handleSignUpFormSubmit = function() {
-        $('#m_login_signup_submit').click(function(e) {
-            e.preventDefault();
-
-            var btn = $(this);
-            var form = $(this).closest('form');
-
-            form.validate({
-                rules: {
-                    fullname: {
-                        required: true
-                    },
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    password: {
-                        required: true
-                    },
-                    confirmPassword: {
-                        required: true
-                    },
-                    role: {
-                        required: true
-                    },
-                    agree: {
-                        required: true
-                    }
-                }
-            });
-
-            if (!form.valid()) {
-                return;
-            }
-
-            btn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', true);
-
-            form.ajaxSubmit({
-                url: 'localhost:3000/signup',
-                success: function(response, status, xhr, $form) {
-                	// similate 2s delay
-                	setTimeout(function() {
-	                    btn.removeClass('m-loader m-loader--right m-loader--light').attr('disabled', false);
-	                    form.clearForm();
-	                    form.validate().resetForm();
-
-	                    // display signup form
-	                    displaySignInForm();
-	                    var signInForm = login.find('.m-login__signin form');
-	                    signInForm.clearForm();
-	                    signInForm.validate().resetForm();
-
-	                    showErrorMsg(signInForm, 'success', 'Thank you. To complete your registration please check your email.');
-	                }, 2000);
-                }
-            });
-        });
-    }
-
     var handleForgetPasswordFormSubmit = function() {
         $('#m_login_forget_password_submit').click(function(e) {
             e.preventDefault();
@@ -213,7 +146,6 @@ var SnippetLogin = function() {
         init: function() {
             handleFormSwitch();
             handleSignInFormSubmit();
-            handleSignUpFormSubmit();
             handleForgetPasswordFormSubmit();
         }
     };

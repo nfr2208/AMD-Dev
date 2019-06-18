@@ -1,0 +1,228 @@
+<%- include('../includes/head.ejs')%>
+<link href="/assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+</head>
+<!-- end::Head -->
+<!-- end::Body -->
+
+<body
+	class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-light m-aside-left--fixed m-aside-left--offcanvas m-aside-left--minimize m-brand--minimize m-footer--push m-aside--offcanvas-default">
+	<!-- begin:: Page -->
+	<div class="m-grid m-grid--hor m-grid--root m-page">
+		<!-- BEGIN: Header -->
+		<%- include('../includes/header.ejs')%>
+		<!-- END: Header -->
+		<!-- begin::Body -->
+		<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+			<!-- BEGIN: Left Aside -->
+			<%- include('../includes/left-aside.ejs')%>
+			<!-- END: Left Aside -->
+			<div class="m-grid__item m-grid__item--fluid m-wrapper">
+				<!-- BEGIN: Subheader -->
+				<div class="m-subheader ">
+					<div class="d-flex align-items-center">
+						<div class="mr-auto">
+							<h3 class="m-subheader__title m-subheader__title--separator">
+								Dashboard
+							</h3>
+							<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+								<li class="m-nav__item m-nav__item--home">
+									<a href="/index" class="m-nav__link m-nav__link--icon">
+										<i class="m-nav__link-icon la la-home"></i>
+									</a>
+								</li>
+								<li class="m-nav__separator">
+									>
+								</li>
+								<li class="m-nav__item">
+									<a href="" class="m-nav__link">
+										<span class="m-nav__link-text">
+											Talent
+										</span>
+									</a>
+								</li>
+								<li class="m-nav__separator">
+									>
+								</li>
+								<li class="m-nav__item">
+									<a href="" class="m-nav__link">
+										<span class="m-nav__link-text">
+											<%= pageTitle %>
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- END: Subheader -->
+				<div class="m-content">
+					<div class="m-portlet m-portlet--mobile">
+						<div class="m-portlet__head">
+							<div class="m-portlet__head-caption">
+								<div class="m-portlet__head-title">
+									<h3 class="m-portlet__head-text">
+										List of Talent
+										<small hidden>
+											initialized from json
+										</small>
+									</h3>
+								</div>
+							</div>
+							<div class="m-portlet__head-tools">
+								<ul class="m-portlet__nav">
+									<li class="m-portlet__nav-item">
+										<span>
+											<span>
+												<% if (!entry) { %>
+													<b>Last Update: </b><%= entry.updatedAt %>
+												<% } %>
+											</span>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="m-portlet__body">
+							<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+								<div class="row align-items-center">
+									<div class="col-xl-8 order-2 order-xl-1">
+										<div class="form-group m-form__group row align-items-center">
+											<div class="col-md-3">
+												<div class="m-form__group m-form__group--inline">
+													<div class="m-form__label">
+														<label>
+															Status:
+														</label>
+													</div>
+													<div class="m-form__control">
+														<select class="form-control m-bootstrap-select" id="m_form_status">
+															<option value="">
+																All
+															</option>
+															<option value="0">
+																INACTIVE
+															</option>
+															<option value="1">
+																ACTIVE
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="d-md-none m--margin-bottom-10"></div>
+											</div>
+											<div class="col-md-3">
+												<div class="m-form__group m-form__group--inline">
+													<div class="m-form__label">
+														<label class="m-label m-label--single">
+															Batch:
+														</label>
+													</div>
+													<div class="m-form__control">
+														<select class="form-control m-bootstrap-select" id="m_form_batch">
+															<option value="">
+																All
+															</option>
+															<option value="BATCH-01">
+																BATCH-01
+															</option>
+															<option value="BATCH-02">
+																BATCH-02
+															</option>
+															<option value="BATCH-03">
+																BATCH-03
+															</option>
+															<option value="BATCH-04">
+																BATCH-04
+															</option>
+															<option value="BATCH-05">
+																BATCH-05
+															</option>
+															<option value="BATCH-06">
+																BATCH-06
+															</option>
+															<option value="BATCH-07">
+																BATCH-07
+															</option>
+															<option value="BATCH-08">
+																BATCH-08
+															</option>
+															<option value="BATCH-09">
+																BATCH-09
+															</option>
+															<option value="BATCH-10">
+																BATCH-10
+															</option>
+															<option value="BATCH-11">
+																BATCH-11
+															</option>
+															<option value="BATCH-12">
+																BATCH-12
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="d-md-none m--margin-bottom-10"></div>
+											</div>
+											<div class="col-md-6">
+												<div class="m-input-icon m-input-icon--left">
+													<input type="text" class="form-control m-input m-input--solid" placeholder="Search..." id="generalSearch">
+													<span class="m-input-icon__icon m-input-icon__icon--left">
+														<span>
+															<i class="la la-search"></i>
+														</span>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<input type="hidden" value="<%= csrfToken %>" name="_csrf" id="csrfToken">
+								</div>
+							</div>
+							<div class="m-separator m-separator--dashed d-xl"></div>
+							<!-- <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+								<button class="btn btn-primary" type="button" id="m_datatable_show_column">
+									Show All
+								</button>
+								<button class="btn btn-secondary" type="button" id="m_datatable_hide_column">
+									Show Specific
+								</button>
+							</div> -->
+							<div class="m_datatable" id="local_data">
+								<p hidden id="jsonTalent" title="<%= JSON.stringify(jsonTalent) %>"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- end:: Body -->
+		<!-- begin::Footer -->
+		<%- include('../includes/footer.ejs')%>
+		<!-- end::Footer -->
+	</div>
+	<!-- end:: Page -->
+	<!-- begin::Quick Sidebar -->
+	<%- include('../includes/quick-sidebar.ejs')%>
+	<!-- end::Quick Sidebar -->
+	<!-- begin::Scroll Top -->
+	<div id="m_scroll_top" class="m-scroll-top">
+		<i class="la la-arrow-up"></i>
+	</div>
+	<!-- end::Scroll Top -->
+	<!-- begin::Quick Nav -->
+	<%- include('../includes/quick-nav.ejs')%>
+	<!-- begin::Quick Nav -->
+	<!--begin::Base Scripts -->
+	<%- include('../includes/base-scripts.ejs')%>
+	<!--end::Base Scripts -->
+	<!--begin::Page Snippets -->
+	<script src="/assets/app/js/data_talent/talent-datatable.js" type="text/javascript"></script>
+	<!--end::Page Snippets -->
+	<script src="/assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
+	<!-- <script src="assets/app/js/scrollable.js" type="text/javascript"></script> -->
+	
+</body>
+<!-- end::Body -->
+
+</html>

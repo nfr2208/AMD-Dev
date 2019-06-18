@@ -1,0 +1,96 @@
+<%- include('../includes-admin/head.ejs')%>
+<link href="/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+</head>
+<!-- end::Head -->
+<!-- end::Body -->
+
+<body
+	class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-light m-aside-left--fixed m-aside-left--offcanvas m-aside-left--minimize m-brand--minimize m-footer--push m-aside--offcanvas-default">
+	<!-- begin:: Page -->
+	<div class="m-grid m-grid--hor m-grid--root m-page">
+		<!-- BEGIN: Header -->
+		<%- include('../includes-admin/header.ejs')%>
+		<!-- END: Header -->
+		<!-- begin::Body -->
+		<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+			<!-- BEGIN: Left Aside -->
+			<%- include('../includes-admin/left-aside.ejs')%>
+			<!-- END: Left Aside -->
+			<div class="m-grid__item m-grid__item--fluid m-wrapper">
+				<!-- BEGIN: Subheader -->
+				<div class="m-subheader ">
+					<div class="d-flex align-items-center">
+						<div class="mr-auto">
+							<h3 class="m-subheader__title m-subheader__title--separator">
+								Dashboard
+							</h3>
+							<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+								<li class="m-nav__item m-nav__item--home">
+									<a href="#" class="m-nav__link m-nav__link--icon">
+										<i class="m-nav__link-icon la la-home"></i>
+									</a>
+								</li>
+								<li class="m-nav__separator">
+									>
+								</li>
+								<li class="m-nav__item">
+									<a href="" class="m-nav__link">
+										<span class="m-nav__link-text">
+											Dashboard
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div>
+							<span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
+								<span class="m-subheader__daterange-label">
+									<span class="m-subheader__daterange-title"></span>
+									<span class="m-subheader__daterange-date m--font-brand"></span>
+								</span>
+								<a href="#"
+									class="btn btn-sm btn-brand m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill">
+									<i class="la la-angle-down"></i>
+								</a>
+							</span>
+						</div>
+					</div>
+				</div>
+				<!-- END: Subheader -->
+				<div class="m-content">				
+					<!--Begin::Section-->
+					<div class="m-portlet">
+						<div class="m-portlet__body  m-portlet__body--no-padding">
+							<div class="row m-row--no-padding m-row--col-separator-xl">
+								
+							</div>
+						</div>
+					</div>
+					<!--End::Section-->
+				</div>
+			</div>
+		</div>
+		<!-- end:: Body -->
+		<!-- begin::Footer -->
+		<%- include('../includes-admin/footer.ejs')%>
+		<!-- end::Footer -->
+	</div>
+	<!-- end:: Page -->
+	<!-- begin::Quick Sidebar -->
+	<%- include('../includes-admin/quick-sidebar.ejs')%>
+	<!-- end::Quick Sidebar -->
+	<!-- begin::Scroll Top -->
+	<div id="m_scroll_top" class="m-scroll-top">
+		<i class="la la-arrow-up"></i>
+	</div>
+	<!-- end::Scroll Top -->
+	<!-- begin::Quick Nav -->
+	<%- include('../includes-admin/quick-nav.ejs')%>
+	<!-- begin::Quick Nav -->
+	<!--begin::Base Scripts -->
+	<%- include('../includes-admin/base-scripts.ejs')%>
+	<!--end::Base Scripts -->
+</body>
+<!-- end::Body -->
+
+</html>

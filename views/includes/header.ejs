@@ -41,12 +41,21 @@
                 <div id="m_header_menu"
                     class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light ">
                     <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
+                        <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" aria-haspopup="true">
+                            <a href="/index" class="m-menu__link">
+                                <span class="m-menu__item-here"></span>
+                                <span class="m-menu__link-text">
+                                    Dashboard
+                                </span>
+                            </a>
+                        </li>
+
                         <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click"
                             aria-haspopup="true">
                             <a href="javascript:;" class="m-menu__link m-menu__toggle">
                                 <span class="m-menu__item-here"></span>
                                 <span class="m-menu__link-text">
-                                    Dashboard
+                                    Data Talent
                                 </span>
                                 <i class="m-menu__hor-arrow la la-angle-down"></i>
                                 <i class="m-menu__ver-arrow la la-angle-right"></i>
@@ -55,21 +64,21 @@
                             <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
                                 <span class="m-menu__arrow m-menu__arrow--adjust"></span>
                                 <ul class="m-menu__subnav">
-                                    <% if (userProfile.role === 'AI') { %>
+                                    <% if (userProfile.Role === 'AI') { %>
                                     <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                        <a href="/dashboard/add-data-talent" class="m-menu__link ">
+                                        <a href="/talent/add-talent" class="m-menu__link ">
                                             <i class="m-menu__link-icon flaticon-users"></i>
                                             <span class="m-menu__link-text">
-                                                Add Data Talent
+                                                Add Talent
                                             </span>
                                         </a>
                                     </li>
                                     <% } %>
                                     <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                        <a href="/dashboard/view-team-data" class="m-menu__link ">
+                                        <a href="/talent/list-talent" class="m-menu__link ">
                                             <i class="m-menu__link-icon flaticon-users"></i>
                                             <span class="m-menu__link-text">
-                                                View Team Data
+                                                List of Talent
                                             </span>
                                         </a>
                                     </li>
@@ -96,7 +105,7 @@
                                         </span>
                                     </span>
                                     <span class="m-topbar__username m--hide">
-                                        <%= userProfile.name %>
+                                        <%= userProfile.Nama %>
                                     </span>
                                 </a>
                                 <div class="m-dropdown__wrapper">
@@ -111,10 +120,10 @@
                                                 </div>
                                                 <div class="m-card-user__details">
                                                     <span class="m-card-user__name m--font-weight-500">
-                                                        <%= userProfile.name %>
+                                                        <%= userProfile.Nama %>
                                                     </span>
                                                     <a href="" class="m-card-user__email m--font-weight-300 m-link">
-                                                        <%= userProfile.email %>
+                                                        <%= userProfile.Email %>
                                                     </a>
                                                 </div>
                                             </div>
@@ -126,6 +135,16 @@
                                                         <span class="m-nav__section-text">
                                                             Section
                                                         </span>
+                                                    </li>
+                                                    <li class="m-nav__item">
+                                                        <% if (userProfile.Role === 'Admin') { %>
+                                                        <a href="/admin/index" class="m-nav__link">
+                                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                                            <span class="m-nav__link-text">
+                                                                Admin Dashboard
+                                                            </span>
+                                                        </a>
+                                                        <% } %>
                                                     </li>
                                                     <li class="m-nav__item">
                                                         <a href="profile.html" class="m-nav__link">
