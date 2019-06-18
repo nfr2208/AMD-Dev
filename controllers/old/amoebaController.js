@@ -1,9 +1,14 @@
-const Amoeba = require('../../models/amoeba');
-const Innovator = require('../../models/innovator');
-const FileUpload = require('../../models/file_upload');
+// const Innovator = require('../../models/innovator');
+// const FileUpload = require('../../models/file_upload');
 
 const multer = require('multer');
 const path = require('path');
+
+// Model
+const Amoeba = require('../../models/amoeba/Amoeba');
+const AreaInovasi = require('../../models/amoeba/AreaInovasi');
+const Tribe = require('../../models/amoeba/Tribe');
+const CFU = require('../../models/amoeba/CFU');
 
 // File Upload Storage
 let storage = multer.diskStorage({
@@ -316,4 +321,42 @@ exports.postUploadAmoeba = (req, res, next) => {
             }).catch(err => console.log(err));
         }
     })
+};
+
+exports.getAmoebaAPI = (req, res, next) => {
+    Amoeba.findAll({
+        include: [{
+            model: AreaInovasi,
+            attributes: ['NamaAreaInovasi']
+        },{
+            model: CFU,
+            attributes: ['CFU']
+        },{
+            model: Tribe,
+            attributes: ['Tribe']
+        }],
+        // raw: true
+    }).then(amoebas => {
+        const resObj = amoebas.map(amoeba => {
+            return Object.assign(
+                {},
+                {
+                    Id: amoeba.Id,
+                    NamaAmoeba: amoeba.NamaAmoeba,
+                    BatchAmoeba: amoeba.BatchAmoeba,
+                    StatusAmoeba: amoeba.StatusAmoeba,
+                    TypeInovasi: amoeba.TypeInovasi,
+                    DeskripsiAmoeba: amoeba.DeskripsiAmoeba,
+                    Keterangan: amoeba.Keterangan,
+                    AreaInovasiId: amoeba.AreaInovasiId,
+                    AreaInovasi: amoeba.AreaInovasi.NamaAreaInovasi,
+                    Tribe: amoeba.Tribe.Tribe,
+                    CFU: amoeba.CFU.CFU,
+                }
+            )
+        })
+        res.json(resObj);
+    }).catch(err => {
+        console.log(err);
+    });
 };

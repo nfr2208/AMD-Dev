@@ -9,10 +9,31 @@ const Amoeba = sequelize.define('Amoeba', {
         primaryKey: true,
         autoIncrement: true
     },
-    Nama: {
+    NamaAmoeba: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    BatchAmoeba: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    StatusAmoeba: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }, 
+    TypeInovasi: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    DeskripsiAmoeba: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    Keterangan: {
+        type: Sequelize.TEXT,
+        allowNull: false
     }
+    
 });
 
 module.exports = Amoeba;

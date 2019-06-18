@@ -6,7 +6,7 @@ const sendgridTransport = require('nodemailer-sendgrid-transport');
 
 const { Op } = require('sequelize');
 
-const User = require('../models/user');
+const User = require('../models/User');
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth: {
