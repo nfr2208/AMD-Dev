@@ -1,0 +1,302 @@
+<form class="m-form m-form--fit m-form--label-align-right" action="/amoeba/edit-amoeba" method="POST">
+    <div class="m-portlet__body">
+        <div class="form-group m-form__group m--margin-top-10 m--hide">
+            <div class="alert m-alert m-alert--default" role="alert">
+                The example form below demonstrates common HTML form elements
+                that receive updated styles from Bootstrap with additional
+                classes.
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <div class="col-10 ml-auto">
+                <h3 class="m-form__section">
+                    1. Amoeba Details
+                    <input type="hidden" class="form-control m-input" name="Id" id="Id" value="<%= amoeba.Id %>">
+                </h3>
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="example-text-input" class="col-2 col-form-label">
+                Nama Amoeba
+            </label>
+            <div class="col-7">
+                <input type="text"
+                class="form-control m-input m-input--solid"
+                name="NamaAmoeba" id="NamaAmoeba" value="<%= amoeba.NamaAmoeba %>">
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="example-text-input" class="col-2 col-form-label">										
+                Batch Amoeba
+            </label>
+            <div class="col-7">
+                <input type="text"
+                class="form-control m-input m-input--solid"
+                name="BatchAmoeba" id="BatchAmoeba" value="<%= amoeba.BatchAmoeba %>">
+            </label>											
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <input type="hidden" class="form-control m-input" id="AreaInovasiVal" value="<%= amoeba.AreaInovasiId %>">
+            <label for="example-text-input" class="col-2 col-form-label">
+                Area Inovasi
+            </label>
+            <div class="col-7">
+                <select class="form-control m-input m-input--solid" name="AreaInovasi"
+                id="AreaInovasi">
+                <option value="1">
+                    -
+                </option>
+                <option value="2">
+                    BO
+                </option>
+                <option value="3">
+                    CX
+                </option>
+                <option value="4">
+                    EX
+                </option>
+                <option value="5">
+                    NP
+                </option>
+                <option value="6">
+                    BM
+                </option>
+            </select>
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <input type="hidden" class="form-control m-input" id="TipeInovasiVal" value="<%= amoeba.TipeInovasi %>">
+            <label for="example-text-input" class="col-2 col-form-label">
+                Tipe Inovasi
+            </label>
+            <div class="col-7">
+                <select class="form-control m-input m-input--solid" name="TipeInovasi"
+                    id="TipeInovasi">
+                    <option value="Digitization">
+                        Digitization
+                    </option>
+                    <option value="Digitalization">
+                        Digitalization
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <input type="hidden" class="form-control m-input" id="TribeVal" value="<%= amoeba.TribeId %>">
+            <label for="example-text-input" class="col-2 col-form-label">
+                Tribe
+            </label>
+            <div class="col-7">
+                <select class="form-control m-input m-input--solid" name="Tribe"
+                    id="Tribe">
+                    <option value="1">
+                        Tribe Enterprise & Government Digitization
+                    </option>
+                    <option value="2">
+                        Tribe Communication
+                    </option>
+                    <option value="3">
+                        Tribe BUMN
+                    </option>
+                    <option value="4">
+                        Tribe Travel & Tourism
+                    </option>
+                    <option value="5">
+                        Tribe Logistic & Agriculture
+                    </option>
+                    <option value="6">
+                        Tribe Employe Experience Digitization
+                    </option>
+                    <option value="7">
+                        Tribe Internet of Things
+                    </option>
+                    <option value="8">
+                        Tribe Smart City
+                    </option>
+                    <option value="9">
+                        Tribe Digital Infrastructure & Cyber Security
+                    </option>
+                    <option value="10">
+                        Tribe Indihome & SMB Digitization
+                    </option>
+                    <option value="11">
+                        Tribe Indihome Digitalization
+                    </option>
+                    <option value="12">
+                        Tribe Finserv
+                    </option>
+                    <option value="13">
+                        Tribe Video
+                    </option>
+                    <option value="14">
+                        Tribe Ads
+                    </option>
+                    <option value="15">
+                        Tribe Music
+                    </option>
+                    <option value="16">
+                        Tribe Game
+                    </option>
+                    <option value="17">
+                        Tribe E-Commerce
+                    </option>
+                    <option value="18">
+                        Tribe CODEX
+                    </option>
+                    <option value="19">
+                        Tribe Smart Platform
+                    </option>
+                    <option value="20">
+                        Tribe SMB Digitalization
+                    </option>
+                    <option value="21">
+                        Tribe Enterprise Digitalization
+                    </option>
+                    <option value="22">
+                        Tribe Government Digitalization
+                    </option>
+                    <option value="23">
+                        Tribe Indonesia Digital Learning
+                    </option>
+                    <option value="24">
+                        Big Data Management
+                    </option>
+                    <option value="2">
+                        Big Data Platform
+                    </option>
+                    <option value="26">
+                        Digital Talent Sourcing, Service, Performance, Dev
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <input type="hidden" class="form-control m-input" id="StatusAmoebaVal" value="<%= amoeba.StatusAmoeba %>">
+            <label for="example-text-input" class="col-2 col-form-label">
+                Status Amoeba
+            </label>
+            <div class="col-7">
+                <select class="form-control m-input m-input--solid" name="StatusAmoeba"
+                    id="StatusAmoeba">
+                    <option value="0">
+                        Inactive
+                    </option>
+                    <option value="1">
+                        Active
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <input type="hidden" class="form-control m-input" id="IncbAccVal" value="<%= amoeba.IncbAcc %>">
+            <label for="example-text-input" class="col-2 col-form-label">
+                Incubation / Acceleration
+            </label>
+            <div class="col-7">
+                <select class="form-control m-input m-input--solid" name="IncbAcc"
+                    id="IncbAcc">
+                    <option value="Incubation">
+                        Incubation
+                    </option>
+                    <option value="Acceleration">
+                        Acceleration
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="example-text-input" class="col-2 col-form-label">										
+                Deskripsi
+            </label>
+            <div class="col-7">
+                <textarea class="form-control m-input m-input--solid" name="Deskripsi" id="Deskripsi" placeholder="Deskripsi"><%= amoeba.Deskripsi %></textarea>
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="example-text-input" class="col-2 col-form-label">										
+                Deskripsi FF
+            </label>
+            <div class="col-7">
+                <textarea class="form-control m-input m-input--solid" name="DeskripsiFF" id="DeskripsiFF" placeholder="Deskripsi"><%= amoeba.DeskripsiFF %></textarea>
+            </label>											
+            </div>
+        </div>
+        <div
+            class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x">
+        </div>
+        <div class="form-group m-form__group row">
+            <div class="col-10 ml-auto">
+                <h3 class="m-form__section">
+                    2. Social Links
+                </h3>
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="example-text-input" class="col-2 col-form-label">
+                Website
+            </label>
+            <div class="col-7">
+                <input class="form-control m-input m-input--solid" type="text" name="Website" id="Website"
+                    value="<%= amoeba.Website %>">
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="example-text-input" class="col-2 col-form-label">
+                LinkedIn
+            </label>
+            <div class="col-7">
+                <input class="form-control m-input m-input--solid" type="text" name="LinkedIn" id="LinkedIn"
+                    value="<%= amoeba.LinkedIn %>">
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="example-text-input" class="col-2 col-form-label">
+                Facebook
+            </label>
+            <div class="col-7">
+                <input class="form-control m-input m-input--solid" type="text" name="Facebook" id="Facebook"
+                    value="<%= amoeba.Facebook %>">
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="example-text-input" class="col-2 col-form-label">
+                Twitter
+            </label>
+            <div class="col-7">
+                <input class="form-control m-input m-input--solid" type="text" name="Twitter" id="Twitter"
+                    value="<%= amoeba.Twitter %>">
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="example-text-input" class="col-2 col-form-label">
+                Instagram
+            </label>
+            <div class="col-7">
+                <input class="form-control m-input m-input--solid" type="text" name="Instagram" id="Instagram"
+                    value="<%= amoeba.Instagram %>">
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="example-text-input" class="col-2 col-form-label">										
+                Other
+            </label>
+            <div class="col-7">
+                <textarea class="form-control m-input m-input--solid" name="Other" id="Other" placeholder="Other"><%= amoeba.Other %></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="m-portlet__foot m-portlet__foot--fit">
+        <div class="m-form__actions">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-7">
+                    <input type="hidden" value="<%= csrfToken %>" name="_csrf" id="csrfToken">
+                    <button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">
+                        Save changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

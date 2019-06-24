@@ -22,17 +22,13 @@ let DatatableDataLocalDemo = {
                 input: $("#generalSearch")
             },
             columns: [{
-                field: "Nama",
+                field: "NamaAmoeba",
                 title: "Nama",
                 width: 300
             }, {
-                field: "NamaAmoeba",
-                title: "Nama Amoeba",
-                width: 265
-            }, {
-                field: "NIK",
-                title: "NIK",
-                width: 125
+                field: "BatchAmoeba",
+                title: "Batch Amoeba",
+                width: 100
             }, {
                 field: "Status",
                 title: "Status",
@@ -50,20 +46,17 @@ let DatatableDataLocalDemo = {
                     return '<span class="m-badge ' + a[e.Status].class + ' m-badge--wide">' + a[e.Status].title + "</span>"
                 }
             }, {
-                field: "NoTelp",
-                title: "No. Telp"
+                field: "IncbAcc",
+                title: "Incubation / Acceleration"
             }, {
-                field: "Flagging",
-                title: "Flagging"
+                field: "TipeInovasi",
+                title: "Tipe Inovasi"
             }, {
-                field: "TipeInovator",
-                title: "Tipe Inovator"
+                field: "AreaInovasi",
+                title: "Area Inovasi"
             }, {
-                field: "TimStruktur",
-                title: "Tim Struktur"
-            }, {
-                field: "LokerSaatIni",
-                title: "Loker Saat Ini",
+                field: "Tribe",
+                title: "Tribe"
             }, {
                 field: "Actions",
                 width: 110,
@@ -71,7 +64,7 @@ let DatatableDataLocalDemo = {
                 sortable: !1,
                 overflow: "visible",
                 template: function (e) {
-                    return '\t\t\t\t\t\t<a href="/talent/profile-talent/'+ e.Id +'" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Profile Details">\t\t\t\t\t\t\t<i class="la la-user"></i>\t\t\t\t\t\t</a>\t\t\t\t\t'
+                    return '\t\t\t\t\t\t<a href="/amoeba/profile-amoeba/'+ e.Id +'" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Profile Details">\t\t\t\t\t\t\t<i class="la la-user"></i>\t\t\t\t\t\t</a>\t\t\t\t\t'
                 }
             }]
         }), i = a.getDataSourceQuery(), $("#m_form_status").on("change", function () {

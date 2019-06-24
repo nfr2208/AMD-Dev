@@ -51,16 +51,6 @@
 								</li>
 							</ul>
 						</div>
-						<div>
-							<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
-								m-dropdown-toggle="hover" aria-expanded="true">
-								<a href="#"
-									class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-									<i class="la la-plus m--hide"></i>
-									<i class="la la-ellipsis-h"></i>
-								</a>
-							</div>
-						</div>
 					</div>
 				</div>
 				<!-- END: Subheader -->
@@ -82,7 +72,7 @@
 									</div>
 								</div>
 								<!--begin::Form-->
-								<form class="m-form m-form--fit m-form--label-align-right" action="/talent/add-talent"
+								<form class="m-form m-form--fit m-form--label-align-right" action="/amoeba/add-amoeba"
 									method="POST">
 									<div class="m-portlet__body">
 										<div class="m-form__content">
@@ -125,52 +115,27 @@
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group m-form__group">
-														<label for="Email">
-															Deskripsi
-														</label>
-														<textarea class="form-control" name="Deskripsi" id="Deskripsi" placeholder="Deskripsi">
-
-														</textarea>
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group m-form__group">
-														<label for="Keterangan">
-															Keterangan
-														</label>
-														<textarea class="form-control" name="Keterangan" id="Keterangan" placeholder="Keterangan">
-															
-														</textarea>
-													</div>
-												</div>
-											</div>
-											<br>
-											<hr>
-											<br>
-											<div class="row">
-												<div class="col-md-6">
-													<div class="form-group m-form__group">
 														<label for="AreaInovasi">
 															AreaInovasi
 														</label>
 														<select class="form-control m-input m-input--solid" name="AreaInovasi"
 															id="AreaInovasi">
-															<option value="-">
+															<option value="1">
 																-
 															</option>
-															<option value="BO">
+															<option value="2">
 																BO
 															</option>
-															<option value="CX">
+															<option value="3">
 																CX
 															</option>
-															<option value="EX">
+															<option value="4">
 																EX
 															</option>
-															<option value="NP">
+															<option value="5">
 																NP
 															</option>
-															<option value="BM">
+															<option value="6">
 																BM
 															</option>
 														</select>
@@ -179,17 +144,244 @@
 												<div class="col-md-6">
 													<div class="form-group m-form__group">
 														<label for="TipeInovasi">
-															TipeInovasi
+															Tipe Inovasi
 														</label>
 														<select class="form-control m-input m-input--solid" name="TipeInovasi"
 															id="TipeInovasi">
-															<option value="1">
+															<option value="Digitization">
 																Digitization
 															</option>
-															<option value="2">
+															<option value="Digitalization">
 																Digitalization
 															</option>
 														</select>
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="StatusAmoeba">
+															Status Amoeba
+														</label>
+														<select class="form-control m-input m-input--solid" name="StatusAmoeba"
+															id="StatusAmoeba">
+															<option value="0">
+																Inactive
+															</option>
+															<option value="1">
+																Active
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="IncbAcc">
+															Incubation / Acceleration
+														</label>
+														<select class="form-control m-input m-input--solid" name="IncbAcc"
+															id="IncbAcc">
+															<option value="Incubation">
+																Incubation
+															</option>
+															<option value="Acceleration">
+																Acceleration
+															</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="Tribe">
+															Tribe
+														</label>
+														<select class="form-control m-input m-input--solid" name="Tribe"
+															id="Tribe">
+															<option value="1">
+																Tribe Enterprise & Government Digitization
+															</option>
+															<option value="2">
+																Tribe Communication
+															</option>
+															<option value="3">
+																Tribe BUMN
+															</option>
+															<option value="4">
+																Tribe Travel & Tourism
+															</option>
+															<option value="5">
+																Tribe Logistic & Agriculture
+															</option>
+															<option value="6">
+																Tribe Employe Experience Digitization
+															</option>
+															<option value="7">
+																Tribe Internet of Things
+															</option>
+															<option value="8">
+																Tribe Smart City
+															</option>
+															<option value="9">
+																Tribe Digital Infrastructure & Cyber Security
+															</option>
+															<option value="10">
+																Tribe Indihome & SMB Digitization
+															</option>
+															<option value="11">
+																Tribe Indihome Digitalization
+															</option>
+															<option value="12">
+																Tribe Finserv
+															</option>
+															<option value="13">
+																Tribe Video
+															</option>
+															<option value="14">
+																Tribe Ads
+															</option>
+															<option value="15">
+																Tribe Music
+															</option>
+															<option value="16">
+																Tribe Game
+															</option>
+															<option value="17">
+																Tribe E-Commerce
+															</option>
+															<option value="18">
+																Tribe CODEX
+															</option>
+															<option value="19">
+																Tribe Smart Platform
+															</option>
+															<option value="20">
+																Tribe SMB Digitalization
+															</option>
+															<option value="21">
+																Tribe Enterprise Digitalization
+															</option>
+															<option value="22">
+																Tribe Government Digitalization
+															</option>
+															<option value="23">
+																Tribe Indonesia Digital Learning
+															</option>
+															<option value="24">
+																Big Data Management
+															</option>
+															<option value="25">
+																Big Data Platform
+															</option>
+															<option value="26">
+																Digital Talent Sourcing, Service, Performance, Dev
+															</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="Deskripsi">
+															Deskripsi
+														</label>
+														<textarea class="form-control m-input m-input--solid disabled" name="Deskripsi" id="Deskripsi" placeholder="Deskripsi"></textarea>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="DeskripsiFF">
+															Deskripsi FF
+														</label>
+														<textarea class="form-control m-input m-input--solid disabled" name="DeskripsiFF" id="DeskripsiFF" placeholder="Deskripsi"></textarea>
+													</div>
+												</div>
+											</div>
+											<br>
+											<hr>
+											<h1>DTP</h1>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group hidden">
+														<label for="Facebook">
+															Facebook
+														</label>
+														<input type="text"
+															class="form-control m-input m-input--solid disabled"
+															name="Facebook" id="Facebook" placeholder="Facebook Amoeba" value="">
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="Twitter">
+															Twitter
+														</label>
+														<input type="text" class="form-control m-input m-input--solid"
+															name="Twitter" id="Twitter" placeholder="Twitter Amoeba"
+															value="">
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group hidden">
+														<label for="Instagram">
+																Instagram
+														</label>
+														<input type="text"
+															class="form-control m-input m-input--solid disabled"
+															name="Instagram" id="Instagram" placeholder="Instagram Amoeba" value="">
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="LinkedIn">
+																LinkedIn
+														</label>
+														<input type="text" class="form-control m-input m-input--solid"
+															name="LinkedIn" id="LinkedIn" placeholder="LinkedIn Amoeba"
+															value="">
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group m-form__group hidden">
+														<label for="Website">
+															Website
+														</label>
+														<input type="text"
+															class="form-control m-input m-input--solid disabled"
+															name="Website" id="Website" placeholder="Website Amoeba" value="">
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group m-form__group">
+														<label for="Youtube">
+															Youtube
+														</label>
+														<input type="text" class="form-control m-input m-input--solid"
+															name="Youtube" id="Youtube" placeholder="Youtube Amoeba"
+															value="">
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group m-form__group hidden">
+														<label for="Other">
+															Other
+														</label>
+														<textarea class="form-control m-input m-input--solid disabled" name="Other" id="Other" placeholder="Other" rows="5"></textarea>
 													</div>
 												</div>
 											</div>
@@ -230,7 +422,7 @@
 	</div>
 	<!-- end::Scroll Top -->
 	<!-- begin::Quick Nav -->
-	<%- include('../includes/quick-nav.ejs')%>
+	
 	<!-- begin::Quick Nav -->
 	<!--begin::Base Scripts -->
 	<%- include('../includes/base-scripts.ejs')%>

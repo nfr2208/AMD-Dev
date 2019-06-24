@@ -73,7 +73,7 @@
 									<li class="m-portlet__nav-item">
 										<span>
 											<span>
-												<% if (!entry) { %>
+												<% if (entry) { %>
 													<b>Last Update: </b><%= entry.updatedAt %>
 												<% } %>
 											</span>
@@ -87,7 +87,7 @@
 								<div class="row align-items-center">
 									<div class="col-xl-8 order-2 order-xl-1">
 										<div class="form-group m-form__group row align-items-center">
-											<div class="col-md-3">
+											<!-- <div class="col-md-3">
 												<div class="m-form__group m-form__group--inline">
 													<div class="m-form__label">
 														<label>
@@ -162,7 +162,7 @@
 													</div>
 												</div>
 												<div class="d-md-none m--margin-bottom-10"></div>
-											</div>
+											</div> -->
 											<div class="col-md-6">
 												<div class="m-input-icon m-input-icon--left">
 													<input type="text" class="form-control m-input m-input--solid" placeholder="Search..." id="generalSearch">
@@ -211,7 +211,7 @@
 	</div>
 	<!-- end::Scroll Top -->
 	<!-- begin::Quick Nav -->
-	<%- include('../includes/quick-nav.ejs')%>
+	
 	<!-- begin::Quick Nav -->
 	<!--begin::Base Scripts -->
 	<%- include('../includes/base-scripts.ejs')%>

@@ -3,8 +3,6 @@ const express = require('express');
 const adminController = require('../controllers/adminController');
 const isAuth = require('../middleware/is-auth');
 const isAdmin = require('../middleware/is-admin');
-const isAI = require('../middleware/is-ai');
-const isAB = require('../middleware/is-ab');
 
 const router = express.Router();
 

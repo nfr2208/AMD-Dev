@@ -10,7 +10,7 @@ const User = require('../models/User');
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth: {
-        api_key: 'dsda'
+        api_key: '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'
     }
 }));
 
@@ -32,7 +32,10 @@ exports.postLogin = (req, res, next) => {
         if(!user){
             return res.redirect('/login');
         }
+        console.log(Password);
+        console.log(user.Password);
         bcrypt.compare(Password, user.Password).then(doMatch => {
+            console.log(doMatch);
             if(doMatch){
                 req.session.isLoggedIn = true;
                 req.session.user = user;
@@ -84,7 +87,7 @@ exports.postReset = (req, res, next) => {
                 subject: 'Password reset',
                 html: `
                     <p>You requested a password reset</p>
-                    <p>Click this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.</p>
+                    <p>Click this <a href="http://45.76.189.3:${process.env.PORT}/reset/${token}">link</a> to set a new password.</p>
                 `
             });
         }).catch(err => {
@@ -104,7 +107,7 @@ exports.getNewPassword = (req, res, next) => {
         res.render('auth/new-password', {
             path: '/new-password',
             pageTitle: 'New Password',
-            userId: user.id.toString(),
+            userId: user.Id.toString(),
             passwordToken: token
         })
     }).catch(err => {
