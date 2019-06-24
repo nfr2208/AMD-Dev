@@ -64,7 +64,7 @@
                             <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
                                 <span class="m-menu__arrow m-menu__arrow--adjust"></span>
                                 <ul class="m-menu__subnav">
-                                    <% if (userProfile.Role === 'AI') { %>
+                                    <% if (userProfile.Role === 'Innovation Manager') { %>
                                     <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
                                         <a href="/talent/add-talent" class="m-menu__link ">
                                             <i class="m-menu__link-icon flaticon-users"></i>
@@ -100,6 +100,7 @@
                             <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
                                 <span class="m-menu__arrow m-menu__arrow--adjust"></span>
                                 <ul class="m-menu__subnav">
+                                    <% if (userProfile.Role === 'Innovation Manager') { %>
                                     <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
                                         <a href="/amoeba/add-amoeba" class="m-menu__link ">
                                             <i class="m-menu__link-icon flaticon-users"></i>
@@ -108,7 +109,7 @@
                                             </span>
                                         </a>
                                     </li>
-
+                                    <% } %>
                                     <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
                                         <a href="/amoeba/list-amoeba" class="m-menu__link ">
                                             <i class="m-menu__link-icon flaticon-users"></i>

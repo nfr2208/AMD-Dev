@@ -55,21 +55,11 @@
 								<li class="m-nav__item">
 									<a href="" class="m-nav__link">
 										<span class="m-nav__link-text">
-											<%= talent.Nama %>
+											<%= amoeba.NamaAmoeba %>
 										</span>
 									</a>
 								</li>
 							</ul>
-						</div>
-						<div>
-							<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
-								m-dropdown-toggle="hover" aria-expanded="true">
-								<a href="#"
-									class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-									<i class="la la-plus m--hide"></i>
-									<i class="la la-ellipsis-h"></i>
-								</a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -90,27 +80,18 @@
 										</div>
 										<div class="m-card-profile__details">
 											<span class="m-card-profile__name">
-												<%= talent.Nama %>
+												<%= amoeba.NamaAmoeba %>
 											</span>
-											<span class="m-badge m-badge--info m-badge--wide">
-												<%= talent.NamaAmoeba %>
+											<% if(amoeba.StatusAmoeba) { %>
+											<span class="m-badge m-badge--success m-badge--wide">
+												Active
 											</span>
+											<% } else { %>
+												<span class="m-badge m-badge--danger m-badge--wide">
+													Inactive
+												</span>
+											<% } %>
 										</div>
-									</div>
-									<ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
-										<li class="m-nav__separator m-nav__separator--fit"></li>
-									</ul>
-									<div class="m-card-profile__details">
-										<b><i class="fa fa-whatsapp"></i> Whatsapp</b>: <%= talent.NoTelp %>
-										<br>
-										<b><i class="fa fa-envelope"></i> Email</b>: <%= talent.Email %>
-										
-										<div class="m-separator m-separator--space m-separator--dashed"></div>
-										<span class="m-card-profile_nik"></span> <b>NIK</b>: <%= talent.NIK %>
-										<br>
-										<b><i class="fa fa-building-o"></i> Divisi</b>: <%= talent.UnitKerjaSaatIni %>
-										<br>
-										<b><i class="fa fa-map-pin"></i> Loker Saat Ini</b>: <%= talent.LokerSaatIni %>
 									</div>
 									<ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
 										<li class="m-nav__separator m-nav__separator--fit"></li>
@@ -139,101 +120,14 @@
 											</li>
 										</ul>
 									</div>
-									<div class="m-portlet__head-tools">
-										<ul class="m-portlet__nav">
-											<li class="m-portlet__nav-item m-portlet__nav-item--last">
-												<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
-													m-dropdown-toggle="hover" aria-expanded="true">
-													<a href="#"
-														class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-														<i class="la la-gear"></i>
-													</a>
-													<div class="m-dropdown__wrapper">
-														<span
-															class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-														<div class="m-dropdown__inner">
-															<div class="m-dropdown__body">
-																<div class="m-dropdown__content">
-																	<ul class="m-nav">
-																		<li
-																			class="m-nav__section m-nav__section--first">
-																			<span class="m-nav__section-text">
-																				Quick Actions
-																			</span>
-																		</li>
-																		<li class="m-nav__item">
-																			<a href="" class="m-nav__link">
-																				<i
-																					class="m-nav__link-icon flaticon-share"></i>
-																				<span class="m-nav__link-text">
-																					Create Post
-																				</span>
-																			</a>
-																		</li>
-																		<li class="m-nav__item">
-																			<a href="" class="m-nav__link">
-																				<i
-																					class="m-nav__link-icon flaticon-chat-1"></i>
-																				<span class="m-nav__link-text">
-																					Send Messages
-																				</span>
-																			</a>
-																		</li>
-																		<li class="m-nav__item">
-																			<a href="" class="m-nav__link">
-																				<i
-																					class="m-nav__link-icon flaticon-multimedia-2"></i>
-																				<span class="m-nav__link-text">
-																					Upload File
-																				</span>
-																			</a>
-																		</li>
-																		<li class="m-nav__section">
-																			<span class="m-nav__section-text">
-																				Useful Links
-																			</span>
-																		</li>
-																		<li class="m-nav__item">
-																			<a href="" class="m-nav__link">
-																				<i
-																					class="m-nav__link-icon flaticon-info"></i>
-																				<span class="m-nav__link-text">
-																					FAQ
-																				</span>
-																			</a>
-																		</li>
-																		<li class="m-nav__item">
-																			<a href="" class="m-nav__link">
-																				<i
-																					class="m-nav__link-icon flaticon-lifebuoy"></i>
-																				<span class="m-nav__link-text">
-																					Support
-																				</span>
-																			</a>
-																		</li>
-																		<li
-																			class="m-nav__separator m-nav__separator--fit m--hide">
-																		</li>
-																		<li class="m-nav__item m--hide">
-																			<a href="#"
-																				class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-																				Submit
-																			</a>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</div>
 								</div>
 								<div class="tab-content">
 									<div class="tab-pane active" id="m_user_profile_tab_1">
-										<!-- <%- include('../includes/data_talent/profile-uneditable.ejs')%> -->
-										<%- include('../includes/data_talent/profile-editable.ejs')%>
+										<% if (userProfile.Role === "Innovation Manager") { %>
+											<%- include('../includes/data_amoeba/profile-editable.ejs')%>
+										<% } else { %>
+											<%- include('../includes/data_amoeba/profile-uneditable.ejs')%>
+										<% } %>
 									</div>
 									<div class="tab-pane " id="m_user_profile_tab_2">
 										<!--Begin::Portlet-->
@@ -248,66 +142,62 @@
 												</div>
 											</div>
 											<div class="m-portlet__body">
-												<% for (let innovator of innovators) { %>
+												<% for (let talent of talents) { %>
 												<div class="row">
 													<div class="col-md-3">
 														<div class="m-card-profile">
 															<div class="m-card-profile__pic">
 																<div class="m-card-profile__pic-wrapper">
-																	<img src="../assets/app/media/img/users/user4.jpg" alt="" />
+																	<img src="../../assets/app/media/img/users/user4.jpg" alt="" />
 																</div>
 															</div>
 														</div>
 													</div>
 													<div class="col-md-9">
-														<div class="row">
-															<div class="form-group m-form__group row">
-																<label for="example-text-input" class="col-2 col-form-label">
-																	Nama Innovator
-																</label>
-																<div class="col-7">
-																	<input class="form-control m-input" type="text"
-																		value="<%= innovator.namaPeserta %>" readonly>
-																</div>
+														<div class="form-group m-form__group row">
+															<label for="example-text-input" class="col-2 col-form-label">
+																Nama Talent
+															</label>
+															<div class="col-7">
+																<input class="form-control m-input m-input--solid" type="text"
+																	value="<%= talent.Nama %>" readonly>
 															</div>
-															<div class="form-group m-form__group row">
-																<label for="example-text-input" class="col-2 col-form-label">
-																	C-Level
-																</label>
-																<div class="col-7">
-																	<input class="form-control m-input" type="text"
-																		value="<%= innovator.cLevel %>" readonly>
-																</div>
+														</div>
+														<div class="form-group m-form__group row">
+															<label for="example-text-input" class="col-2 col-form-label">
+																C-Level
+															</label>
+															<div class="col-7">
+																<input class="form-control m-input m-input--solid" type="text"
+																	value="<%= talent.CLevel %>" readonly>
 															</div>
-															<br>
-															<div class="form-group m-form__group row">
-																<label for="example-text-input" class="col-2 col-form-label">
-																	Tim Struktur
-																</label>
-																<div class="col-7">
-																	<input class="form-control m-input" type="text"
-																		value="<%= innovator.timStruktur %>" readonly>
-																</div>
+														</div>
+														<br>
+														<div class="form-group m-form__group row">
+															<label for="example-text-input" class="col-2 col-form-label">
+																Tim Struktur
+															</label>
+															<div class="col-7">
+																<input class="form-control m-input m-input--solid" type="text"
+																	value="<%= talent.TimStruktur %>" readonly>
 															</div>
-															<br>
-															<div class="form-group m-form__group row">
-																<label for="example-text-input" class="col-2 col-form-label">
-																	Loker Saat Ini
-																</label>
-																<div class="col-7">
-																	<input class="form-control m-input" type="text"
-																		value="<%= innovator.LokerSaatIni %>" readonly>
-																</div>
+														</div>
+														<div class="form-group m-form__group row">
+															<label for="example-text-input" class="col-2 col-form-label">
+																Loker Saat Ini
+															</label>
+															<div class="col-7">
+																<input class="form-control m-input m-input--solid" type="text"
+																	value="<%= talent.LokerSaatIni %>" readonly>
 															</div>
-															<br>
-															<div class="form-group m-form__group row">
-																<label for="example-text-input" class="col-2 col-form-label">
-																	Loker Kerja Saat Ini
-																</label>
-																<div class="col-7">
-																	<input class="form-control m-input" type="text"
-																		value="<%= innovator.LokerKerjaSaatIni %>" readonly>
-																</div>
+														</div>
+														<div class="form-group m-form__group row">
+															<label for="example-text-input" class="col-2 col-form-label">
+																Unit Kerja Saat Ini
+															</label>
+															<div class="col-7">
+																<input class="form-control m-input m-input--solid" type="text"
+																	value="<%= talent.UnitKerjaSaatIni %>" readonly>
 															</div>
 														</div>
 													</div>
@@ -341,12 +231,12 @@
 	</div>
 	<!-- end::Scroll Top -->
 	<!-- begin::Quick Nav -->
-	<%- include('../includes/quick-nav.ejs')%>
+	
 	<!-- begin::Quick Nav -->
 	<!--begin::Base Scripts -->
 	<%- include('../includes/base-scripts.ejs')%>
 	<!--end::Base Scripts -->
-	<script src="/assets/app/js/data_talent/profile-value.js" type="text/javascript"></script>
+	<script src="/assets/app/js/data_amoeba/profile-value.js" type="text/javascript"></script>
 </body>
 <!-- end::Body -->
 

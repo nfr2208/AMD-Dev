@@ -31,10 +31,10 @@ var DatatableRecordSelectionDemo = function () {
                 class: "m-checkbox--solid m-checkbox--brand"
             },
             template: function (t) {
-                return t.Id + "-" + t.Nama
+                return t.Id + "-" + t.NamaAmoeba
             }
         }, {
-            field: "Nama",
+            field: "NamaAmoeba",
             title: "Nama Amoeba",
             width: 200
         }]

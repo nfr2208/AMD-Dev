@@ -1,7 +1,7 @@
-const Talent = require('../models/data_talent/Talent');
-const Flagging = require('../models/data_talent/Flagging');
-const UnitKerjaAsal = require('../models/data_talent/UnitKerjaAsal');
-const UnitKerjaSaatIni = require('../models/data_talent/UnitKerjaSaatIni');
+const Talent = require('../models/talent/Talent');
+const Flagging = require('../models/talent/Flagging');
+const UnitKerjaAsal = require('../models/talent/UnitKerjaAsal');
+const UnitKerjaSaatIni = require('../models/talent/UnitKerjaSaatIni');
 const Amoeba = require('../models/amoeba/Amoeba');
 
 exports.getTalentsAPI = (req, res, next) => {
@@ -17,7 +17,7 @@ exports.getTalentsAPI = (req, res, next) => {
             attributes: ['Tempat']
         },{
             model: Amoeba,
-            attributes: ['Nama']
+            attributes: ['NamaAmoeba']
         }],
         // raw: true
     }).then(talents => {
@@ -47,7 +47,7 @@ exports.getTalentsAPI = (req, res, next) => {
                     UnitKerjaSaatIniId: talent.UnitKerjaSaatIniId,
                     UnitKerjaSaatIni: talent.UnitKerjaSaatIni.Tempat,
                     AmoebaId: talent.AmoebaId,
-                    NamaAmoeba: talent.Amoeba.Nama
+                    NamaAmoeba: talent.Amoeba.NamaAmoeba
                 }
             )
         })
@@ -72,8 +72,8 @@ exports.getTalents = (req, res, next) => {
             attributes: ['Tempat']
         },{
             model: Amoeba,
-            attributes: ['Nama']
-        }],
+            attributes: ['NamaAmoeba']
+        }]
     }).then(talents => {
         resObj = talents.map(talent => {
             return Object.assign(
@@ -101,10 +101,10 @@ exports.getTalents = (req, res, next) => {
                     UnitKerjaSaatIniId: talent.UnitKerjaSaatIniId,
                     UnitKerjaSaatIni: talent.UnitKerjaSaatIni.Tempat,
                     AmoebaId: talent.AmoebaId,
-                    NamaAmoeba: talent.Amoeba.Nama
+                    NamaAmoeba: talent.Amoeba.NamaAmoeba
                 }
             )
-        })
+        });
         return Talent.findAll({
             limit: 1,
             order: [[ 'updatedAt', 'DESC' ]]
@@ -200,7 +200,7 @@ exports.getTalentProfile = (req, res, next) => {
             attributes: ['Tempat']
         },{
             model: Amoeba,
-            attributes: ['Nama']
+            attributes: ['NamaAmoeba']
         }],
     }).then(talents => {
         resObj = talents.map(talent => {
@@ -229,7 +229,7 @@ exports.getTalentProfile = (req, res, next) => {
                     UnitKerjaSaatIniId: talent.UnitKerjaSaatIniId,
                     UnitKerjaSaatIni: talent.UnitKerjaSaatIni.Tempat,
                     AmoebaId: talent.AmoebaId,
-                    NamaAmoeba: talent.Amoeba.Nama
+                    NamaAmoeba: talent.Amoeba.NamaAmoeba
                 }
             )
         })
@@ -287,7 +287,7 @@ exports.postEditTalent = (req, res, next) => {
             talent.updatedAt = Date.now()
             return talent.save();
         }).then(result => {
-            res.redirect('/talent/list-talent');
+            res.redirect('/talent/profile-talent/'+ Id);
         }).catch(err => {
             console.log(err);
         })

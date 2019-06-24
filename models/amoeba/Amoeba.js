@@ -18,21 +18,29 @@ const Amoeba = sequelize.define('Amoeba', {
         allowNull: false
     },
     StatusAmoeba: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+    },
+    IncbAcc: {
         type: Sequelize.STRING,
         allowNull: false
     }, 
-    TypeInovasi: {
+    TipeInovasi: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    DeskripsiAmoeba: {
+    Deskripsi: {
         type: Sequelize.TEXT,
         allowNull: false
     },
-    Keterangan: {
-        type: Sequelize.TEXT,
-        allowNull: false
-    }
+    DeskripsiFF: Sequelize.TEXT,
+    LinkedIn: Sequelize.STRING,
+    Facebook: Sequelize.STRING,
+    Twitter: Sequelize.STRING,
+    Instagram: Sequelize.STRING,
+    Youtube: Sequelize.STRING,
+    Website: Sequelize.STRING,
+    Other: Sequelize.TEXT
     
 });
 

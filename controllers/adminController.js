@@ -10,7 +10,7 @@ const User = require('../models/User');
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth: {
-        api_key: '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'
+        api_key: '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'
     }
 }));
 
@@ -77,7 +77,7 @@ exports.postCreateUser = (req, res, next) => {
                 subject: 'Create user succeeded!',
                 html: `
                     <h1>Administrator successfully create a user for you!</h1>
-                    <p>Click this <a href="http://localhost:3001/admin/create-password/${token}">link</a> to set a password.</p>
+                    <p>Click this <a href="http://45.76.189.3:${process.env.PORT}/admin/create-password/${token}">link</a> to set a password.</p>
                 `
             });
         }).catch(err => {
