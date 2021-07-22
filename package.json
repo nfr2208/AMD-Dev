@@ -27,7 +27,7 @@
     "nodemailer": "^6.1.1",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "sequelize": "^5.7.4",
-    "xlsx": "^0.14.3"
+    "xlsx": "^0.17.0"
   },
   "repository": {
     "type": "git",
